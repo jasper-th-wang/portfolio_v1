@@ -1,0 +1,206 @@
+---
+import '../styles/normalize.css';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <!-- <link rel="stylesheet" href="normalize.css" /> -->
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@500&family=Poppins:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <slot />
+    </div>
+    <div id="cursor"></div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --primary-color: #e8e7cb;
+  }
+
+  html,
+  body {
+    background-color: #647275;
+    scroll-behavior: smooth;
+    color: #e8e7cb;
+  }
+
+  ::selection {
+    background-color: #13262f;
+    color: #ffffff;
+  }
+
+  h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 3.2rem;
+    margin-top: 0;
+  }
+
+  h2 {
+    font-family: 'Archivo Narrow', sans-serif;
+    /* color: #e8e7cb; */
+    font-size: 1.8rem;
+  }
+
+  span {
+    font-family: 'Archivo Narrow', sans-serif;
+    letter-spacing: 0.1rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  p,
+  a {
+    font-family: 'Poppins', sans-serif;
+    /* color: #e8e7cb; */
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  P:first-of-type,
+  h2:first-of-type {
+    margin-top: 0;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  #cursor {
+    display: none;
+    position: fixed;
+    top: -5px;
+    left: -5px;
+    width: 40px;
+    height: 40px;
+    background-color: #333333;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 999;
+    transition: all 200ms cubic-bezier(0.09, 0.55, 0.59, 0.97);
+  }
+
+  .hover-over-a {
+    width: 20px !important;
+    height: 20px !important;
+    background-color: white !important;
+    mix-blend-mode: difference !important;
+  }
+
+  .hover-over-text {
+    opacity: 0.15;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      max-width: 1050px;
+      position: relative;
+      overflow-y: visible;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    #cursor {
+      display: block;
+    }
+  }
+
+  .toggled {
+    opacity: 1 !important;
+  }
+
+  svg,
+  path {
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const links = document.querySelectorAll('a');
+  const textElements = ['H1', 'H2', 'P'];
+
+  const options = {
+    rootMargin: '-40% 0px -60% 0px',
+  };
+
+  const intersectionCallback = (entries, observer) => {
+    // console.log(entries);
+    entries.forEach((entry) => {
+      const navTarget = document.getElementById(
+        `${entry.target.getAttribute('id')}Nav`
+      );
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add('section-focus');
+        navTarget.classList.add('toggled');
+        return;
+      }
+      entry.target.classList.remove('section-focus');
+      navTarget.classList.remove('toggled');
+    });
+  };
+
+  const navObserver = new IntersectionObserver(intersectionCallback, options);
+  const cursor = document.getElementById('cursor');
+
+  sections.forEach((section) => navObserver.observe(section));
+
+  const followCursorHandler = (e) => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  };
+
+  document.body.addEventListener('mousemove', (e) => {
+    followCursorHandler(e);
+  });
+
+  document.body.addEventListener('mouseover', (e) => {
+    const isAnchor = (e.target as HTMLElement).tagName === 'A';
+
+    isAnchor
+      ? cursor.classList.add('hover-over-a')
+      : cursor.classList.remove('hover-over-a');
+
+    if (isAnchor) return;
+
+    textElements.indexOf((e.target as HTMLElement).tagName) >= 0
+      ? cursor.classList.add('hover-over-text')
+      : cursor.classList.remove('hover-over-text');
+  });
+</script>

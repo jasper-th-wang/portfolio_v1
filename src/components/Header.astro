@@ -1,0 +1,55 @@
+---
+import Navigation from './Navigation.astro';
+import Socials from './Socials.astro';
+
+interface Props {
+  navItems: string[];
+}
+
+const { navItems } = Astro.props;
+---
+
+<header>
+  <div class="header-texts">
+    <h1>Jasper Wang</h1>
+    <h2>CS Student at BCIT</h2>
+    <p>
+      I'm a developer who is passionate about making softwares and solving
+      problems creatively.
+    </p>
+  </div>
+  <Navigation navItems={navItems} />
+  <Socials />
+</header>
+
+<style>
+  header {
+    display: flex;
+    padding: 4rem 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0;
+    max-width: 30rem;
+  }
+
+  .header-texts > h2 {
+    margin-top: 0.3rem;
+    margin-bottom: 1.3rem;
+  }
+
+  header * {
+    margin-bottom: 0;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    header {
+      position: sticky;
+      top: 0;
+      width: 40%;
+      padding: 6rem 2rem;
+      max-height: 100vh;
+      justify-content: space-between;
+    }
+  }
+</style>
