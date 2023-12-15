@@ -13,12 +13,31 @@ const { title, description, imagesrc, imageAlt, link } = Astro.props;
 <a class="project-card" href={link} target="_blank">
   <Image src={imagesrc} alt={imageAlt} />
   <div class="project-card__content">
-    <h2>{title}</h2>
+    <h2>
+      {title}
+      <span>
+        <svg
+          class="arrow-icon"
+          viewBox="0 0 16 16"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="var(--primary-text)"
+          ><path
+            d="M12.943 3.463A.748.748 0 0012.25 3h-5.5a.75.75 0 000 1.5h3.69l-7.22 7.22a.75.75 0 101.06 1.06l7.22-7.22v3.69a.75.75 0 001.5 0v-5.5a.747.747 0 00-.057-.287z"
+          ></path></svg
+        >
+      </span>
+    </h2>
     <p>{description}</p>
   </div>
 </a>
 
 <style>
+  .arrow-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 0.5rem;
+    transform: translateY(3px);
+  }
   .project-card:not(:last-of-type) {
     margin-bottom: 2.5rem;
   }
@@ -43,8 +62,18 @@ const { title, description, imagesrc, imageAlt, link } = Astro.props;
   @media screen and (min-width: 1024px) {
     .project-card {
       flex-direction: row;
+      opacity: 0.8;
       /* gap: 2rem; */
     }
+    .project-card:hover {
+      opacity: 1;
+      transition: opacity 0.4s ease-in-out;
+    }
+    .project-card:hover .arrow-icon {
+      transform: translate(5px, -5px);
+      transition: transform 0.2s ease-in-out;
+    }
+
     .project-card img {
       width: 40%;
       height: 10rem;
