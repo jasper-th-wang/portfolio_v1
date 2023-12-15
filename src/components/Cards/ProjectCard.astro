@@ -64,10 +64,10 @@ const { title, description, imagesrc, imageAlt, link } = Astro.props;
       flex-direction: row;
       opacity: 0.8;
       /* gap: 2rem; */
+      transition: opacity 0.4s ease-in-out;
     }
     .project-card:hover {
       opacity: 1;
-      transition: opacity 0.4s ease-in-out;
     }
     .project-card:hover .arrow-icon {
       transform: translate(5px, -5px);

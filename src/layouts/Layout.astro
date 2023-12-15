@@ -192,9 +192,10 @@ const { title } = Astro.props;
   });
 
   document.body.addEventListener('mouseover', (e) => {
+    const hasAnchorParent = (e.target as HTMLElement).closest('a');
     const isAnchor = (e.target as HTMLElement).tagName === 'A';
-    console.log(e.target);
-    isAnchor
+
+    hasAnchorParent || isAnchor
       ? cursor.classList.add('hover-over-a')
       : cursor.classList.remove('hover-over-a');
 
