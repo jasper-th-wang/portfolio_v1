@@ -1,18 +1,53 @@
 ---
-
+import { Image } from 'astro:assets';
+interface Props {
+  title: string;
+  description: string;
+  imagesrc: ImageMetadata;
+  imageAlt: string;
+  link: string;
+}
+const { title, description, imagesrc, imageAlt, link } = Astro.props;
 ---
+
+<a class="project-card" href={link}>
+  <Image src={imagesrc} alt={imageAlt} />
+  <div class="project-card__content">
+    <h2>{title}</h2>
+    <p>{description}</p>
+  </div>
+</a>
 
 <style>
   .project-card:not(:last-of-type) {
     margin-bottom: 2.5rem;
   }
 
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: inherit;
+  }
   .project-card img {
-    width: 60%;
+    object-fit: cover;
+    width: 70%;
+    height: 10rem;
     border-radius: 20px;
   }
 
   .project-card h2 {
     margin-bottom: 0.5rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .project-card {
+      flex-direction: row;
+      /* gap: 2rem; */
+    }
+    .project-card img {
+      width: 40%;
+      height: 10rem;
+    }
   }
 </style>

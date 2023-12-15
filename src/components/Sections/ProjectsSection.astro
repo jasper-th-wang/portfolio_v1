@@ -1,5 +1,24 @@
-<div class="project-card">
-  <img src="./images/katex.png" alt="" />
+---
+import ProjectCard from '../Cards/ProjectCard.astro';
+import katexScreenshot from '../../images/katex.png';
+import eboScreenshot from '../../images/ebo.png';
+---
+
+<ProjectCard
+  title="Katex Fashion"
+  description="A bespoke landing page for a clothing factory. Built with HTML, SCSS, and Vanilla JavaScript."
+  imagesrc={katexScreenshot}
+  imageAlt="a screenshot of katexfashion.com"
+  link="https://www.katexfashion.com/"
+/>
+<ProjectCard
+  title="Earth Baby Outfitters"
+  description="A eCommerce storefront for a clothing brand. Created using Shopify, Liquid HTML, CSS and JavaScript."
+  imagesrc={eboScreenshot}
+  imageAlt="a screenshot of katexfashion.com"
+  link="https://earthbabyoutfitters.com/"
+/>
+<!-- <div class="project-card">
   <h2>Katex Fashion</h2>
   <p>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid
@@ -21,4 +40,4 @@
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid
     accusantium perspiciatis laudantium, id architecto!
   </p>
-</div>
+</div> -->
