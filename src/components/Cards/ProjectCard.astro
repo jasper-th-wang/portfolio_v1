@@ -10,7 +10,7 @@ interface Props {
 const { title, description, imagesrc, imageAlt, link } = Astro.props;
 ---
 
-<a class="project-card" href={link}>
+<a class="project-card" href={link} target="_blank">
   <Image src={imagesrc} alt={imageAlt} />
   <div class="project-card__content">
     <h2>{title}</h2>
