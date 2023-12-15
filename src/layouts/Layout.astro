@@ -33,14 +33,15 @@ const { title } = Astro.props;
 
 <style is:global>
   :root {
-    --primary-color: #e8e7cb;
+    --primary-text: #e8e7cb;
+    --primary-bg: #647275;
   }
 
   html,
   body {
-    background-color: #647275;
+    background-color: var(--primary-bg);
     scroll-behavior: smooth;
-    color: #e8e7cb;
+    color: var(--primary-text);
   }
 
   ::selection {
@@ -56,7 +57,7 @@ const { title } = Astro.props;
 
   h2 {
     font-family: 'Archivo Narrow', sans-serif;
-    /* color: #e8e7cb; */
+    /* color: var(--primary-text); */
     font-size: 1.8rem;
   }
 
@@ -72,7 +73,7 @@ const { title } = Astro.props;
   p,
   a {
     font-family: 'Poppins', sans-serif;
-    /* color: #e8e7cb; */
+    /* color: var(--primary-text); */
     font-size: 1rem;
     line-height: 1.5;
   }
@@ -154,7 +155,7 @@ const { title } = Astro.props;
 <script>
   const sections = document.querySelectorAll('section');
   const links = document.querySelectorAll('a');
-  const textElements = ['H1', 'H2', 'P'];
+  const textElements = ['H1', 'H2', 'P', 'SPAN'];
 
   const options = {
     rootMargin: '-40% 0px -60% 0px',

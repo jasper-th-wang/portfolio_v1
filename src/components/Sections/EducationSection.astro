@@ -1,4 +1,5 @@
 ---
+import EducationCard from '../Cards/EducationCard.astro';
 const educationList = [
   {
     time: '2023 - Present',
@@ -13,7 +14,18 @@ const educationList = [
 ];
 ---
 
-<div class="resume-card">
+{
+  educationList.map((education) => {
+    return (
+      <EducationCard
+        timespan={education.time}
+        degree={education.degree}
+        institution={education.institution}
+      />
+    );
+  })
+}
+<!-- <div class="resume-card">
   <div class="resume-card__title">
     <span>2023 - Present</span>
     <h2>Computer System Technology Diploma</h2>
@@ -40,4 +52,4 @@ const educationList = [
     doloremque illum consequatur beatae minus, dolorem amet velit quos odit quis
     sint laborum itaque aliquid eaque, optio, voluptatibus ut eius!
   </p>
-</div>
+</div> -->
