@@ -113,6 +113,12 @@ const { title } = Astro.props;
     opacity: 0.15;
   }
 
+  /* Cap the width on tablet size */
+  .container {
+    max-width: 624px;
+    margin: 0 auto;
+  }
+
   @media only screen and (min-width: 1024px) {
     body {
       display: flex;

@@ -50,7 +50,7 @@ const { title, description, imagesrc, imageAlt, link } = Astro.props;
   }
   .project-card img {
     object-fit: cover;
-    width: 70%;
+    width: 14rem;
     height: 10rem;
     border-radius: 20px;
   }
@@ -59,11 +59,14 @@ const { title, description, imagesrc, imageAlt, link } = Astro.props;
     margin-bottom: 0.5rem;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 712px) {
     .project-card {
       flex-direction: row;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .project-card {
       opacity: 0.8;
-      /* gap: 2rem; */
       transition: opacity 0.4s ease-in-out;
     }
 
@@ -78,8 +81,9 @@ const { title, description, imagesrc, imageAlt, link } = Astro.props;
     }
 
     .project-card img {
-      width: 40%;
-      height: 10rem;
+      width: 10rem;
+      height: 6rem;
+      object-fit: cover;
     }
   }
 </style>
