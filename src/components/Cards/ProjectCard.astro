@@ -66,12 +66,15 @@ const { title, description, imagesrc, imageAlt, link } = Astro.props;
       /* gap: 2rem; */
       transition: opacity 0.4s ease-in-out;
     }
+
+    .arrow-icon {
+      transition: transform 0.2s ease-in-out;
+    }
     .project-card:hover {
       opacity: 1;
     }
     .project-card:hover .arrow-icon {
       transform: translate(5px, -5px);
-      transition: transform 0.2s ease-in-out;
     }
 
     .project-card img {
