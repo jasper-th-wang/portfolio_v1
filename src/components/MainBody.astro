@@ -30,6 +30,17 @@ const { navItems } = Astro.props;
       );
     })
   }
+  <footer>
+    <p>
+      Built with love using <a href="https://astro.build/" target="_blank"
+        >Astro</a
+      >, designed with inspiration from various websites on <a
+        href="https://www.awwwards.com/"
+        target="_blank">awwwards.com</a
+      >
+    </p>
+    <p>© Jasper Wang {new Date().getFullYear()}</p>
+  </footer>
 </main>
 
 <style>
@@ -49,6 +60,18 @@ const { navItems } = Astro.props;
     font-size: 1rem;
   }
 
+  footer {
+    font-family: 'Poppins', sans-serif;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+  }
+  footer p {
+    color: rgba(var(--primary-text-value), 0.6);
+  }
+  footer a {
+    color: var(--primary-text);
+  }
+
   @media only screen and (min-width: 1024px) {
     main {
       width: 60%;
@@ -59,7 +82,6 @@ const { navItems } = Astro.props;
       scroll-margin-top: 6rem;
       padding: 0;
       padding-bottom: 6rem;
-      /* margin-bottom: 4rem; */
       opacity: 0.5;
       transition-duration: 500ms;
     }
@@ -67,9 +89,8 @@ const { navItems } = Astro.props;
     .section-focus {
       opacity: 1 !important;
     }
-
-    main > section > h1 {
-      /* display: none; */
+    footer {
+      padding-left: 0;
     }
   }
 </style>
