@@ -1,7 +1,7 @@
 ---
-import GithubIcon from './svgs/SocialIcons/github.astro';
-import LinkedinIcon from './svgs/SocialIcons/linkedin.astro';
-import EmailIcon from './svgs/SocialIcons/email.astro';
+import GithubIcon from "./svgs/SocialIcons/github.astro";
+import LinkedinIcon from "./svgs/SocialIcons/linkedin.astro";
+import EmailIcon from "./svgs/SocialIcons/email.astro";
 ---
 
 <div class="social-icons">
@@ -9,6 +9,7 @@ import EmailIcon from './svgs/SocialIcons/email.astro';
     class="social-icons__icon github"
     href="https://github.com/jasper-th-wang"
     target="_blank"
+    aria-label="GitHub (opens in a new tab)"
   >
     <GithubIcon width="30" height="30" />
   </a>
@@ -16,6 +17,7 @@ import EmailIcon from './svgs/SocialIcons/email.astro';
     class="social-icons__icon linkedin"
     href="https://www.linkedin.com/in/tsz-ho-jasper-wang-644b73132/"
     target="_blank"
+    aria-label="Linkedin (opens in a new tab)"
   >
     <LinkedinIcon width="30" height="30" />
   </a>
@@ -23,6 +25,7 @@ import EmailIcon from './svgs/SocialIcons/email.astro';
     class="social-icons__icon email"
     href="mailto: jasper.th.wang@icloud.com"
     target="_blank"
+    aria-label="Email (opens email client)"
   >
     <EmailIcon width="30" height="30" />
   </a>
