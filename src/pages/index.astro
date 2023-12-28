@@ -1,12 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import MainBody from '../components/MainBody.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import MainBody from "../components/MainBody.astro";
 
-const navItems = ['about', 'skills', 'projects', 'education', 'experience'];
+const navItems = ["about", "skills", "projects", "education", "experience"];
+const metadata = {
+  title: "Jasper Wang",
+  author: "Jasper Wang",
+  description:
+    "Jasper Wang is a software developer with a deep passion for creating innovative solutions. Educated in Computer Science at BCIT and psychology in UBC.",
+};
 ---
 
-<Layout title="Jasper Wang">
+<Layout
+  title={metadata.title}
+  author={metadata.author}
+  description={metadata.description}
+>
   <Header navItems={navItems} />
   <MainBody navItems={navItems} />
 </Layout>

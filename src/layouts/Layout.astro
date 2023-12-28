@@ -1,21 +1,24 @@
 ---
-import '../styles/normalize.css';
+import "../styles/normalize.css";
 
 interface Props {
   title: string;
+  author: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, author, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content={author} />
+    <meta name="description" content={description} />
     <title>{title}</title>
-    <!-- <link rel="stylesheet" href="normalize.css" /> -->
-    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -51,19 +54,19 @@ const { title } = Astro.props;
   }
 
   h1 {
-    font-family: 'Archivo Black', sans-serif;
+    font-family: "Archivo Black", sans-serif;
     font-size: 3.2rem;
     margin-top: 0;
   }
 
   h2 {
-    font-family: 'Archivo Narrow', sans-serif;
+    font-family: "Archivo Narrow", sans-serif;
     /* color: var(--primary-text); */
     font-size: 1.8rem;
   }
 
   span {
-    font-family: 'Archivo Narrow', sans-serif;
+    font-family: "Archivo Narrow", sans-serif;
     letter-spacing: 0.1rem;
   }
 
@@ -73,7 +76,7 @@ const { title } = Astro.props;
 
   p,
   a {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     /* color: var(--primary-text); */
     font-size: 1rem;
     line-height: 1.5;
@@ -160,33 +163,33 @@ const { title } = Astro.props;
 </style>
 
 <script>
-  const sections = document.querySelectorAll('section');
-  const links = document.querySelectorAll('a');
-  const textElements = ['H1', 'H2', 'P', 'SPAN'];
+  const sections = document.querySelectorAll("section");
+  const links = document.querySelectorAll("a");
+  const textElements = ["H1", "H2", "P", "SPAN"];
 
   const options = {
-    rootMargin: '-40% 0px -60% 0px',
+    rootMargin: "-40% 0px -60% 0px",
   };
 
   const intersectionCallback = (entries, observer) => {
     // console.log(entries);
     entries.forEach((entry) => {
       const navTarget = document.getElementById(
-        `${entry.target.getAttribute('id')}Nav`
+        `${entry.target.getAttribute("id")}Nav`,
       );
 
       if (entry.isIntersecting) {
-        entry.target.classList.add('section-focus');
-        navTarget.classList.add('toggled');
+        entry.target.classList.add("section-focus");
+        navTarget.classList.add("toggled");
         return;
       }
-      entry.target.classList.remove('section-focus');
-      navTarget.classList.remove('toggled');
+      entry.target.classList.remove("section-focus");
+      navTarget.classList.remove("toggled");
     });
   };
 
   const navObserver = new IntersectionObserver(intersectionCallback, options);
-  const cursor = document.getElementById('cursor');
+  const cursor = document.getElementById("cursor");
 
   sections.forEach((section) => navObserver.observe(section));
 
@@ -194,22 +197,22 @@ const { title } = Astro.props;
     cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
   };
 
-  document.body.addEventListener('mousemove', (e) => {
+  document.body.addEventListener("mousemove", (e) => {
     followCursorHandler(e);
   });
 
-  document.body.addEventListener('mouseover', (e) => {
-    const hasAnchorParent = (e.target as HTMLElement).closest('a');
-    const isAnchor = (e.target as HTMLElement).tagName === 'A';
+  document.body.addEventListener("mouseover", (e) => {
+    const hasAnchorParent = (e.target as HTMLElement).closest("a");
+    const isAnchor = (e.target as HTMLElement).tagName === "A";
 
     hasAnchorParent || isAnchor
-      ? cursor.classList.add('hover-over-a')
-      : cursor.classList.remove('hover-over-a');
+      ? cursor.classList.add("hover-over-a")
+      : cursor.classList.remove("hover-over-a");
 
     if (isAnchor) return;
 
     textElements.indexOf((e.target as HTMLElement).tagName) >= 0
-      ? cursor.classList.add('hover-over-text')
-      : cursor.classList.remove('hover-over-text');
+      ? cursor.classList.add("hover-over-text")
+      : cursor.classList.remove("hover-over-text");
   });
 </script>
