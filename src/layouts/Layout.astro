@@ -1,6 +1,12 @@
 ---
 import "../styles/normalize.css";
 
+interface Props {
+  padding: boolean;
+}
+
+const { padding } = Astro.props;
+
 const metadata = {
   title: "Jasper Wang",
   author: "Jasper Wang",
@@ -67,7 +73,7 @@ const metadata = {
     />
   </head>
   <body>
-    <div class="container">
+    <div class={`container ${padding ? "container--padding" : ""}`}>
       <slot />
     </div>
     <div id="cursor"></div>
@@ -163,6 +169,10 @@ const metadata = {
     margin: 0 auto;
   }
 
+  .container--padding {
+    padding: 4rem 2rem;
+  }
+
   @media only screen and (min-width: 1024px) {
     body {
       display: flex;
@@ -212,7 +222,6 @@ const metadata = {
   };
 
   const intersectionCallback = (entries, observer) => {
-    // console.log(entries);
     entries.forEach((entry) => {
       const navTarget = document.getElementById(
         `${entry.target.getAttribute("id")}Nav`,
