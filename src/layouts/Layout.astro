@@ -1,13 +1,12 @@
 ---
 import "../styles/normalize.css";
 
-interface Props {
-  title: string;
-  author: string;
-  description: string;
-}
-
-const { title, author, description } = Astro.props;
+const metadata = {
+  title: "Jasper Wang",
+  author: "Jasper Wang",
+  description:
+    "Jasper Wang is a software developer with a deep passion for creating innovative solutions. Educated in Computer Science at BCIT and psychology in UBC.",
+};
 ---
 
 <!doctype html>
@@ -15,9 +14,9 @@ const { title, author, description } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content={author} />
-    <meta name="description" content={description} />
-    <title>{title}</title>
+    <meta name="author" content={metadata.author} />
+    <meta name="description" content={metadata.description} />
+    <title>{metadata.title}</title>
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
