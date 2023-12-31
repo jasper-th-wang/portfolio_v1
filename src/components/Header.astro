@@ -1,23 +1,28 @@
 ---
 import Navigation from "./Navigation.astro";
 import Socials from "./Socials.astro";
+import HeaderText from "./HeaderText.astro";
 
 interface Props {
   navItems: string[];
 }
 
+const myInfo = {
+  name: "Jasper Wang",
+  title: "Software Developer",
+  description:
+    "I'm passionate about making cool stuff and solving problems, and I'm currently studying Computer Science at BCIT.",
+};
+
 const { navItems } = Astro.props;
 ---
 
 <header>
-  <div class="header-texts">
-    <h1>Jasper Wang</h1>
-    <h2>Software Developer</h2>
-    <p>
-      I'm passionate about making cool stuff and solving problems, and I'm
-      currently studying Computer Science at BCIT.
-    </p>
-  </div>
+  <HeaderText
+    title={myInfo.name}
+    subtitle={myInfo.title}
+    details={myInfo.description}
+  />
   <Navigation navItems={navItems} />
   <Socials />
 </header>
@@ -31,11 +36,6 @@ const { navItems } = Astro.props;
     align-items: start;
     gap: 0;
     max-width: 30rem;
-  }
-
-  .header-texts > h2 {
-    margin-top: 0.3rem;
-    margin-bottom: 1.3rem;
   }
 
   header * {
