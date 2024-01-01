@@ -14,11 +14,24 @@ const sectionComponents = {
   skills: SkillsSection,
   projects: ProjectsSection,
 };
+
+const myInfo = {
+  name: "Jasper Wang",
+  title: "Software Developer",
+  description:
+    "I'm passionate about making cool stuff and solving problems, and I'm currently studying Computer Science at BCIT.",
+};
 const navItems = ["about", "skills", "projects", "education", "experience"];
 ---
 
 <Layout padding={false}>
-  <Header navItems={navItems} />
+  <Header
+    isHome={true}
+    title={myInfo.name}
+    subtitle={myInfo.title}
+    details={myInfo.description}
+    navItems={navItems}
+  />
   <main>
     {
       navItems.map((section) => {
