@@ -1,11 +1,17 @@
 ---
 import "@/styles/normalize.css";
+import Header from "@/components/MainHeader.astro";
 
 interface Props {
-  padding: boolean;
+  // if isHome is true, padding will be added, and nav and socials will be included in header.
+  isHome: boolean;
+  title?: string;
+  subtitle?: string;
+  details?: string;
+  navItems?: string[];
 }
 
-const { padding } = Astro.props;
+const { isHome, title, subtitle, details, navItems = undefined } = Astro.props;
 
 const metadata = {
   title: "Jasper Wang",
@@ -73,14 +79,36 @@ const metadata = {
     />
   </head>
   <body>
-    <div class={`container ${padding ? "container--padding" : ""}`}>
-      <slot />
+    <div class="container">
+      <Header
+        isHome={isHome}
+        title={title}
+        subtitle={subtitle}
+        details={details}
+        navItems={navItems}
+      />
+      <main>
+        <slot />
+        <footer>
+          <p>
+            Built with love using <a href="https://astro.build/" target="_blank"
+              >Astro</a
+            >, designed with inspiration from various websites on <a
+              href="https://www.awwwards.com/"
+              target="_blank">awwwards.com</a
+            >
+          </p>
+          <p>© Jasper Wang {new Date().getFullYear()}</p>
+        </footer>
+      </main>
     </div>
     <div id="cursor"></div>
   </body>
 </html>
 
 <style is:global>
+  /* Base styling */
+
   :root {
     --primary-text: rgb(232, 231, 203);
     --primary-text-value: 232, 231, 203;
@@ -137,6 +165,33 @@ const metadata = {
     margin-bottom: 0;
   }
 
+  /* Main Content Styling */
+
+  footer {
+    font-family: "Poppins", sans-serif;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+  }
+  footer p {
+    color: rgba(var(--primary-text-value), 0.6);
+  }
+  footer a {
+    color: var(--primary-text);
+  }
+
+  @media only screen and (min-width: 1024px) {
+    main {
+      width: 60%;
+      padding: 6rem 2rem;
+    }
+
+    footer {
+      padding-left: 0;
+    }
+  }
+
+  /* Animated Cursor Styling */
+
   #cursor {
     display: none;
     position: fixed;
@@ -164,13 +219,10 @@ const metadata = {
   }
 
   /* Cap the width on tablet size */
+
   .container {
     max-width: 624px;
     margin: 0 auto;
-  }
-
-  .container--padding {
-    padding: 4rem 2rem;
   }
 
   @media only screen and (min-width: 1024px) {

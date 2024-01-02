@@ -1,6 +1,5 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Header from "@/components/MainHeader.astro";
 import AboutSection from "@/components/Sections/AboutSection.astro";
 import ExperienceSection from "@/components/Sections/ExperienceSection.astro";
 import EducationSection from "@/components/Sections/EducationSection.astro";
@@ -24,76 +23,45 @@ const myInfo = {
 const navItems = ["about", "skills", "projects", "education", "experience"];
 ---
 
-<Layout padding={false}>
-  <Header
-    isHome={true}
-    title={myInfo.name}
-    subtitle={myInfo.title}
-    details={myInfo.description}
-    navItems={navItems}
-  />
-  <main>
-    {
-      navItems.map((section) => {
-        const SpecificSectionComponent = sectionComponents[section];
-        return (
-          <section id={section}>
-            <h1>{section.charAt(0).toUpperCase() + section.slice(1)}</h1>
-            {SpecificSectionComponent && <SpecificSectionComponent />}
-          </section>
-        );
-      })
-    }
-    <footer>
-      <p>
-        Built with love using <a href="https://astro.build/" target="_blank"
-          >Astro</a
-        >, designed with inspiration from various websites on <a
-          href="https://www.awwwards.com/"
-          target="_blank">awwwards.com</a
-        >
-      </p>
-      <p>© Jasper Wang {new Date().getFullYear()}</p>
-    </footer>
-  </main>
+<Layout
+  isHome={true}
+  title={myInfo.name}
+  subtitle={myInfo.title}
+  details={myInfo.description}
+  navItems={navItems}
+>
+  {
+    navItems.map((section) => {
+      const SpecificSectionComponent = sectionComponents[section];
+      return (
+        <section id={section}>
+          <h1>{section.charAt(0).toUpperCase() + section.slice(1)}</h1>
+          {SpecificSectionComponent && <SpecificSectionComponent />}
+        </section>
+      );
+    })
+  }
 </Layout>
 
 <style>
-  main > section {
+  section {
     padding: 2rem;
     padding-top: 0;
     padding-bottom: 6rem;
   }
 
-  main h1 {
+  h1 {
     text-transform: uppercase;
     font-size: 1.7rem;
     margin-bottom: 2.5rem;
   }
 
-  main h2 {
+  h2 {
     font-size: 1rem;
   }
 
-  footer {
-    font-family: "Poppins", sans-serif;
-    padding-left: 2rem;
-    padding-bottom: 2rem;
-  }
-  footer p {
-    color: rgba(var(--primary-text-value), 0.6);
-  }
-  footer a {
-    color: var(--primary-text);
-  }
-
   @media only screen and (min-width: 1024px) {
-    main {
-      width: 60%;
-      padding: 6rem 2rem;
-    }
-
-    main > section {
+    section {
       scroll-margin-top: 6rem;
       padding: 0;
       padding-bottom: 6rem;
@@ -103,9 +71,6 @@ const navItems = ["about", "skills", "projects", "education", "experience"];
 
     .section-focus {
       opacity: 1 !important;
-    }
-    footer {
-      padding-left: 0;
     }
   }
 </style>
