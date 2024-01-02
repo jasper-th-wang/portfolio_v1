@@ -1,0 +1,65 @@
+---
+import Navigation from "./Navigation.astro";
+import Socials from "./Socials.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+
+interface Props {
+  // if isHome is true, padding will be added, and nav and socials will be included in header.
+  isHome: boolean;
+  title?: string;
+  subtitle?: string;
+  details?: string;
+  navItems?: string[];
+}
+
+const { isHome, title, subtitle, details, navItems } = Astro.props;
+---
+
+<header class={isHome && "header--home"}>
+  <div class="header-texts">
+    {!isHome && <Breadcrumbs />}
+    <h1>{title}</h1>
+    <h2>{subtitle}</h2>
+    <p>{details}</p>
+  </div>
+  {isHome && <Navigation navItems={navItems} />}
+  {isHome && <Socials />}
+</header>
+
+<style>
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0;
+    max-width: 30rem;
+  }
+
+  .header--home {
+    padding: 4rem 2rem;
+  }
+
+  header * {
+    margin-bottom: 0;
+  }
+
+  .header-texts > h2 {
+    margin-top: 0.3rem;
+    margin-bottom: 1.3rem;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    header {
+      position: sticky;
+      top: 0;
+      width: 40%;
+      padding: 6rem 2rem;
+      max-height: 100vh;
+      justify-content: space-between;
+    }
+    .header--home {
+      padding: 6rem 2rem;
+    }
+  }
+</style>
