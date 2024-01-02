@@ -15,13 +15,13 @@ interface Props {
 const { isHome, title, subtitle, details, navItems } = Astro.props;
 ---
 
-<header class={isHome && "header--home"}>
+<header class={isHome ? "header--home" : "header--alt"}>
   <div class="header-texts">
-    {!isHome && <Breadcrumbs />}
     <h1>{title}</h1>
     <h2>{subtitle}</h2>
     <p>{details}</p>
   </div>
+  {!isHome && <Breadcrumbs />}
   {isHome && <Navigation navItems={navItems} />}
   {isHome && <Socials />}
 </header>
@@ -34,6 +34,11 @@ const { isHome, title, subtitle, details, navItems } = Astro.props;
     align-items: start;
     gap: 0;
     max-width: 30rem;
+  }
+
+  .header-alt {
+    /* TODO: Not sure if this creates desirable effect */
+    justify-content: space-between;
   }
 
   .header--home {
