@@ -3,7 +3,7 @@ interface Props {
   timespan: string;
   title: string;
   organization: string;
-  description: string;
+  description?: string;
 }
 const { timespan, title, organization, description } = Astro.props;
 ---
@@ -14,7 +14,7 @@ const { timespan, title, organization, description } = Astro.props;
     <h2>{title}</h2>
     <span class="resume-card__subtext">{organization}</span>
   </div>
-  <p>{description}</p>
+  {description && <p>{description}</p>}
 </div>
 
 <style>
@@ -40,6 +40,8 @@ const { timespan, title, organization, description } = Astro.props;
   }
 
   span {
+    font-family: "Archivo Narrow", sans-serif;
     text-transform: uppercase;
+    letter-spacing: 0.1rem;
   }
 </style>
