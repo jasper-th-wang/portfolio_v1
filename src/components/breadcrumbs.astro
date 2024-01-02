@@ -16,7 +16,7 @@ crumbs.forEach((crumb, index) => {
 });
 ---
 
-<p>
+<div>
   {
     Object.keys(links).map((name, index, array) => {
       const divider = () =>
@@ -36,10 +36,10 @@ crumbs.forEach((crumb, index) => {
       );
     })
   }
-</p>
+</div>
 
 <style>
-  p {
+  div {
     display: flex;
     gap: 0.5rem;
   }

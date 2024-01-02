@@ -1,42 +1,61 @@
 ---
 import { Image } from "astro:assets";
+import RedirectArrow from "@/components/svgs/RedirectArrow.astro";
 interface Props {
   title: string;
   description: string;
   imagesrc: ImageMetadata;
   imageAlt: string;
-  link: string;
+  github?: string;
+  liveLink?: string;
+  tags?: string[];
 }
-const { title, description, imagesrc, imageAlt, link } = Astro.props;
+const { title, description, imagesrc, imageAlt, github, liveLink, tags } =
+  Astro.props;
 ---
 
-<a class="project-card" href={link} target="_blank">
+<div class="project-card" target="_blank">
   <Image src={imagesrc} alt={imageAlt} />
   <div class="project-card__content">
     <h2>
       {title}
-      <span>
-        <svg
-          class="arrow-icon"
-          viewBox="0 0 16 16"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="var(--primary-text)"
-          ><path
-            d="M12.943 3.463A.748.748 0 0012.25 3h-5.5a.75.75 0 000 1.5h3.69l-7.22 7.22a.75.75 0 101.06 1.06l7.22-7.22v3.69a.75.75 0 001.5 0v-5.5a.747.747 0 00-.057-.287z"
-          ></path></svg
-        >
-      </span>
     </h2>
-    <p>{description}</p>
+    <p class="project-card__description">{description}</p>
+    <div class="project-card__tags">
+      {tags && tags.map((tag) => <span class="project-card__tag">{tag}</span>)}
+    </div>
+    <div class="project-card__links">
+      {
+        github && (
+          <a class="project-card__link" href={github}>
+            GitHub
+            <span>
+              <RedirectArrow class="arrow-icon" />
+            </span>
+          </a>
+        )
+      }
+
+      {
+        liveLink && (
+          <a class="project-card__link" href={liveLink}>
+            Live Site
+            <span>
+              <RedirectArrow class="arrow-icon" />
+            </span>
+          </a>
+        )
+      }
+    </div>
   </div>
-</a>
+</div>
 
 <style>
   .arrow-icon {
     width: 20px;
     height: 20px;
-    margin-left: 0.5rem;
-    transform: translateY(3px);
+    margin-left: 0.2rem;
+    transform: translateY(2px);
   }
   .project-card:not(:last-of-type) {
     margin-bottom: 2.5rem;
@@ -45,45 +64,68 @@ const { title, description, imagesrc, imageAlt, link } = Astro.props;
   .project-card {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
     color: inherit;
+    border: 1px solid rgba(var(--primary-text-value), 0.4);
+    border-radius: 20px;
   }
   .project-card img {
     object-fit: cover;
-    width: 14rem;
+    width: inherit;
     height: 10rem;
     border-radius: 20px;
+  }
+
+  .project-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1.4rem;
+  }
+
+  .project-card__tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border: 1px solid rgba(var(--primary-text-value), 0.4);
+    border-radius: 20px;
+  }
+  .project-card__links {
+    display: flex;
+    gap: 0.8rem;
+  }
+  .project-card__link {
+    text-decoration: underline;
+    color: rgba(var(--primary-text-value), 0.7);
+    transition-duration: 500ms;
+  }
+
+  .project-card__link:hover {
+    color: rgba(var(--primary-text-value), 1);
+  }
+
+  .project-card__content {
+    padding: 1rem;
+  }
+
+  .project-card__description {
+    margin-bottom: 1rem;
   }
 
   .project-card h2 {
     margin-bottom: 0.5rem;
   }
 
-  @media screen and (min-width: 712px) {
-    .project-card {
-      flex-direction: row;
-    }
-  }
   @media screen and (min-width: 1024px) {
-    .project-card {
-      opacity: 0.8;
-      transition: opacity 0.4s ease-in-out;
-    }
-
     .arrow-icon {
-      transition: transform 0.2s ease-in-out;
-    }
-    .project-card:hover {
-      opacity: 1;
-    }
-    .project-card:hover .arrow-icon {
-      transform: translate(5px, -5px);
+      fill: rgba(var(--primary-text-value), 0.7);
+      transition:
+        transform 0.2s ease-in-out,
+        opacity 0.5s;
     }
 
-    .project-card img {
-      width: 10rem;
-      height: 6rem;
-      object-fit: cover;
+    .project-card__link:hover .arrow-icon {
+      fill: rgba(var(--primary-text-value), 1);
+      transform: translate(2px, 0px);
     }
   }
 </style>
