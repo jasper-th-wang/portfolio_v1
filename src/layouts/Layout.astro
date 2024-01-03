@@ -87,7 +87,7 @@ const metadata = {
         details={details}
         navItems={navItems}
       />
-      <main>
+      <main class={!isHome && "main--alt"}>
         <slot />
         <footer>
           <p>
@@ -182,6 +182,10 @@ const metadata = {
     main {
       width: 60%;
       padding: 6rem 2rem;
+    }
+
+    .main--alt {
+      width: 70%;
     }
 
     footer {

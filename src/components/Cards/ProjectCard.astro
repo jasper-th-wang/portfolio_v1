@@ -28,10 +28,8 @@ const { title, description, imagesrc, imageAlt, github, liveLink, tags } =
       {
         github && (
           <a class="project-card__link" href={github}>
-            GitHub
-            <span>
-              <RedirectArrow class="arrow-icon" />
-            </span>
+            <span class="project-card__link__words">GitHub</span>
+            <RedirectArrow class="arrow-icon" />
           </a>
         )
       }
@@ -39,10 +37,8 @@ const { title, description, imagesrc, imageAlt, github, liveLink, tags } =
       {
         liveLink && (
           <a class="project-card__link" href={liveLink}>
-            Live Site
-            <span>
-              <RedirectArrow class="arrow-icon" />
-            </span>
+            <span class="project-card__link__words">Live Site</span>
+            <RedirectArrow class="arrow-icon" />
           </a>
         )
       }
@@ -54,8 +50,8 @@ const { title, description, imagesrc, imageAlt, github, liveLink, tags } =
   .arrow-icon {
     width: 20px;
     height: 20px;
-    margin-left: 0.2rem;
-    transform: translateY(2px);
+    /* margin-left: 0rem; */
+    transform: translateY(3px);
   }
   .project-card:not(:last-of-type) {
     margin-bottom: 2.5rem;
@@ -94,9 +90,13 @@ const { title, description, imagesrc, imageAlt, github, liveLink, tags } =
     gap: 0.8rem;
   }
   .project-card__link {
-    text-decoration: underline;
     color: rgba(var(--primary-text-value), 0.7);
     transition-duration: 500ms;
+  }
+
+  .project-card__link__words {
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
   .project-card__link:hover {
