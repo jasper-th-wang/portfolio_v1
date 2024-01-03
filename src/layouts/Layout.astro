@@ -9,9 +9,17 @@ interface Props {
   subtitle?: string;
   details?: string;
   navItems?: string[];
+  content?: string;
 }
 
-const { isHome, title, subtitle, details, navItems = undefined } = Astro.props;
+const {
+  isHome,
+  title,
+  subtitle,
+  details,
+  navItems = undefined,
+  content,
+} = Astro.props;
 
 const metadata = {
   title: "Jasper Wang",
@@ -74,7 +82,7 @@ const metadata = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@500&family=Poppins:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Archivo+Black&family=Archivo+Narrow:wght@500&family=Poppins:wght@300;400&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -86,6 +94,7 @@ const metadata = {
         subtitle={subtitle}
         details={details}
         navItems={navItems}
+        content={content}
       />
       <main class={!isHome && "main--alt"}>
         <slot />
@@ -113,6 +122,10 @@ const metadata = {
     --primary-text: rgb(232, 231, 203);
     --primary-text-value: 232, 231, 203;
     --primary-bg: rgb(100, 114, 117);
+    --code-background: #f6f7f9;
+    --code-text: #47546b;
+    --code-border: #e2e8f0;
+    line-height: 1.5;
   }
 
   html,
@@ -138,21 +151,34 @@ const metadata = {
     /* color: var(--primary-text); */
     font-size: 1.8rem;
   }
+  h3 {
+    font-family: "Archivo Narrow", sans-serif;
+    /* color: var(--primary-text); */
+    font-size: 1.4rem;
+  }
+
+  h3,
+  h4,
+  h5 {
+    font-family: "Archivo Narrow", sans-serif;
+  }
 
   a {
     text-decoration: none;
+    transition-duration: 500ms;
+    color: rgba(var(--primary-text-value), 0.7);
+  }
+
+  a:hover {
+    color: rgba(var(--primary-text-value), 1);
   }
 
   p,
   span,
+  li,
   a {
     font-family: "Poppins", sans-serif;
     font-size: 1rem;
-  }
-
-  p,
-  a {
-    line-height: 1.5;
   }
 
   P:first-of-type,
@@ -164,9 +190,13 @@ const metadata = {
     margin-bottom: 0;
   }
 
+  main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   footer {
     font-family: "Poppins", sans-serif;
-    padding-left: 2rem;
     padding-bottom: 2rem;
   }
   footer p {
@@ -188,10 +218,6 @@ const metadata = {
 
     .main--alt {
       width: 70%;
-    }
-
-    footer {
-      padding-left: 0;
     }
   }
 

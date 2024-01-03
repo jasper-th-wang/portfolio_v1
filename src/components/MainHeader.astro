@@ -2,6 +2,7 @@
 import Navigation from "@/components/Navigation.astro";
 import Socials from "@/components/Socials.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import TOC from "@/components/TOC.astro";
 
 interface Props {
   // if isHome is true, padding will be added, and nav and socials will be included in header.
@@ -10,20 +11,22 @@ interface Props {
   subtitle?: string;
   details?: string;
   navItems?: string[];
+  content?: string;
 }
 
-const { isHome, title, subtitle, details, navItems } = Astro.props;
+const { isHome, title, subtitle, details, navItems, content } = Astro.props;
 ---
 
 <header class={isHome ? "header--home" : "header--alt"}>
   <div class="header-texts">
-    <h1>{title}</h1>
-    <h2>{subtitle}</h2>
-    <p>{details}</p>
+    {title && <h1>{title}</h1>}
+    {subtitle && <h2>{subtitle}</h2>}
+    {details && <p>{details}</p>}
   </div>
   {!isHome && <Breadcrumbs />}
   {isHome && <Navigation navItems={navItems} />}
   {isHome && <Socials />}
+  {content && <TOC content={content} />}
 </header>
 
 <style>
@@ -58,6 +61,7 @@ const { isHome, title, subtitle, details, navItems } = Astro.props;
       justify-content: space-between;
     }
     .header--alt {
+      justify-content: start;
       width: 30%;
     }
   }
