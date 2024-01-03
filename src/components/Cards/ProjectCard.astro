@@ -1,59 +1,50 @@
 ---
 import { Image } from "astro:assets";
-import RedirectArrow from "@/components/svgs/RedirectArrow.astro";
+import Link from "@/components/Link.astro";
+
 interface Props {
+  class?: string;
   title: string;
-  description: string;
+  description?: string;
   imagesrc: ImageMetadata;
   imageAlt: string;
   github?: string;
   liveLink?: string;
   tags?: string[];
 }
-const { title, description, imagesrc, imageAlt, github, liveLink, tags } =
-  Astro.props;
+const {
+  class: className,
+  title,
+  description,
+  imagesrc,
+  imageAlt,
+  github,
+  liveLink,
+  tags,
+  ...rest
+} = Astro.props;
 ---
 
-<div class="project-card" target="_blank">
+<div class={`project-card ${className}`} target="_blank" {...rest}>
   <Image src={imagesrc} alt={imageAlt} />
   <div class="project-card__content">
     <h2>
       {title}
     </h2>
-    <p class="project-card__description">{description}</p>
+    {description && <p class="project-card__description">{description}</p>}
     <div class="project-card__tags">
       {tags && tags.map((tag) => <span class="project-card__tag">{tag}</span>)}
     </div>
     <div class="project-card__links">
-      {
-        github && (
-          <a class="project-card__link" href={github}>
-            <span class="project-card__link__words">GitHub</span>
-            <RedirectArrow class="arrow-icon" />
-          </a>
-        )
-      }
+      {github && <Link url={github} name="Github" redirect={true} />}
 
-      {
-        liveLink && (
-          <a class="project-card__link" href={liveLink}>
-            <span class="project-card__link__words">Live Site</span>
-            <RedirectArrow class="arrow-icon" />
-          </a>
-        )
-      }
+      {liveLink && <Link url={liveLink} name="Live Site" redirect={true} />}
     </div>
   </div>
 </div>
 
 <style>
-  .arrow-icon {
-    width: 20px;
-    height: 20px;
-    /* margin-left: 0rem; */
-    transform: translateY(3px);
-  }
-  .project-card:not(:last-of-type) {
+  .project-card {
     margin-bottom: 2.5rem;
   }
 
@@ -89,15 +80,6 @@ const { title, description, imagesrc, imageAlt, github, liveLink, tags } =
     display: flex;
     gap: 0.8rem;
   }
-  .project-card__link {
-    color: rgba(var(--primary-text-value), 0.7);
-    transition-duration: 500ms;
-  }
-
-  .project-card__link__words {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
 
   .project-card__link:hover {
     color: rgba(var(--primary-text-value), 1);
@@ -113,19 +95,5 @@ const { title, description, imagesrc, imageAlt, github, liveLink, tags } =
 
   .project-card h2 {
     margin-bottom: 0.5rem;
-  }
-
-  @media screen and (min-width: 1024px) {
-    .arrow-icon {
-      fill: rgba(var(--primary-text-value), 0.7);
-      transition:
-        transform 0.2s ease-in-out,
-        opacity 0.5s;
-    }
-
-    .project-card__link:hover .arrow-icon {
-      fill: rgba(var(--primary-text-value), 1);
-      transform: translate(2px, 0px);
-    }
   }
 </style>

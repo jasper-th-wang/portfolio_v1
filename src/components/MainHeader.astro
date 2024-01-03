@@ -30,16 +30,11 @@ const { isHome, title, subtitle, details, navItems } = Astro.props;
   header {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: start;
     gap: 0;
     max-width: 30rem;
     padding: 4rem 2rem;
-  }
-
-  .header-alt {
-    /* TODO: Not sure if this creates desirable effect */
-    justify-content: start;
   }
 
   header * {
