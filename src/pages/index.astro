@@ -58,11 +58,6 @@ const navItems = [
     padding-bottom: 6rem;
   }
 
-  section:last-of-type {
-    /* padding-bottom: calc(100vh - 12rem - element height); */
-    padding-bottom: 0;
-  }
-
   h1 {
     text-transform: uppercase;
     font-size: 1.7rem;
@@ -84,6 +79,10 @@ const navItems = [
 
     .section-focus {
       opacity: 1 !important;
+    }
+
+    section:last-of-type {
+      padding-bottom: 0;
     }
   }
 </style>
