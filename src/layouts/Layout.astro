@@ -196,21 +196,21 @@ const metadata = {
     position: relative;
   }
 
-  footer {
+  footer,
+  .footer--alt {
     font-family: "Poppins", sans-serif;
     /* padding-bottom: 2rem; */
-    position: absolute;
-    bottom: 6rem;
+    position: relative;
+    bottom: initial;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
+
   footer p {
     color: rgba(var(--primary-text-value), 0.6);
   }
   footer a {
     color: var(--primary-text);
-  }
-
-  .footer--alt {
-    padding-top: 6rem;
   }
 
   @media only screen and (min-width: 1024px) {
@@ -221,6 +221,12 @@ const metadata = {
 
     .main--alt {
       width: 70%;
+    }
+
+    footer {
+      position: absolute;
+      padding-bottom: 0;
+      bottom: 6rem;
     }
   }
 
@@ -268,6 +274,7 @@ const metadata = {
 
     .container {
       display: flex;
+      flex: 1;
       padding-left: 1rem;
       padding-right: 1rem;
       max-width: 1050px;
@@ -276,7 +283,6 @@ const metadata = {
     }
 
     .container--alt {
-      /* NOTE: tring out new width */
       max-width: 1200px;
     }
 

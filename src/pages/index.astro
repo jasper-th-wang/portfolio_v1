@@ -91,6 +91,14 @@ const navItems = [
 <script>
   import debounce from "lodash.debounce";
   function alignLastSectionToHeader(): void {
+    const lastSection = document.querySelector(
+      "section:last-of-type",
+    ) as HTMLElement;
+
+    if (window.innerWidth < 1024) {
+      lastSection.style.paddingBottom = "";
+      return;
+    }
     const header = document.querySelector("header") as HTMLElement;
     const headerPaddingTop = parseInt(
       window.getComputedStyle(header).getPropertyValue("padding-top"),
@@ -98,10 +106,6 @@ const navItems = [
     const headerPaddingBottom = parseInt(
       window.getComputedStyle(header).getPropertyValue("padding-bottom"),
     );
-
-    const lastSection = document.querySelector(
-      "section:last-of-type",
-    ) as HTMLElement;
 
     let lastSectionHeight =
       parseInt(

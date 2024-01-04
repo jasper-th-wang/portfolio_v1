@@ -1,5 +1,4 @@
 ---
-// TODO: Test if few links deep will still work
 const path = Astro.url.pathname;
 const crumbs = path.split("/").filter((crumb) => crumb);
 crumbs.unshift("/");
