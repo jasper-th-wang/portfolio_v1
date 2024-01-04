@@ -12,18 +12,18 @@
   "dependencies": {
     "@astrojs/check": "^0.3.0",
     "astro": "^3.4.0",
+    "lodash.debounce": "^4.0.8",
     "mdast-util-from-markdown": "^2.0.0",
-    "mdast-util-to-hast": "^13.0.2",
     "mdast-util-to-markdown": "^2.1.0",
     "mdast-util-toc": "^7.0.0",
     "reading-time": "^1.5.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0",
-    "remark-toc": "^9.0.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.9",
     "prettier-plugin-astro": "^0.12.1"
   }
 }

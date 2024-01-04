@@ -82,7 +82,7 @@ const metadata = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Archivo+Black&family=Archivo+Narrow:wght@500&family=Poppins:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Archivo+Black&family=Archivo+Narrow:wght@500&family=Poppins:wght@300;400;600;800&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -193,11 +193,14 @@ const metadata = {
   main {
     padding-left: 2rem;
     padding-right: 2rem;
+    position: relative;
   }
 
   footer {
     font-family: "Poppins", sans-serif;
-    padding-bottom: 2rem;
+    /* padding-bottom: 2rem; */
+    position: absolute;
+    bottom: 6rem;
   }
   footer p {
     color: rgba(var(--primary-text-value), 0.6);

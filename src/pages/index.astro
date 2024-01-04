@@ -5,6 +5,7 @@ import ExperienceSection from "@/components/Sections/ExperienceSection.astro";
 import EducationSection from "@/components/Sections/EducationSection.astro";
 import SkillsSection from "@/components/Sections/SkillsSection.astro";
 import ProjectsSection from "@/components/Sections/ProjectsSection.astro";
+import PostsSection from "@/components/Sections/PostsSection.astro";
 
 const sectionComponents = {
   about: AboutSection,
@@ -12,6 +13,7 @@ const sectionComponents = {
   education: EducationSection,
   skills: SkillsSection,
   projects: ProjectsSection,
+  posts: PostsSection,
 };
 
 const myInfo = {
@@ -20,7 +22,14 @@ const myInfo = {
   description:
     "I'm passionate about making cool stuff and solving problems, and I'm currently studying Computer Science at BCIT.",
 };
-const navItems = ["about", "skills", "projects", "education", "experience"];
+const navItems = [
+  "about",
+  "skills",
+  "projects",
+  "education",
+  "experience",
+  "posts",
+];
 ---
 
 <Layout
@@ -49,6 +58,11 @@ const navItems = ["about", "skills", "projects", "education", "experience"];
     padding-bottom: 6rem;
   }
 
+  section:last-of-type {
+    /* padding-bottom: calc(100vh - 12rem - element height); */
+    padding-bottom: 0;
+  }
+
   h1 {
     text-transform: uppercase;
     font-size: 1.7rem;
@@ -73,3 +87,39 @@ const navItems = ["about", "skills", "projects", "education", "experience"];
     }
   }
 </style>
+
+<script>
+  import debounce from "lodash.debounce";
+  function alignLastSectionToHeader(): void {
+    const header = document.querySelector("header") as HTMLElement;
+    const headerPaddingTop = parseInt(
+      window.getComputedStyle(header).getPropertyValue("padding-top"),
+    );
+    const headerPaddingBottom = parseInt(
+      window.getComputedStyle(header).getPropertyValue("padding-bottom"),
+    );
+
+    const lastSection = document.querySelector(
+      "section:last-of-type",
+    ) as HTMLElement;
+
+    let lastSectionHeight =
+      parseInt(
+        window.getComputedStyle(lastSection).getPropertyValue("height"),
+      ) -
+      parseInt(
+        window.getComputedStyle(lastSection).getPropertyValue("padding-bottom"),
+      );
+
+    let paddingBottomValue =
+      window.innerHeight -
+      headerPaddingTop -
+      headerPaddingBottom -
+      lastSectionHeight;
+
+    lastSection.style.paddingBottom = `${paddingBottomValue.toString()}px`;
+  }
+
+  alignLastSectionToHeader();
+  window.onresize = debounce(alignLastSectionToHeader, 500, { trailing: true });
+</script>
