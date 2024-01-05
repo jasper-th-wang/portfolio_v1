@@ -317,6 +317,9 @@ const metadata = {
 </style>
 
 <script>
+  /**
+   * Handles focus and unfocus of sections
+   */
   const sections = document.querySelectorAll("section");
   const links = document.querySelectorAll("a");
   const textElements = ["H1", "H2", "P", "SPAN"];
@@ -333,18 +336,24 @@ const metadata = {
 
       if (entry.isIntersecting) {
         entry.target.classList.add("section-focus");
-        navTarget.classList.add("toggled");
+        // nav target may be excluded from being tracked
+        navTarget?.classList.add("toggled");
         return;
       }
       entry.target.classList.remove("section-focus");
-      navTarget.classList.remove("toggled");
+
+      navTarget?.classList.remove("toggled");
     });
   };
 
   const navObserver = new IntersectionObserver(intersectionCallback, options);
-  const cursor = document.getElementById("cursor");
-
   sections.forEach((section) => navObserver.observe(section));
+
+  /**
+   * Handles cursor animations
+   */
+
+  const cursor = document.getElementById("cursor");
 
   const followCursorHandler = (e) => {
     cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
