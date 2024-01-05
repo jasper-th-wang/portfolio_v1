@@ -27,6 +27,10 @@ const stats = readingTime(content);
         line-height: 1.75;
     }
 
+    * {
+        scroll-margin: 6rem;
+    }
+
     h1:first-of-type,
     h2:first-of-type,
     h3:first-of-type,
@@ -117,14 +121,15 @@ const stats = readingTime(content);
         margin: 0.5rem 0;
         overflow: auto;
         border-radius: 0.5rem;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     }
 
     table {
+        width: 100%;
         border-collapse: collapse;
         margin: 25px 0;
         font-size: 0.9em;
         font-family: sans-serif;
-        min-width: 400px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         overflow: hidden;
         border-radius: 0.5rem;
@@ -143,7 +148,8 @@ const stats = readingTime(content);
     }
 
     table tbody tr:nth-of-type(even) {
-        background-color: #f3f3f3;
+        background-color: var(--primary-text);
+        color: var(--primary-bg);
     }
 
     table tbody tr:last-of-type {

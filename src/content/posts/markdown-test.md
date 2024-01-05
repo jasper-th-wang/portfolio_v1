@@ -51,6 +51,8 @@ Paragraphs can be multiline too when they constitute words that make up more tha
 | Italics   | Bold     | Code   |
 | --------- | -------- | ------ |
 | _italics_ | **bold** | `code` |
+| blah      | ~~blah~~ | `code` |
+| _italics_ | **bold** | `code` |
 
 ## List Types
 
