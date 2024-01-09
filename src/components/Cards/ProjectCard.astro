@@ -10,6 +10,7 @@ interface Props {
   imageAlt: string;
   github?: string;
   liveLink?: string;
+  postLink?: string;
   tags?: string[];
 }
 const {
@@ -20,6 +21,7 @@ const {
   imageAlt,
   github,
   liveLink,
+  postLink,
   tags,
   ...rest
 } = Astro.props;
@@ -37,8 +39,8 @@ const {
     </div>
     <div class="project-card__links">
       {github && <Link url={github} name="Github" redirect={true} />}
-
       {liveLink && <Link url={liveLink} name="Live Site" redirect={true} />}
+      {postLink && <Link url={postLink} name="Learn More" redirect={false} />}
     </div>
   </div>
 </div>
