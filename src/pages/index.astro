@@ -86,6 +86,7 @@ const navItems = Object.keys(sectionComponents);
 
 <script>
   import debounce from "lodash.debounce";
+  /* Handles aligning the header of the last section to the header on the left nav menu*/
   function alignLastSectionToHeader(): void {
     const lastSection = document.querySelector(
       "section:last-of-type",
@@ -118,9 +119,21 @@ const navItems = Object.keys(sectionComponents);
       lastSectionHeight;
 
     lastSection.style.paddingBottom = `${paddingBottomValue.toString()}px`;
+
+    // Prevent footer from colliding into the last section
+
+    const footer = document.querySelector("footer") as HTMLElement;
+    const footerHeight = parseInt(
+      window.getComputedStyle(footer).getPropertyValue("height"),
+    );
+
+    footer.style.position =
+      paddingBottomValue < footerHeight ? "relative" : "absolute";
+
+    footer.style.marginTop =
+      paddingBottomValue < footerHeight ? "4rem" : "initial";
   }
 
-  // window.onload = alignLastSectionToHeader;
   document.addEventListener("DOMContentLoaded", alignLastSectionToHeader);
   window.onresize = debounce(alignLastSectionToHeader, 500, { trailing: true });
 </script>
