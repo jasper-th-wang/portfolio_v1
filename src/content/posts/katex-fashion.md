@@ -1,5 +1,5 @@
 ---
-title: How I Built Katexfashion.com and What I Learned from it
+title: How I Built My First Project and What I Learned from it
 author: Jasper Wang
 description: my journey of building and deploying my first every personal project
 pubDate: 2024-01-09
@@ -88,7 +88,7 @@ Lots. At the time of making this project, I was not too familiar with OOP concep
 
 Now that I have a lot more experience with programming, I will go on to refactor the code to follow good programming practices that employ encapsulations, descriptive variable names, and so on.
 
-## What did I learn
+## What did I learn?
 
 This project changed me, literally. I became more independent and I found something that I very much have a knack for. Let me explain:
 
