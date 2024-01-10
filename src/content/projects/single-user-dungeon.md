@@ -5,9 +5,9 @@ cover: "../../assets/images/sud.png"
 coverAlt: "a screenshot of the my Single User Dungeon app on the terminal"
 github: "https://github.com/jasper-th-wang/jasper_single_user_dungeon"
 tags:
-  - python
-  - terminal
-  - game
+  - Python
+  - Terminal
+  - Game
 featured: true
 featuredOrder: 4
 ---
