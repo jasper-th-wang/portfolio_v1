@@ -98,7 +98,7 @@ const metadata = {
       />
       <main class={!isHome && "main--alt"}>
         <slot />
-        <footer class={!isHome && "footer--alt"}>
+        <footer>
           <p>
             Built with love using <a href="https://astro.build/" target="_blank"
               >Astro</a
@@ -228,12 +228,17 @@ const metadata = {
     }
 
     footer {
-      position: absolute;
+      /* position: absolute; */
+
+      /* initialize footer style, will be changed in JS */
+      position: relative;
+      margin-top: 6rem;
+
       padding-bottom: 0;
       bottom: 6rem;
     }
     .footer--alt {
-      margin-top: 6rem;
+      /* margin-top: 6rem; */
     }
   }
 
