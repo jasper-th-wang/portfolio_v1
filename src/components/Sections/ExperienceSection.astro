@@ -1,31 +1,20 @@
 ---
-import ResumeCard from "@/components/Cards/ResumeCard.astro";
-const experienceList = [
-  {
-    duration: "November 2022 - November 2023",
-    title: "eCommerce Technology and Operations Coordinator",
-    organization: "Earth Baby Outfitters",
-    description:
-      "Managed an eCommerce store on LightSpeed eCom and Shopify, fixing issues and whipping up custom solutions with JavaScript, CSS, and HTML. Also, I steered marketing and advertising strategies, working with agencies and partners to roll out various projects.",
-  },
-  {
-    duration: "May 2022 - November 2023",
-    title: "Head Teller",
-    organization: "Scotiabank",
-    description:
-      "I've led branch operations, enhancing customer satisfaction and loyalty. I managed everyday transactions, maintain precise records, and ensured compliance with banking regulations. Additionally, I oversaw the branch's cash flow, ensuring we're always well-equipped to meet customer needs.",
-  },
-];
+import ResumeCard from '@/components/Cards/ResumeCard.astro';
+import { getCollection } from 'astro:content';
+const aboutSnippets = await getCollection('aboutSnippets');
+const experiences = aboutSnippets
+  .filter((entry) => entry.id.includes('experience'))
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 {
-  experienceList.map((job) => {
+  experiences.map((job) => {
     return (
       <ResumeCard
-        timespan={job.duration}
-        title={job.title}
-        organization={job.organization}
-        description={job.description}
+        timespan={job.data.timeline}
+        title={job.data.title}
+        organization={job.data.organization}
+        description={job.body}
       />
     );
   })

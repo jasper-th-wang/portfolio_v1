@@ -34,9 +34,20 @@ const projectsCollection = defineCollection({
       featuredOrder: z.number().optional(),
     }),
 });
+
+const aboutSnippetsCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string().optional(),
+    organization: z.string().optional(),
+    timeline: z.string().optional(),
+    order: z.number().optional()
+  }),
+});
 //
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   posts: postsCollection,
   projects: projectsCollection,
+  aboutSnippets: aboutSnippetsCollection,
 };

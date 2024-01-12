@@ -1,26 +1,19 @@
 ---
-import EducationCard from "@/components/Cards/ResumeCard.astro";
-const educationList = [
-  {
-    time: "2023 - Present",
-    degree: "Computer System Technology Diploma",
-    institution: "British Columbia Institute of Technology (BCIT)",
-  },
-  {
-    time: "2017 - 2021",
-    degree: "Bachelor's of Psychology",
-    institution: "The University of British Columbia (UBC)",
-  },
-];
+import EducationCard from '@/components/Cards/ResumeCard.astro';
+import { getCollection } from 'astro:content';
+const aboutSnippets = await getCollection('aboutSnippets');
+const educations = aboutSnippets
+  .filter((entry) => entry.id.includes('education'))
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 {
-  educationList.map((education) => {
+  educations.map(({ data: education }) => {
     return (
       <EducationCard
-        timespan={education.time}
-        title={education.degree}
-        organization={education.institution}
+        timespan={education.timeline}
+        title={education.title}
+        organization={education.organization}
       />
     );
   })
