@@ -3,12 +3,15 @@ import ProjectCard from "@/components/Cards/ProjectCard.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 const allProjects = await getCollection("projects");
+const sortedProjects = allProjects.sort(
+  (a, b) => (a.data.featuredOrder || 999) - (b.data.featuredOrder || 999),
+);
 ---
 
 <Layout padding={true} isHome={false} title="Projects">
   <div class="projects-list">
     {
-      allProjects.map((project) => (
+      sortedProjects.map((project) => (
         <ProjectCard
           class="projects-list__item"
           title={project.data.title}
@@ -33,6 +36,7 @@ const allProjects = await getCollection("projects");
       grid-auto-columns: 1fr;
       column-gap: 16px;
       row-gap: 16px;
+      padding-bottom: 6rem;
     }
     .projects-list__item {
       margin-bottom: 0;
