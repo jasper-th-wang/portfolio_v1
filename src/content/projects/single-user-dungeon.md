@@ -9,5 +9,5 @@ tags:
   - Terminal
   - Game
 featured: true
-featuredOrder: 4
+featuredOrder: 3
 ---

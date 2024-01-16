@@ -8,5 +8,5 @@ liveLink: "https://www.katexfashion.com/"
 postLink: "/posts/katex-fashion"
 tags: ["HTML", "SCSS", "JavaScript"]
 featured: true
-featuredOrder: 3
+featuredOrder: 4
 ---
