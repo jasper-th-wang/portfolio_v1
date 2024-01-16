@@ -24,9 +24,9 @@
 
 - [📖 Table of Contents](#-table-of-contents)
 - [📍 Overview](#-overview)
-- [🎈 Demo](#-demo)
+- [🎈 Live Site](#-live-site)
 - [📂 repository Structure](#-repository-structure)
-- [⚙️ Featured Modules](#featured-modules)
+- [⚙️ Featured Modules](#-featured-modules)
 - [🚀 Getting Started](#-getting-started)
   - [🔧 Installation](#-installation)
   - [🤖 Running portfolio_v1](#-running-portfolio_v1)
