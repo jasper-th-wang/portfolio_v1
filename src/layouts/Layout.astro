@@ -1,6 +1,7 @@
 ---
-import "@/styles/normalize.css";
-import Header from "@/components/MainHeader.astro";
+import '@/styles/globals.css';
+import '@/styles/normalize.css';
+import Header from '@/components/MainHeader.astro';
 
 interface Props {
   // if isHome is true, padding will be added, and nav and socials will be included in header.
@@ -22,10 +23,10 @@ const {
 } = Astro.props;
 
 const metadata = {
-  title: "Jasper Wang",
-  author: "Jasper Wang",
+  title: 'Jasper Wang',
+  author: 'Jasper Wang',
   description:
-    "Jasper Wang is a software developer with a deep passion for creating innovative solutions. Educated in Computer Science at BCIT and psychology in UBC.",
+    'Jasper Wang is a software developer with a deep passion for creating innovative solutions. Educated in Computer Science at BCIT and psychology in UBC.',
 };
 ---
 
@@ -87,7 +88,7 @@ const metadata = {
     />
   </head>
   <body>
-    <div class={`container ${!isHome && "container--alt"}`}>
+    <div class={`container ${!isHome && 'container--alt'}`}>
       <Header
         isHome={isHome}
         title={title}
@@ -96,7 +97,7 @@ const metadata = {
         navItems={navItems}
         content={content}
       />
-      <main class={!isHome && "main--alt"}>
+      <main class={!isHome && 'main--alt'}>
         <slot />
         <footer>
           <p>
@@ -141,18 +142,18 @@ const metadata = {
   }
 
   h1 {
-    font-family: "Archivo Black", sans-serif;
+    font-family: 'Archivo Black', sans-serif;
     font-size: 3.2rem;
     margin-top: 0;
   }
 
   h2 {
-    font-family: "Archivo Narrow", sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     /* color: var(--primary-text); */
     font-size: 1.8rem;
   }
   h3 {
-    font-family: "Archivo Narrow", sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     /* color: var(--primary-text); */
     font-size: 1.4rem;
   }
@@ -160,7 +161,7 @@ const metadata = {
   h3,
   h4,
   h5 {
-    font-family: "Archivo Narrow", sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
   }
 
   a {
@@ -177,8 +178,13 @@ const metadata = {
   span,
   li,
   a {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
+  }
+
+  p {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
   }
 
   P:first-of-type,
@@ -202,7 +208,7 @@ const metadata = {
 
   footer,
   .footer--alt {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     /* padding-bottom: 2rem; */
     position: relative;
     bottom: initial;
@@ -322,29 +328,29 @@ const metadata = {
   /**
    * Handles focus and unfocus of sections
    */
-  const sections = document.querySelectorAll("section");
-  const links = document.querySelectorAll("a");
-  const textElements = ["H1", "H2", "P", "SPAN"];
+  const sections = document.querySelectorAll('section');
+  const links = document.querySelectorAll('a');
+  const textElements = ['H1', 'H2', 'P', 'SPAN'];
 
   const options = {
-    rootMargin: "-40% 0px -60% 0px",
+    rootMargin: '-40% 0px -60% 0px',
   };
 
   const intersectionCallback = (entries, observer) => {
     entries.forEach((entry) => {
       const navTarget = document.getElementById(
-        `${entry.target.getAttribute("id")}Nav`,
+        `${entry.target.getAttribute('id')}Nav`
       );
 
       if (entry.isIntersecting) {
-        entry.target.classList.add("section-focus");
+        entry.target.classList.add('section-focus');
         // nav target may be excluded from being tracked
-        navTarget?.classList.add("toggled");
+        navTarget?.classList.add('toggled');
         return;
       }
-      entry.target.classList.remove("section-focus");
+      entry.target.classList.remove('section-focus');
 
-      navTarget?.classList.remove("toggled");
+      navTarget?.classList.remove('toggled');
     });
   };
 
@@ -355,28 +361,28 @@ const metadata = {
    * Handles cursor animations
    */
 
-  const cursor = document.getElementById("cursor");
+  const cursor = document.getElementById('cursor');
 
   const followCursorHandler = (e) => {
     cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
   };
 
-  document.body.addEventListener("mousemove", (e) => {
+  document.body.addEventListener('mousemove', (e) => {
     followCursorHandler(e);
   });
 
-  document.body.addEventListener("mouseover", (e) => {
-    const hasAnchorParent = (e.target as HTMLElement).closest("a");
-    const isAnchor = (e.target as HTMLElement).tagName === "A";
+  document.body.addEventListener('mouseover', (e) => {
+    const hasAnchorParent = (e.target as HTMLElement).closest('a');
+    const isAnchor = (e.target as HTMLElement).tagName === 'A';
 
     hasAnchorParent || isAnchor
-      ? cursor.classList.add("hover-over-a")
-      : cursor.classList.remove("hover-over-a");
+      ? cursor.classList.add('hover-over-a')
+      : cursor.classList.remove('hover-over-a');
 
     if (isAnchor) return;
 
     textElements.indexOf((e.target as HTMLElement).tagName) >= 0
-      ? cursor.classList.add("hover-over-text")
-      : cursor.classList.remove("hover-over-text");
+      ? cursor.classList.add('hover-over-text')
+      : cursor.classList.remove('hover-over-text');
   });
 </script>

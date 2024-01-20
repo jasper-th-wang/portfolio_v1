@@ -1,12 +1,12 @@
 ---
-import slugify from "slugify";
-import Layout from "@/layouts/Layout.astro";
-import AboutSection from "@/components/Sections/AboutSection.astro";
-import ExperienceSection from "@/components/Sections/ExperienceSection.astro";
-import EducationSection from "@/components/Sections/EducationSection.astro";
-import SkillsSection from "@/components/Sections/SkillsSection.astro";
-import ProjectsSection from "@/components/Sections/ProjectsSection.astro";
-import PostsSection from "@/components/Sections/PostsSection.astro";
+import slugify from 'slugify';
+import Layout from '@/layouts/Layout.astro';
+import AboutSection from '@/components/Sections/AboutSection.astro';
+import ExperienceSection from '@/components/Sections/ExperienceSection.astro';
+import EducationSection from '@/components/Sections/EducationSection.astro';
+import SkillsSection from '@/components/Sections/SkillsSection.astro';
+import ProjectsSection from '@/components/Sections/ProjectsSection.astro';
+import PostsSection from '@/components/Sections/PostsSection.astro';
 
 const sectionComponents = {
   about: AboutSection,
@@ -18,8 +18,8 @@ const sectionComponents = {
 };
 
 const myInfo = {
-  name: "Jasper Wang",
-  title: "Software Developer",
+  name: 'Jasper Wang',
+  title: 'Software Developer',
   description:
     "I'm passionate about making cool stuff and solving problems, and I'm currently studying Computer Science at BCIT.",
 };
@@ -85,31 +85,31 @@ const navItems = Object.keys(sectionComponents);
 </style>
 
 <script>
-  import debounce from "lodash.debounce";
+  import debounce from 'lodash.debounce';
   /* Handles aligning the header of the last section to the header on the left nav menu*/
   function alignLastSectionToHeader(): void {
     const lastSection = document.querySelector(
-      "section:last-of-type",
+      'section:last-of-type'
     ) as HTMLElement;
 
     if (window.innerWidth < 1024) {
-      lastSection.style.paddingBottom = "";
+      lastSection.style.paddingBottom = '';
       return;
     }
-    const header = document.querySelector("header") as HTMLElement;
+    const header = document.querySelector('header') as HTMLElement;
     const headerPaddingTop = parseInt(
-      window.getComputedStyle(header).getPropertyValue("padding-top"),
+      window.getComputedStyle(header).getPropertyValue('padding-top')
     );
     const headerPaddingBottom = parseInt(
-      window.getComputedStyle(header).getPropertyValue("padding-bottom"),
+      window.getComputedStyle(header).getPropertyValue('padding-bottom')
     );
 
     let lastSectionHeight =
       parseInt(
-        window.getComputedStyle(lastSection).getPropertyValue("height"),
+        window.getComputedStyle(lastSection).getPropertyValue('height')
       ) -
       parseInt(
-        window.getComputedStyle(lastSection).getPropertyValue("padding-bottom"),
+        window.getComputedStyle(lastSection).getPropertyValue('padding-bottom')
       );
 
     let paddingBottomValue =
@@ -122,17 +122,17 @@ const navItems = Object.keys(sectionComponents);
 
     // Prevent footer from colliding into the last section
 
-    const footer = document.querySelector("footer") as HTMLElement;
+    const footer = document.querySelector('footer') as HTMLElement;
     const footerHeight = parseInt(
-      window.getComputedStyle(footer).getPropertyValue("height"),
+      window.getComputedStyle(footer).getPropertyValue('height')
     );
 
     footer.style.position =
-      paddingBottomValue < footerHeight ? "relative" : "absolute";
+      paddingBottomValue < footerHeight ? 'relative' : 'absolute';
 
-    footer.style.marginTop = paddingBottomValue < footerHeight ? "6rem" : "0px";
+    footer.style.marginTop = paddingBottomValue < footerHeight ? '6rem' : '0px';
   }
 
-  document.addEventListener("DOMContentLoaded", alignLastSectionToHeader);
+  document.addEventListener('DOMContentLoaded', alignLastSectionToHeader);
   window.onresize = debounce(alignLastSectionToHeader, 500, { trailing: true });
 </script>

@@ -1,7 +1,8 @@
 ---
-import GithubIcon from "@/components/svgs/SocialIcons/github.astro";
-import LinkedinIcon from "@/components/svgs/SocialIcons/linkedin.astro";
-import EmailIcon from "@/components/svgs/SocialIcons/email.astro";
+import GithubIcon from '@/components/svgs/SocialIcons/github.astro';
+import LinkedinIcon from '@/components/svgs/SocialIcons/linkedin.astro';
+import EmailIcon from '@/components/svgs/SocialIcons/email.astro';
+import { Button } from '@/components/ui/button';
 ---
 
 <div class="social-icons">
@@ -29,6 +30,7 @@ import EmailIcon from "@/components/svgs/SocialIcons/email.astro";
   >
     <EmailIcon width="30" height="30" />
   </a>
+  <Button variant="outline" client:load>Hello</Button>
 </div>
 
 <style>
