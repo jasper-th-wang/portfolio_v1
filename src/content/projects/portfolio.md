@@ -5,7 +5,9 @@ cover: "../../assets/images/portfolio.png"
 coverAlt: "a screenshot of my portfolio site"
 github: "https://github.com/jasper-th-wang/portfolio_v1"
 tags:
+  - TypeScript
   - JavaScript
+  - React
   - Astro.js
   - CSS
 featured: true

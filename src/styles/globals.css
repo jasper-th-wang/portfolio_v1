@@ -16,8 +16,8 @@
     --primary: 58 39% 85%;
     --primary-foreground: 58 39% 85%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 58 39% 85%;
+    --secondary-foreground: 191 8% 43%;
 
     --muted: 58 39% 85%;
     --muted-foreground: 58 39% 85%;
@@ -75,3 +75,4 @@
     @apply tw-bg-background tw-text-foreground;
   }
 }
+
