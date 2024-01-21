@@ -3,6 +3,7 @@ import GithubIcon from '@/components/svgs/SocialIcons/github.astro';
 import LinkedinIcon from '@/components/svgs/SocialIcons/linkedin.astro';
 import EmailIcon from '@/components/svgs/SocialIcons/email.astro';
 import { Button } from '@/components/ui/button';
+import ContactForm from '@/components/ContactForm';
 ---
 
 <div class="social-icons">
@@ -12,7 +13,7 @@ import { Button } from '@/components/ui/button';
     target="_blank"
     aria-label="GitHub (opens in a new tab)"
   >
-    <GithubIcon width="30" height="30" />
+    <GithubIcon width="36" height="auto" />
   </a>
   <a
     class="social-icons__icon linkedin"
@@ -20,7 +21,7 @@ import { Button } from '@/components/ui/button';
     target="_blank"
     aria-label="Linkedin (opens in a new tab)"
   >
-    <LinkedinIcon width="30" height="30" />
+    <LinkedinIcon width="36" height="auto" />
   </a>
   <a
     class="social-icons__icon email"
@@ -28,9 +29,9 @@ import { Button } from '@/components/ui/button';
     target="_blank"
     aria-label="Email (opens email client)"
   >
-    <EmailIcon width="30" height="30" />
+    <EmailIcon width="36" height="auto" />
   </a>
-  <Button variant="outline" client:load>Hello</Button>
+  <ContactForm client:load />
 </div>
 
 <style>
@@ -41,7 +42,7 @@ import { Button } from '@/components/ui/button';
   }
 
   .social-icons__icon {
-    z-index: 999;
+    z-index: 1;
     cursor: pointer;
     opacity: 0.7;
     transition-duration: 500ms;
