@@ -1,50 +1,7 @@
 ---
-import Python from '@/components/svgs/SkillIcons/Python.astro';
-import JavaScript from '@/components/svgs/SkillIcons/JavaScript.astro';
-import NodeJS from '@/components/svgs/SkillIcons/NodeJS.astro';
-import React from '@/components/svgs/SkillIcons/React.astro';
-import Html from '@/components/svgs/SkillIcons/Html.astro';
-import Css from '@/components/svgs/SkillIcons/Css.astro';
-import SCSS from '@/components/svgs/SkillIcons/SCSS.astro';
-import Bootstrap from '@/components/svgs/SkillIcons/Bootstrap.astro';
 import SkillsAccordion from '@/components/SkillsAccordion';
-
-const skillIcons = [
-  Python,
-  JavaScript,
-  NodeJS,
-  React,
-  Html,
-  Css,
-  SCSS,
-  Bootstrap,
-];
 ---
 
 <div>
   <SkillsAccordion client:load />
 </div>
-
-<style>
-  .skills {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-  .skill-item {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1rem;
-  }
-  .skill-item span {
-    font-size: 1.2rem;
-  }
-</style>
-<style is:global>
-  #skills svg {
-    fill: var(--primary-text);
-    width: 50px;
-    height: 50px;
-  }
-</style>
