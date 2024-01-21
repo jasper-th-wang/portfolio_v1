@@ -40,7 +40,7 @@ const DEV_TOOLS = [
 
 function List(items: String[]) {
   const list = items.map((item) => (
-    <li key={item} className="tw-mb-4">
+    <li key={item.toString()} className="tw-mb-4">
       {item}
     </li>
   ));
