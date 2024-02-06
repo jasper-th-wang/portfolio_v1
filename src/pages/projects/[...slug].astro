@@ -10,7 +10,11 @@ export async function getStaticPaths() {
   }));
 }
 const { entry } = Astro.props;
-// const { Content } = await entry.render();
+const { Content } = await entry.render();
 ---
 
-<ProjectLayout frontmatter={entry.data} />
+<ProjectLayout
+  frontmatter={entry.data}
+  content={entry.body}
+  slug={entry.slug}
+/>

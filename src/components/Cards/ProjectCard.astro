@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
-import Link from "@/components/Link.astro";
+import { Image } from 'astro:assets';
+import Link from '@/components/Link.astro';
 
 interface Props {
   class?: string;
@@ -12,6 +12,7 @@ interface Props {
   liveLink?: string;
   postLink?: string;
   tags?: string[];
+  href?: string;
 }
 const {
   class: className,
@@ -23,12 +24,21 @@ const {
   liveLink,
   postLink,
   tags,
+  href,
   ...rest
 } = Astro.props;
 ---
 
 <div class={`project-card ${className}`} target="_blank" {...rest}>
-  <Image src={imagesrc} alt={imageAlt} />
+  {
+    href ? (
+      <a href={href} aria-label={`Go to ${title}'s project page'`}>
+        <Image src={imagesrc} alt={imageAlt} />
+      </a>
+    ) : (
+      <Image src={imagesrc} alt={imageAlt} />
+    )
+  }
   <div class="project-card__content">
     <h2>
       {title}
@@ -62,6 +72,10 @@ const {
     width: inherit;
     height: 10rem;
     border-radius: 20px;
+  }
+
+  .project-card a {
+    width: 100%;
   }
 
   .project-card__tags {
