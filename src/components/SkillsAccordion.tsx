@@ -8,6 +8,7 @@ import {
 const LANGUAGES = [
   "Java",
   "C",
+  "MySQL",
   "Python",
   "TypeScript",
   "JavaScript",
@@ -21,9 +22,21 @@ const LANGUAGES = [
   "Bootstrap",
 ];
 
-const FRAMEWORKS = ["React", "Node.js", "Express", "MongoDB", "Astro.js"];
+const FRAMEWORKS = [
+  "Spring",
+  "Gradle",
+  "Maven",
+  "React",
+  "Node.js",
+  "Express",
+  "MongoDB",
+  "Astro.js",
+];
 
 const DEV_TOOLS = [
+  "Azure",
+  "Oracle Cloud Infrastructure",
+  "Docker",
   "UNIX Terminal",
   "Git",
   "GitHub",
@@ -68,4 +81,3 @@ export default function SkillsAccordion() {
     </Accordion>
   );
 }
-

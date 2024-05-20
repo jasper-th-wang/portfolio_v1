@@ -7,6 +7,4 @@ github: "https://github.com/jasper-th-wang/Katex-Website/tree/38b85c72583bf99627
 liveLink: "https://www.katexfashion.com/"
 postLink: "/posts/katex-fashion"
 tags: ["HTML", "SCSS", "JavaScript"]
-featured: true
-featuredOrder: 4
 ---

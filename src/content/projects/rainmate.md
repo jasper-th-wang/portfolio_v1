@@ -7,5 +7,5 @@ github: "https://github.com/jasper-th-wang/1800_202330_DTC05"
 liveLink: "https://bcit-comp1800-dtc05-rainmate.web.app/"
 tags: ["Firebase", "MapBoxGL JS", "JavaScript", "jQuery", "Bootstrap"]
 featured: true
-featuredOrder: 1
+featuredOrder: 3
 ---
