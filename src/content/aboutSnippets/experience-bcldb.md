@@ -1,5 +1,5 @@
 ---
-timeline: Sept 2024 - Present
+timeline: May 2024 - Present
 title: Full Stack Developer
 organization: BCLDB
 order: 1
