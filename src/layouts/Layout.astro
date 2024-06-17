@@ -1,388 +1,423 @@
 ---
-import '@/styles/globals.css';
-import '@/styles/normalize.css';
-import Header from '@/components/MainHeader.astro';
+import "@/styles/globals.css";
+import "@/styles/normalize.css";
+import Header from "@/components/MainHeader.astro";
 
 interface Props {
-  // if isHome is true, padding will be added, and nav and socials will be included in header.
-  isHome: boolean;
-  title?: string;
-  subtitle?: string;
-  details?: string;
-  navItems?: string[];
-  content?: string;
+    // if isHome is true, padding will be added, and nav and socials will be included in header.
+    isHome: boolean;
+    title?: string;
+    subtitle?: string;
+    details?: string;
+    navItems?: string[];
+    content?: string;
 }
 
 const {
-  isHome,
-  title,
-  subtitle,
-  details,
-  navItems = undefined,
-  content,
+    isHome,
+    title,
+    subtitle,
+    details,
+    navItems = undefined,
+    content,
 } = Astro.props;
 
 const metadata = {
-  title: 'Jasper Wang',
-  author: 'Jasper Wang',
-  description:
-    'Jasper Wang is a software developer with a deep passion for creating innovative solutions. Educated in Computer Science at BCIT and psychology in UBC.',
+    title: "Jasper Wang",
+    author: "Jasper Wang",
+    description:
+        "Jasper Wang is a software developer with a deep passion for creating innovative solutions. Educated in Computer Science at BCIT and psychology in UBC.",
 };
 ---
 
 <!doctype html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content={metadata.author} />
-    <meta name="description" content={metadata.description} />
-    <title>{metadata.title}</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="/apple-icon-114x114.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="120x120"
-      href="/apple-icon-120x120.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="/apple-icon-144x144.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="152x152"
-      href="/apple-icon-152x152.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/apple-icon-180x180.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="/android-icon-192x192.png"
-    />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Archivo+Black&family=Archivo+Narrow:wght@500&family=Poppins:wght@300;400;600;800&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class={`container ${!isHome && 'container--alt'}`}>
-      <Header
-        isHome={isHome}
-        title={title}
-        subtitle={subtitle}
-        details={details}
-        navItems={navItems}
-        content={content}
-      />
-      <main class={!isHome && 'main--alt'}>
-        <slot />
-        <footer>
-          <p>
-            Built with love using <a href="https://astro.build/" target="_blank"
-              >Astro</a
-            >, designed with inspiration from various websites on <a
-              href="https://www.awwwards.com/"
-              target="_blank">awwwards.com</a
-            >
-          </p>
-          <p>© Jasper Wang {new Date().getFullYear()}</p>
-        </footer>
-      </main>
-    </div>
-    <div id="cursor"></div>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content={metadata.author} />
+        <meta name="description" content={metadata.description} />
+        <title>{metadata.title}</title>
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Archivo+Black&family=Archivo+Narrow:wght@500&family=Poppins:wght@300;400;600;800&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class={`container ${!isHome && "container--alt"}`}>
+            <Header
+                isHome={isHome}
+                title={title}
+                subtitle={subtitle}
+                details={details}
+                navItems={navItems}
+                content={content}
+            />
+            <main class={!isHome && "main--alt"}>
+                <slot />
+                <footer>
+                    <p>
+                        Built with love using <a
+                            href="https://astro.build/"
+                            target="_blank">Astro</a
+                        >, designed with inspiration from various websites on <a
+                            href="https://www.awwwards.com/"
+                            target="_blank">awwwards.com</a
+                        >
+                    </p>
+                    <p>© Jasper Wang {new Date().getFullYear()}</p>
+                </footer>
+            </main>
+        </div>
+        <div id="cursor"></div>
+    </body>
 </html>
 
 <style is:global>
-  /* Base styling */
+    /* Base styling */
 
-  :root {
-    --primary-text: rgb(232, 231, 203);
-    --primary-text-value: 232, 231, 203;
-    --primary-bg: rgb(100, 114, 117);
-    --code-background: #f6f7f9;
-    --code-text: #47546b;
-    --code-border: #e2e8f0;
-    line-height: 1.5;
-  }
-
-  html,
-  body {
-    background-color: var(--primary-bg);
-    scroll-behavior: smooth;
-    color: var(--primary-text);
-  }
-
-  ::selection {
-    background-color: #13262f;
-    color: #ffffff;
-  }
-
-  h1 {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: 2.8rem;
-    margin-top: 0;
-  }
-
-  h2 {
-    font-family: 'Archivo Narrow', sans-serif;
-    /* color: var(--primary-text); */
-    font-size: 1.8rem;
-  }
-  h3 {
-    font-family: 'Archivo Narrow', sans-serif;
-    /* color: var(--primary-text); */
-    font-size: 1.4rem;
-  }
-
-  h3,
-  h4,
-  h5 {
-    font-family: 'Archivo Narrow', sans-serif;
-  }
-
-  a {
-    text-decoration: none;
-    transition-duration: 500ms;
-    color: rgba(var(--primary-text-value), 0.8);
-  }
-
-  a:hover {
-    color: rgba(var(--primary-text-value), 1);
-  }
-
-  p,
-  span,
-  li,
-  a {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-  }
-
-  p {
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-  }
-
-  P:first-of-type,
-  h2:first-of-type {
-    margin-top: 0;
-  }
-
-  p:last-of-type {
-    margin-bottom: 0;
-  }
-
-  ul {
-    list-style-position: inside;
-  }
-
-  main {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    position: relative;
-  }
-
-  footer,
-  .footer--alt {
-    font-family: 'Poppins', sans-serif;
-    /* padding-bottom: 2rem; */
-    position: relative;
-    bottom: initial;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  footer p {
-    color: rgba(var(--primary-text-value), 0.6);
-  }
-  footer a {
-    color: var(--primary-text);
-  }
-
-  @media only screen and (min-width: 1024px) {
-    main {
-      width: 60%;
-      padding: 6rem 2rem;
+    :root {
+        --primary-text: rgb(232, 231, 203);
+        --primary-text-value: 232, 231, 203;
+        --primary-bg: rgb(100, 114, 117);
+        --code-background: #f6f7f9;
+        --code-text: #47546b;
+        --code-border: #e2e8f0;
+        line-height: 1.5;
     }
 
-    .main--alt {
-      width: 70%;
-    }
-
-    footer {
-      /* position: absolute; */
-
-      /* initialize footer style, will be changed in JS */
-      position: relative;
-      margin-top: 6rem;
-
-      padding-bottom: 0;
-      bottom: 6rem;
-    }
-  }
-
-  /* Animated Cursor Styling */
-
-  #cursor {
-    display: none;
-    position: fixed;
-    top: -5px;
-    left: -5px;
-    width: 40px;
-    height: 40px;
-    background-color: #333333;
-    border-radius: 50%;
-    pointer-events: none;
-    mix-blend-mode: difference;
-    z-index: 999;
-    transition: all 200ms cubic-bezier(0.09, 0.55, 0.59, 0.97);
-  }
-
-  .hover-over-a {
-    width: 20px !important;
-    height: 20px !important;
-    background-color: white !important;
-    mix-blend-mode: difference !important;
-  }
-
-  .hover-over-text {
-    opacity: 0.15;
-  }
-
-  /* Cap the width on tablet size */
-
-  .container {
-    max-width: 624px;
-    margin: 0 auto;
-  }
-
-  @media only screen and (min-width: 1024px) {
+    html,
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+        background-color: var(--primary-bg);
+        scroll-behavior: smooth;
+        color: var(--primary-text);
     }
 
-    .container {
-      display: flex;
-      flex: 1;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      max-width: 1050px;
-      position: relative;
-      overflow-y: visible;
-    }
-
-    .container--alt {
-      max-width: 1200px;
+    ::selection {
+        background-color: #13262f;
+        color: #ffffff;
     }
 
     h1 {
-      font-size: 2.8rem;
+        font-family: "Archivo Black", sans-serif;
+        font-size: 2.8rem;
+        margin-top: 0;
     }
 
     h2 {
-      font-size: 1.8rem;
+        font-family: "Archivo Narrow", sans-serif;
+        /* color: var(--primary-text); */
+        font-size: 1.8rem;
     }
+    h3 {
+        font-family: "Archivo Narrow", sans-serif;
+        /* color: var(--primary-text); */
+        font-size: 1.4rem;
+    }
+
+    h3,
+    h4,
+    h5 {
+        font-family: "Archivo Narrow", sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+        transition-duration: 500ms;
+        color: rgba(var(--primary-text-value), 0.8);
+    }
+
+    a:hover {
+        color: rgba(var(--primary-text-value), 1);
+    }
+
+    p,
+    span,
+    li,
+    a {
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+    }
+
+    p {
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+    }
+
+    P:first-of-type,
+    h2:first-of-type {
+        margin-top: 0;
+    }
+
+    p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    ul {
+        list-style-position: inside;
+    }
+
+    main {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        position: relative;
+    }
+
+    footer,
+    .footer--alt {
+        font-family: "Poppins", sans-serif;
+        /* padding-bottom: 2rem; */
+        position: relative;
+        bottom: initial;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    footer p {
+        color: rgba(var(--primary-text-value), 0.6);
+    }
+    footer a {
+        color: var(--primary-text);
+    }
+
+    @media only screen and (min-width: 1024px) {
+        main {
+            width: 60%;
+            padding: 6rem 2rem;
+        }
+
+        .main--alt {
+            width: 70%;
+        }
+
+        footer {
+            /* position: absolute; */
+
+            /* initialize footer style, will be changed in JS */
+            position: relative;
+            margin-top: 6rem;
+
+            padding-bottom: 0;
+            bottom: 6rem;
+        }
+    }
+
+    /* Animated Cursor Styling */
 
     #cursor {
-      display: block;
+        display: none;
+        position: fixed;
+        top: -5px;
+        left: -5px;
+        width: 40px;
+        height: 40px;
+        background-color: #333333;
+        border-radius: 50%;
+        pointer-events: none;
+        mix-blend-mode: difference;
+        z-index: 999;
+        transition: all 200ms cubic-bezier(0.09, 0.55, 0.59, 0.97);
     }
-  }
 
-  .toggled {
-    opacity: 1 !important;
-  }
+    .hover-over-a {
+        width: 20px !important;
+        height: 20px !important;
+        background-color: white !important;
+        mix-blend-mode: difference !important;
+    }
 
-  svg,
-  path {
-    pointer-events: none;
-  }
+    .hover-over-text {
+        opacity: 0.15;
+    }
+
+    /* Cap the width on tablet size */
+
+    .container {
+        max-width: 624px;
+        margin: 0 auto;
+    }
+
+    @media only screen and (min-width: 1024px) {
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            max-width: 1050px;
+            position: relative;
+            overflow-y: visible;
+        }
+
+        .container--alt {
+            max-width: 1200px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        #cursor {
+            display: block;
+        }
+    }
+
+    .toggled {
+        opacity: 1 !important;
+    }
+
+    svg,
+    path {
+        pointer-events: none;
+    }
 </style>
 
 <script>
-  /**
-   * Handles focus and unfocus of sections
-   */
-  const sections = document.querySelectorAll('section');
-  const links = document.querySelectorAll('a');
-  const textElements = ['H1', 'H2', 'P', 'SPAN'];
+    /**
+     * Handles focus and unfocus of sections
+     */
+    const sections = document.querySelectorAll("section");
+    // const links = document.querySelectorAll('a');
 
-  const options = {
-    rootMargin: '-40% 0px -60% 0px',
-  };
+    const options = {
+        rootMargin: "-40% 0px -60% 0px",
+    };
 
-  const intersectionCallback = (entries, observer) => {
-    entries.forEach((entry) => {
-      const navTarget = document.getElementById(
-        `${entry.target.getAttribute('id')}Nav`
-      );
+    const intersectionCallback = (
+        entries: IntersectionObserverEntry[],
+        _observer: IntersectionObserver,
+    ) => {
+        entries.forEach((entry) => {
+            const navTarget = document.getElementById(
+                `${entry.target.getAttribute("id")}Nav`,
+            );
 
-      if (entry.isIntersecting) {
-        entry.target.classList.add('section-focus');
-        // nav target may be excluded from being tracked
-        navTarget?.classList.add('toggled');
-        return;
-      }
-      entry.target.classList.remove('section-focus');
+            if (entry.isIntersecting) {
+                entry.target.classList.add("section-focus");
+                // nav target may be excluded from being tracked
+                navTarget?.classList.add("toggled");
+                return;
+            }
+            entry.target.classList.remove("section-focus");
 
-      navTarget?.classList.remove('toggled');
+            navTarget?.classList.remove("toggled");
+        });
+    };
+
+    const navObserver = new IntersectionObserver(intersectionCallback, options);
+    sections.forEach((section) => navObserver.observe(section));
+
+    /**
+     * Handles cursor animations
+     */
+
+    const cursor = document.getElementById("cursor");
+
+    const followCursorHandler = (e: MouseEvent) => {
+        cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    };
+
+    document.body.addEventListener("mousemove", (e) => {
+        followCursorHandler(e);
     });
-  };
 
-  const navObserver = new IntersectionObserver(intersectionCallback, options);
-  sections.forEach((section) => navObserver.observe(section));
+    document.body.addEventListener("mouseover", (e) => {
+        const hasAnchorParent = (e.target as HTMLElement).closest("a");
+        const isAnchor = (e.target as HTMLElement).tagName === "A";
 
-  /**
-   * Handles cursor animations
-   */
+        hasAnchorParent || isAnchor
+            ? cursor.classList.add("hover-over-a")
+            : cursor.classList.remove("hover-over-a");
 
-  const cursor = document.getElementById('cursor');
+        if (isAnchor) return;
 
-  const followCursorHandler = (e) => {
-    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-  };
-
-  document.body.addEventListener('mousemove', (e) => {
-    followCursorHandler(e);
-  });
-
-  document.body.addEventListener('mouseover', (e) => {
-    const hasAnchorParent = (e.target as HTMLElement).closest('a');
-    const isAnchor = (e.target as HTMLElement).tagName === 'A';
-
-    hasAnchorParent || isAnchor
-      ? cursor.classList.add('hover-over-a')
-      : cursor.classList.remove('hover-over-a');
-
-    if (isAnchor) return;
-
-    textElements.indexOf((e.target as HTMLElement).tagName) >= 0
-      ? cursor.classList.add('hover-over-text')
-      : cursor.classList.remove('hover-over-text');
-  });
+        const textElements = ["H1", "H2", "P", "SPAN"];
+        textElements.indexOf((e.target as HTMLElement).tagName) >= 0
+            ? cursor.classList.add("hover-over-text")
+            : cursor.classList.remove("hover-over-text");
+    });
 </script>
