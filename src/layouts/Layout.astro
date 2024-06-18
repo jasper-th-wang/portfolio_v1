@@ -308,11 +308,17 @@ const metadata = {
     /* Cap the width on tablet size */
 
     .container {
-        max-width: 624px;
+        max-width: 40rem;
         margin: 0 auto;
     }
 
     @media only screen and (min-width: 1024px) {
+        @media only screen and (min-height: 1300px) {
+            /* mitigate issues of intersection observer dimming the wrong sections */
+            :root {
+                font-size: 18px;
+            }
+        }
         body {
             display: flex;
             justify-content: center;
@@ -324,13 +330,13 @@ const metadata = {
             flex: 1;
             padding-left: 1rem;
             padding-right: 1rem;
-            max-width: 1050px;
+            max-width: 65rem;
             position: relative;
             overflow-y: visible;
         }
 
         .container--alt {
-            max-width: 1200px;
+            max-width: 75rem;
         }
 
         h1 {
@@ -361,7 +367,6 @@ const metadata = {
      * Handles focus and unfocus of sections
      */
     const sections = document.querySelectorAll("section");
-    // const links = document.querySelectorAll('a');
 
     const options = {
         rootMargin: "-40% 0px -60% 0px",
