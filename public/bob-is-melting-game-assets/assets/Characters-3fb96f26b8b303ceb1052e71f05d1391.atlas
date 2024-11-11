@@ -1,0 +1,19 @@
+Characters.png
+size:512,128
+repeat:none
+Hurt (32 x 32)
+bounds:233,17,32,32
+Idle (32 x 32)
+bounds:117,17,64,32
+Jumping (32 x 32)
+bounds:267,17,32,32
+Running (32 x 32)
+bounds:358,83,128,32
+Snowman-tileset
+bounds:2,2,113,47
+bear_polar
+bounds:228,51,128,64
+chicken
+bounds:2,51,224,64
+snowballs
+bounds:183,17,48,32
