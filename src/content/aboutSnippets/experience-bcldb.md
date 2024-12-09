@@ -5,4 +5,4 @@ organization: BCLDB
 order: 1
 ---
 
-I'm supporting the development and maintenance of applications for Liquor and Cannabis Retail Stores, working with PL/SQL, Java, Spring, Azure and Oracle Cloud Infrastructure.
+I developed Spring and Angular applications integrated with Azure cloud services, resolved major production issues, converted manual processes into automated pipelines using Infrastructure as Code with GitHub Actions Script and Bicep.
