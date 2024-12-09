@@ -1,7 +1,7 @@
 ---
 timeline: May 2024 - Present
 title: Full Stack Developer
-organization: BCLDB
+organization: BC Liquor Distribution Branch
 order: 1
 ---
 
