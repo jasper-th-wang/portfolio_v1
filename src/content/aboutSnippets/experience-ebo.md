@@ -5,4 +5,4 @@ organization: Earth Baby Outfitters
 order: 2
 ---
 
-Managed an eCommerce store on LightSpeed eCom and Shopify, fixing issues and whipping up custom solutions with JavaScript, CSS, and HTML. Also, I steered marketing and advertising strategies, working with agencies and partners to roll out various projects.
+Led the transition from wholesale-only to retail operations by implementing a comprehensive eCommerce and marketing stack (Shopify, Gorgias), establishing direct-to-consumer channels through SEO optimization, Google Ads campaigns, omnichannel marketing (Email/SMS), and social media presence, enabling retail operations
