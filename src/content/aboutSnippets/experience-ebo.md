@@ -1,6 +1,6 @@
 ---
 timeline: November 2022 - November 2023
-title: eCommerce Technology and Operations Coordinator
+title: eCommerce Technology and Operations Lead
 organization: Earth Baby Outfitters
 order: 2
 ---
