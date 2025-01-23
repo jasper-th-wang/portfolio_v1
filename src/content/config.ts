@@ -27,6 +27,7 @@ const projectsCollection = defineCollection({
       cover: image(),
       coverAlt: z.string(),
       github: z.string().optional(),
+      devpost: z.string().optional(),
       liveLink: z.string().optional(),
       postLink: z.string().optional(),
       tags: z.array(z.string()),

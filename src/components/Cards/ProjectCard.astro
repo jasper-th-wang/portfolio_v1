@@ -9,6 +9,7 @@ interface Props {
   imagesrc: ImageMetadata;
   imageAlt: string;
   github?: string;
+  devpost?: string;
   liveLink?: string;
   postLink?: string;
   tags?: string[];
@@ -21,6 +22,7 @@ const {
   imagesrc,
   imageAlt,
   github,
+  devpost,
   liveLink,
   postLink,
   tags,
@@ -49,6 +51,7 @@ const {
     </div>
     <div class="project-card__links">
       {github && <Link url={github} name="Github" redirect={true} />}
+      {devpost && <Link url={devpost} name="Devpost" redirect={true} />}
       {liveLink && <Link url={liveLink} name="Live Site" redirect={true} />}
       {postLink && <Link url={postLink} name="Learn More" redirect={false} />}
     </div>

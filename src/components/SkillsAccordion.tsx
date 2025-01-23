@@ -12,6 +12,8 @@ const LANGUAGES = [
   "Python",
   "TypeScript",
   "JavaScript",
+  "GitHub Actions",
+  "Azure Bicep",
   "Lua",
   "NodeJS",
   "JSX",
