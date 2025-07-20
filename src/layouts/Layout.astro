@@ -113,10 +113,11 @@ const metadata = {
         <meta name="theme-color" content="#ffffff" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Archivo+Black&family=Archivo+Narrow:wght@500&family=Poppins:wght@300;400;600;800&display=swap"
-            rel="stylesheet"
-        />
+        <!-- <link -->
+        <!--     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Archivo+Black&family=Archivo+Narrow:wght@500&family=Poppins:wght@300;400;600;800&display=swap" -->
+        <!--     rel="stylesheet" -->
+        <!-- /> -->
+        <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class={`container ${!isHome && "container--alt"}`}>
@@ -161,6 +162,15 @@ const metadata = {
         line-height: 1.5;
     }
 
+
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'CommitMono VariableFont';
+        font-style: normal;
+        font-weight: 400;
+        src:  url('/fonts/CommitMono VariableFont.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+    }
+
     html,
     body {
         background-color: var(--primary-bg);
@@ -174,18 +184,25 @@ const metadata = {
     }
 
     h1 {
-        font-family: "Archivo Black", sans-serif;
+        /* font-family: "Archivo Black", sans-serif; */
+        font-family: "CommitMono VariableFont", monospace;
         font-size: 2.8rem;
+        /* font-size: 4rem; */
+            font-weight: 600;
         margin-top: 0;
     }
 
     h2 {
-        font-family: "Archivo Narrow", sans-serif;
+        /* font-family: "Archivo Narrow", sans-serif; */
+        /* font-family: "Archivo", sans-serif; */
+        font-family: "CommitMono VariableFont", monospace;
         /* color: var(--primary-text); */
         font-size: 1.8rem;
     }
     h3 {
-        font-family: "Archivo Narrow", sans-serif;
+        /* font-family: "Archivo Narrow", sans-serif; */
+        /* font-family: "Archivo", sans-serif; */
+        font-family: "CommitMono VariableFont", monospace;
         /* color: var(--primary-text); */
         font-size: 1.4rem;
     }
@@ -193,7 +210,9 @@ const metadata = {
     h3,
     h4,
     h5 {
-        font-family: "Archivo Narrow", sans-serif;
+        /* font-family: "Archivo Narrow", sans-serif; */
+        /* font-family: "Archivo", sans-serif; */
+        font-family: "CommitMono VariableFont", monospace;
     }
 
     a {
@@ -210,7 +229,9 @@ const metadata = {
     span,
     li,
     a {
-        font-family: "Poppins", sans-serif;
+        /* font-family: "Poppins", sans-serif; */
+        /* font-family: "Archivo", sans-serif; */
+        font-family: "CommitMono VariableFont", monospace;
         font-size: 1rem;
     }
 
@@ -240,7 +261,9 @@ const metadata = {
 
     footer,
     .footer--alt {
-        font-family: "Poppins", sans-serif;
+        /* font-family: "Poppins", sans-serif; */
+        /* font-family: "Archivo", sans-serif; */
+        font-family: "CommitMono VariableFont", monospace;
         /* padding-bottom: 2rem; */
         position: relative;
         bottom: initial;
