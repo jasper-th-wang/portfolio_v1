@@ -1,6 +1,6 @@
 ---
-timeline: May 2024 - Present
-title: Full Stack Developer
+timeline: May 2024 - August 2025
+title: DevSecOps Platform Engineer
 organization: BC Liquor Distribution Branch
 order: 1
 ---

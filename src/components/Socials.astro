@@ -2,7 +2,6 @@
 import GithubIcon from '@/components/svgs/SocialIcons/github.astro';
 import LinkedinIcon from '@/components/svgs/SocialIcons/linkedin.astro';
 import EmailIcon from '@/components/svgs/SocialIcons/email.astro';
-import ContactForm from '@/components/ContactForm';
 ---
 
 <div class="social-icons">
@@ -30,14 +29,13 @@ import ContactForm from '@/components/ContactForm';
   >
     <EmailIcon width="36" />
   </a>
-  <ContactForm client:load />
 </div>
 
 <style>
   .social-icons {
-    margin-top: 1.5rem;
+    margin-top: var(--space-m);
     display: flex;
-    gap: 1rem;
+    gap: var(--space-s);
   }
 
   .social-icons__icon {

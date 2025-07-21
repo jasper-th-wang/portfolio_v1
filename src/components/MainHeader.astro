@@ -23,8 +23,7 @@ const hasHeaderTexts = title || subtitle || details;
     hasHeaderTexts && (
       <div class="header-texts">
         {title && <h1>{title}</h1>}
-        {subtitle && <h2>{subtitle}</h2>}
-        <!-- {details && <p>{details}</p>} -->
+        {subtitle && <span>{subtitle}</span>}
       </div>
     )
   }
@@ -39,10 +38,10 @@ const hasHeaderTexts = title || subtitle || details;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: flex-end;
+    text-align: end;
     gap: 0;
-    max-width: 30rem;
-    padding: 4rem 2rem;
+    padding: var(--space-2xl) var(--space-l);
   }
 
   header * {
@@ -50,12 +49,7 @@ const hasHeaderTexts = title || subtitle || details;
   }
 
   .header--alt {
-    gap: 1rem;
-  }
-
-  .header-texts > h2 {
-    margin-top: 0.3rem;
-    margin-bottom: 1.3rem;
+    gap: var(--space-s);
   }
 
   header h1 {
@@ -67,7 +61,7 @@ const hasHeaderTexts = title || subtitle || details;
       position: sticky;
       top: 0;
       width: 40%;
-      padding: 6rem 2rem;
+      padding: var(--space-2xl) var(--space-l);
       max-height: 100vh;
     }
     .header--home {

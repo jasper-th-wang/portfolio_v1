@@ -1,25 +1,21 @@
 ---
-import slugify from 'slugify';
-import Layout from '@/layouts/Layout.astro';
-import AboutSection from '@/components/Sections/AboutSection.astro';
-import ExperienceSection from '@/components/Sections/ExperienceSection.astro';
-import EducationSection from '@/components/Sections/EducationSection.astro';
-import SkillsSection from '@/components/Sections/SkillsSection.astro';
-import ProjectsSection from '@/components/Sections/ProjectsSection.astro';
-import PostsSection from '@/components/Sections/PostsSection.astro';
+import slugify from "slugify";
+import Layout from "@/layouts/Layout.astro";
+import AboutSection from "@/components/Sections/AboutSection.astro";
+import ExperienceSection from "@/components/Sections/ExperienceSection.astro";
+import EducationSection from "@/components/Sections/EducationSection.astro";
+import ProjectsSection from "@/components/Sections/ProjectsSection.astro";
 
 const sectionComponents = {
   about: AboutSection,
-  skills: SkillsSection,
-  projects: ProjectsSection,
   education: EducationSection,
   experience: ExperienceSection,
-  posts: PostsSection,
+  projects: ProjectsSection,
 };
 
 const myInfo = {
-  name: 'Jasper Wang',
-  title: 'Software Developer',
+  name: "Jasper Wang",
+  title: "Software Developer",
   description:
     "I'm passionate about making cool stuff and solving problems, with a background in Psychology from UBC and currently studying Computer Science at BCIT.",
 };
@@ -41,7 +37,7 @@ const navItems = Object.keys(sectionComponents);
       const SpecificSectionComponent = sectionComponents[section];
       return (
         <section id={slugify(section)}>
-          <h1>{section.charAt(0).toUpperCase() + section.slice(1)}</h1>
+          <h2>{section.slice(0)}</h2>
           {SpecificSectionComponent && <SpecificSectionComponent />}
         </section>
       );
@@ -52,24 +48,15 @@ const navItems = Object.keys(sectionComponents);
 <style>
   section {
     padding-top: 0;
-    padding-bottom: 6rem;
-  }
-
-  h1 {
-    text-transform: uppercase;
-    font-size: 1.7rem;
-    margin-bottom: 2.5rem;
   }
 
   h2 {
-    font-size: 1rem;
+    margin-bottom: var(--space-s);
   }
 
   @media only screen and (min-width: 1024px) {
     section {
-      scroll-margin-top: 6rem;
-      padding: 0;
-      padding-bottom: 6rem;
+      scroll-margin-top: 5rem;
       opacity: 0.5;
       transition-duration: 500ms;
     }
@@ -77,62 +64,5 @@ const navItems = Object.keys(sectionComponents);
     .section-focus {
       opacity: 1 !important;
     }
-
-    section:last-of-type {
-      padding-bottom: 0;
-    }
   }
 </style>
-
-<script>
-  import debounce from 'lodash.debounce';
-  /* Handles aligning the header of the last section to the header on the left nav menu*/
-  function alignLastSectionToHeader(): void {
-    const lastSection = document.querySelector(
-      'section:last-of-type'
-    ) as HTMLElement;
-
-    if (window.innerWidth < 1024) {
-      lastSection.style.paddingBottom = '';
-      return;
-    }
-    const header = document.querySelector('header') as HTMLElement;
-    const headerPaddingTop = parseInt(
-      window.getComputedStyle(header).getPropertyValue('padding-top')
-    );
-    const headerPaddingBottom = parseInt(
-      window.getComputedStyle(header).getPropertyValue('padding-bottom')
-    );
-
-    let lastSectionHeight =
-      parseInt(
-        window.getComputedStyle(lastSection).getPropertyValue('height')
-      ) -
-      parseInt(
-        window.getComputedStyle(lastSection).getPropertyValue('padding-bottom')
-      );
-
-    let paddingBottomValue =
-      window.innerHeight -
-      headerPaddingTop -
-      headerPaddingBottom -
-      lastSectionHeight;
-
-    lastSection.style.paddingBottom = `${paddingBottomValue.toString()}px`;
-
-    // Prevent footer from colliding into the last section
-
-    const footer = document.querySelector('footer') as HTMLElement;
-    const footerHeight = parseInt(
-      window.getComputedStyle(footer).getPropertyValue('height')
-    );
-
-    footer.style.position =
-      paddingBottomValue < footerHeight ? 'relative' : 'absolute';
-
-    footer.style.marginTop = paddingBottomValue < footerHeight ? '6rem' : '0px';
-  }
-
-  document.addEventListener('DOMContentLoaded', alignLastSectionToHeader);
-  window.onresize = debounce(alignLastSectionToHeader, 500, { trailing: true });
-</script>

@@ -4,5 +4,6 @@ description: "A bespoke landing page for an indie game studio, utilizing Vite fo
 cover: "../../assets/images/dirkinteractive.png"
 coverAlt: "a screenshot of https://dirkinteractive.com"
 liveLink: "https://dirkinteractive.com"
+featuredOrder: 2
 tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Vite", "PostCSS"]
 ---

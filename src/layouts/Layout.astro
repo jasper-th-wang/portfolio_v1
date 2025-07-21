@@ -4,448 +4,708 @@ import "@/styles/normalize.css";
 import Header from "@/components/MainHeader.astro";
 
 interface Props {
-    // if isHome is true, padding will be added, and nav and socials will be included in header.
-    isHome: boolean;
-    title?: string;
-    subtitle?: string;
-    details?: string;
-    navItems?: string[];
-    content?: string;
+  // if isHome is true, padding will be added, and nav and socials will be included in header.
+  isHome: boolean;
+  title?: string;
+  subtitle?: string;
+  details?: string;
+  navItems?: string[];
+  content?: string;
 }
 
 const {
-    isHome,
-    title,
-    subtitle,
-    details,
-    navItems = undefined,
-    content,
+  isHome,
+  title,
+  subtitle,
+  details,
+  navItems = undefined,
+  content,
 } = Astro.props;
 
 const metadata = {
-    title: "Jasper Wang",
-    author: "Jasper Wang",
-    description:
-        "Jasper Wang is a software developer with a deep passion for creating innovative solutions. Educated in Computer Science at BCIT and psychology in UBC.",
+  title: "Jasper Wang",
+  author: "Jasper Wang",
+  description:
+    "Jasper Wang is a software developer with a deep passion for creating innovative solutions. Educated in Computer Science at BCIT and psychology in UBC.",
 };
 ---
 
 <!doctype html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="author" content={metadata.author} />
-        <meta name="description" content={metadata.description} />
-        <title>{metadata.title}</title>
-        <link
-            rel="apple-touch-icon"
-            sizes="57x57"
-            href="/apple-icon-57x57.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="60x60"
-            href="/apple-icon-60x60.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="72x72"
-            href="/apple-icon-72x72.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="76x76"
-            href="/apple-icon-76x76.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="114x114"
-            href="/apple-icon-114x114.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="120x120"
-            href="/apple-icon-120x120.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="144x144"
-            href="/apple-icon-144x144.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="152x152"
-            href="/apple-icon-152x152.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/apple-icon-180x180.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="192x192"
-            href="/android-icon-192x192.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="96x96"
-            href="/favicon-96x96.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-        <meta name="theme-color" content="#ffffff" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <!-- <link -->
-        <!--     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Archivo+Black&family=Archivo+Narrow:wght@500&family=Poppins:wght@300;400;600;800&display=swap" -->
-        <!--     rel="stylesheet" -->
-        <!-- /> -->
-        <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <div class={`container ${!isHome && "container--alt"}`}>
-            <Header
-                isHome={isHome}
-                title={title}
-                subtitle={subtitle}
-                details={details}
-                navItems={navItems}
-                content={content}
-            />
-            <main class={!isHome && "main--alt"}>
-                <slot />
-                <footer>
-                    <p>
-                        Built with love using <a
-                            href="https://astro.build/"
-                            target="_blank">Astro</a
-                        >, designed with inspiration from various websites on <a
-                            href="https://www.awwwards.com/"
-                            target="_blank">awwwards.com</a
-                        >
-                    </p>
-                    <p>© Jasper Wang {new Date().getFullYear()}</p>
-                </footer>
-            </main>
-        </div>
-        <div id="cursor"></div>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content={metadata.author} />
+    <meta name="description" content={metadata.description} />
+    <title>{metadata.title}</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <div class={`container ${!isHome && "container--alt"}`}>
+      <Header
+        isHome={isHome}
+        title={title}
+        subtitle={subtitle}
+        details={details}
+        navItems={navItems}
+        content={content}
+      />
+      <main class={!isHome && "main--alt"}>
+        <slot />
+        <footer>
+          <small>
+            Built with love using <a href="https://astro.build/" target="_blank"
+              >Astro</a
+            >, designed with inspiration from various websites on <a
+              href="https://www.awwwards.com/"
+              target="_blank">awwwards.com</a
+            >
+          </small>
+          <br />
+          <small>© Jasper Wang {new Date().getFullYear()}</small>
+        </footer>
+      </main>
+    </div>
+    <div id="cursor"></div>
+  </body>
 </html>
 
 <style is:global>
-    /* Base styling */
+  /* Base styling */
 
-    :root {
-        --primary-text: rgb(232, 231, 203);
-        --primary-text-value: 232, 231, 203;
-        --primary-bg: rgb(100, 114, 117);
-        --code-background: #f6f7f9;
-        --code-text: #47546b;
-        --code-border: #e2e8f0;
-        line-height: 1.5;
-    }
+  @charset "UTF-8";
 
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "CommitMono VariableFont";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/CommitMono VariableFont.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+ */
+  }
 
-    @font-face {
-        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-        font-family: 'CommitMono VariableFont';
-        font-style: normal;
-        font-weight: 400;
-        src:  url('/fonts/CommitMono VariableFont.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-    }
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Apfel Grotezk";
+    font-weight: 700;
+    font-style: normal;
+    src: url("/fonts/ApfelGrotezk-Fett.woff2") format("woff2");
+    src: url("/fonts/ApfelGrotezk-Fett.woff") format("woff");
+  }
 
-    html,
-    body {
-        background-color: var(--primary-bg);
-        scroll-behavior: smooth;
-        color: var(--primary-text);
-    }
+  /* 
+     Utopia fluid space
 
-    ::selection {
-        background-color: #13262f;
-        color: #ffffff;
-    }
+ @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 
+   */
+  :root {
+    --space-3xs: clamp(0.25rem, calc(0.23rem + 0.11vw), 0.31rem);
+    --space-2xs: clamp(0.5rem, calc(0.46rem + 0.22vw), 0.63rem);
+    --space-xs: clamp(0.75rem, calc(0.68rem + 0.33vw), 0.94rem);
+    --space-s: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
+    --space-m: clamp(1.5rem, calc(1.37rem + 0.65vw), 1.88rem);
+    --space-l: clamp(2rem, calc(1.83rem + 0.87vw), 2.5rem);
+    --space-xl: clamp(3rem, calc(2.74rem + 1.3vw), 3.75rem);
+    --space-2xl: clamp(4rem, calc(3.65rem + 1.74vw), 5rem);
+    --space-3xl: clamp(6rem, calc(5.48rem + 2.61vw), 7.5rem);
+    /* One-up pairs */
+    --space-3xs-2xs: clamp(0.25rem, calc(0.12rem + 0.65vw), 0.63rem);
+    --space-2xs-xs: clamp(0.5rem, calc(0.35rem + 0.76vw), 0.94rem);
+    --space-xs-s: clamp(0.75rem, calc(0.58rem + 0.87vw), 1.25rem);
+    --space-s-m: clamp(1rem, calc(0.7rem + 1.52vw), 1.88rem);
+    --space-m-l: clamp(1.5rem, calc(1.15rem + 1.74vw), 2.5rem);
+    --space-l-xl: clamp(2rem, calc(1.39rem + 3.04vw), 3.75rem);
+    --space-xl-2xl: clamp(3rem, calc(2.3rem + 3.48vw), 5rem);
+    --space-2xl-3xl: clamp(4rem, calc(2.78rem + 6.09vw), 7.5rem);
+    /* Custom pairs */
+    --space-s-l: clamp(1rem, calc(0.48rem + 2.61vw), 2.5rem);
+  }
 
-    h1 {
-        /* font-family: "Archivo Black", sans-serif; */
-        font-family: "CommitMono VariableFont", monospace;
-        font-size: 2.8rem;
-        /* font-size: 4rem; */
-            font-weight: 600;
-        margin-top: 0;
-    }
+  /* 
+     Global theme tokens
+   */
+  :root {
+    --primary-text: rgb(232, 231, 203);
+    --primary-text-value: 232, 231, 203;
+    --primary-bg: rgb(100, 114, 117);
+    --code-background: #f6f7f9;
+    --code-text: #47546b;
+    --code-border: #e2e8f0;
+    line-height: 1.5;
+    /* Typography */
+    --font-base: "CommitMono VariableFont", monospace;
+    --font-display: var(--font-base);
+    --font-accent: "Apfel Grotezk", serif;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+    --line-height-compact: 1.2;
+    --line-height-base: 1.5;
+    --line-height-loose: 1.7;
+    --width-compact: 35ch;
+    --width-longform: 65ch;
+    --tracking: -0.05ch;
+    --tracking-s: -0.05ch;
+    /* 
+  Colors created with Utopia Kickstarter project 
+  @link https://www.figma.com/community/file/1122903924123950023
+  */
+    --color-text: var(--primary-text);
+    --color-text-mod-1: #494949;
+    --color-text-mod-2: #616161;
+    --color-bg: var(--primary-bg);
+    --color-bg-mod-1: #f8f8f8;
+    --color-bg-mod-2: #ededed;
+    --color-border: #1d1d1d;
+    --color-brand: var(--primary-bg);
+    --color-accent: #9f2c5e;
+    --color-highlight: #eefbc1;
+    /* Grid */
+    --gutter: var(--space-s-m);
+    /* Effects */
+    --border-radius: 8px;
+    --shadow: 0px 3px 7px rgba(0, 0, 0, 0.08), 0px 0px 1px rgba(0, 0, 0, 0.025);
+  }
+  /* 
+     Utopia fluid type
 
-    h2 {
-        /* font-family: "Archivo Narrow", sans-serif; */
-        /* font-family: "Archivo", sans-serif; */
-        font-family: "CommitMono VariableFont", monospace;
-        /* color: var(--primary-text); */
-        font-size: 1.8rem;
-    }
-    h3 {
-        /* font-family: "Archivo Narrow", sans-serif; */
-        /* font-family: "Archivo", sans-serif; */
-        font-family: "CommitMono VariableFont", monospace;
-        /* color: var(--primary-text); */
-        font-size: 1.4rem;
-    }
+ @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,20,1.25,4,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,NaN 
+   */
+  :root {
+    --step--1: clamp(0.83rem, calc(0.78rem + 0.29vw), 1rem);
+    --step-0: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
+    --step-1: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.56rem);
+    --step-2: clamp(1.44rem, calc(1.26rem + 0.89vw), 1.95rem);
+    --step-3: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.44rem);
+    --step-4: clamp(2.07rem, calc(1.73rem + 1.7vw), 3.05rem);
+  }
 
-    h3,
-    h4,
-    h5 {
-        /* font-family: "Archivo Narrow", sans-serif; */
-        /* font-family: "Archivo", sans-serif; */
-        font-family: "CommitMono VariableFont", monospace;
-    }
+  /* 
+   * Embrace the cascade and inheritance to 
+   * style as much as possible at a global level 
+   */
+  /* 
+     A modern reset
 
-    a {
-        text-decoration: none;
-        transition-duration: 500ms;
-        color: rgba(var(--primary-text-value), 0.8);
-    }
+ @link: https://piccalil.li/blog/a-modern-css-reset/ 
+   */
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-    a:hover {
-        color: rgba(var(--primary-text-value), 1);
-    }
+  /* Remove default margin */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
 
-    p,
-    span,
-    li,
-    a {
-        /* font-family: "Poppins", sans-serif; */
-        /* font-family: "Archivo", sans-serif; */
-        font-family: "CommitMono VariableFont", monospace;
-        font-size: 1rem;
-    }
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+  }
 
-    p {
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-    }
+  /* Prevent zooming when orientation changes on some iOS devices */
+  html {
+    -moz-text-size-adjust: none;
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+  }
 
-    P:first-of-type,
-    h2:first-of-type {
-        margin-top: 0;
-    }
+  /* Set core root defaults */
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
 
-    p:last-of-type {
-        margin-bottom: 0;
-    }
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+  }
 
-    ul {
-        list-style-position: inside;
+  /* A elements that don't have a class get default styles */
+  a:not([class]) {
+    -webkit-text-decoration-skip: ink;
+    text-decoration-skip-ink: auto;
+  }
+
+  /* Make images easier to work with */
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* Remove all animations and transitions for people that prefer not to see them */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01s !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01s !important;
+      scroll-behavior: auto !important;
     }
+  }
+
+  html,
+  body {
+    background-color: var(--primary-bg);
+    scroll-behavior: smooth;
+    color: var(--primary-text);
+  }
+
+  ::selection {
+    background-color: #13262f;
+    color: #ffffff;
+  }
+
+  /* 
+     Global styles 
+
+     Low-specificity, global styles that apply to the whole project: https://cube.fyi/css.html
+   */
+  body {
+    color: var(--color-text);
+    background: var(--color-bg);
+    font-size: var(--step-0);
+    font-family: var(--font-base);
+    letter-spacing: var(--tracking);
+  }
+
+  /* Base typesetting */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    line-height: 1;
+    letter-spacing: var(--tracking-s);
+  }
+
+  h1,
+  .h1 {
+    font-family: "Apfel Grotezk", sans-serif;
+    font-size: var(--step-4);
+  }
+
+  h2,
+  .h2 {
+    font-family: "Apfel Grotezk", sans-serif;
+    font-size: var(--step-3);
+  }
+
+  h3,
+  .h3 {
+    font-size: var(--step-2);
+  }
+
+  h4,
+  .h4 {
+    font-size: var(--step-1);
+  }
+
+  h5,
+  .h5 {
+    font-size: var(--step-0);
+  }
+
+  h6,
+  .h6 {
+    font-size: var(--step--1);
+  }
+
+  /* Set line lengths */
+  p,
+  li,
+  blockquote:not([class]) {
+    max-width: var(--width-longform);
+  }
+
+  h1,
+  h2,
+  h3 {
+    max-width: var(--width-compact);
+  }
+
+  hr {
+    border: none;
+    border-top: 2px dotted;
+  }
+
+  kbd {
+    background-color: var(--color-bg-mod-1);
+    border: solid 1px var(--color-bg-mod-2);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-accent);
+    font-size: 1rem;
+    padding: 0.115rem 0.25rem;
+  }
+
+  figcaption {
+    font-size: var(--step--1);
+    -webkit-margin-before: 0.5rem;
+    margin-block-start: 0.5rem;
+    text-align: center;
+  }
+
+  small {
+    font-size: var(--step--1);
+  }
+
+  /* More generic elements */
+  blockquote:not([class]) {
+    border-left: solid 3px var(--color-text);
+    -webkit-padding-start: var(--space-s);
+    padding-inline-start: var(--space-s);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    line-height: var(--line-height-base);
+  }
+
+  /* Markdown blockquuote:not([class])s aren't ideal, so we're presuming the person quoted is the last p */
+  blockquote:not([class]) p:last-of-type,
+  blockquote:not([class]) cite {
+    font-family: var(--font-base);
+    font-size: var(--step-1);
+    font-weight: normal;
+    -webkit-margin-before: var(--space-2xs);
+    margin-block-start: var(--space-2xs);
+  }
+
+  svg {
+    flex: none;
+  }
+  svg path {
+    fill: var(--color-text);
+  }
+
+  /* Remove padding and margin on ul, ol elements with a list role */
+  [role="list"] {
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    transition-duration: 500ms;
+    color: rgba(var(--primary-text-value), 0.8);
+  }
+
+  a:hover {
+    color: rgba(var(--primary-text-value), 1);
+  }
+
+  main > * + * {
+    margin-block-start: var(--space-2xl);
+  }
+
+  main {
+    padding-left: var(--space-l);
+    padding-right: var(--space-l);
+    position: relative;
+  }
+
+  footer,
+  .footer--alt {
+    font-family: "CommitMono VariableFont", monospace;
+    position: relative;
+    /** this is to balance out the padding for MainHeader **/
+    padding-bottom: var(--space-2xl);
+  }
+
+  footer small {
+    color: rgba(var(--primary-text-value), 0.6);
+  }
+
+  @media only screen and (min-width: 1024px) {
+      /** reset padding back **/
+      footer,
+      .footer--alt {
+          padding-bottom: initial
+      }
 
     main {
-        padding-left: 2rem;
-        padding-right: 2rem;
-        position: relative;
+      width: 60%;
+      padding: var(--space-2xl) var(--space-l);
     }
 
-    footer,
-    .footer--alt {
-        /* font-family: "Poppins", sans-serif; */
-        /* font-family: "Archivo", sans-serif; */
-        font-family: "CommitMono VariableFont", monospace;
-        /* padding-bottom: 2rem; */
-        position: relative;
-        bottom: initial;
-        padding-top: 4rem;
-        padding-bottom: 4rem;
+    .main--alt {
+      width: 70%;
     }
+  }
 
-    footer p {
-        color: rgba(var(--primary-text-value), 0.6);
+  /* Animated Cursor Styling */
+  #cursor {
+    display: none;
+    position: fixed;
+    top: -5px;
+    left: -5px;
+    width: 40px;
+    height: 40px;
+    background-color: #333333;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 999;
+    transition: all 200ms cubic-bezier(0.09, 0.55, 0.59, 0.97);
+  }
+
+  .hover-over-a {
+    width: 20px !important;
+    height: 20px !important;
+    background-color: white !important;
+    mix-blend-mode: difference !important;
+  }
+
+  .hover-over-text {
+    opacity: 0.15;
+  }
+
+  /* Cap the width on tablet size */
+  .container {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    footer a {
-        color: var(--primary-text);
-    }
-
-    @media only screen and (min-width: 1024px) {
-        main {
-            width: 60%;
-            padding: 6rem 2rem;
-        }
-
-        .main--alt {
-            width: 70%;
-        }
-
-        footer {
-            /* position: absolute; */
-
-            /* initialize footer style, will be changed in JS */
-            position: relative;
-            margin-top: 6rem;
-
-            padding-bottom: 0;
-            bottom: 6rem;
-        }
-    }
-
-    /* Animated Cursor Styling */
-
-    #cursor {
-        display: none;
-        position: fixed;
-        top: -5px;
-        left: -5px;
-        width: 40px;
-        height: 40px;
-        background-color: #333333;
-        border-radius: 50%;
-        pointer-events: none;
-        mix-blend-mode: difference;
-        z-index: 999;
-        transition: all 200ms cubic-bezier(0.09, 0.55, 0.59, 0.97);
-    }
-
-    .hover-over-a {
-        width: 20px !important;
-        height: 20px !important;
-        background-color: white !important;
-        mix-blend-mode: difference !important;
-    }
-
-    .hover-over-text {
-        opacity: 0.15;
-    }
-
-    /* Cap the width on tablet size */
 
     .container {
-        max-width: 40rem;
-        margin: 0 auto;
+      display: flex;
+      flex: 1;
+      padding-left: var(--space-s);
+      padding-right: var(--space-s);
+      max-width: 65rem;
+      position: relative;
+      overflow-y: visible;
     }
 
-    @media only screen and (min-width: 1024px) {
-        @media only screen and (min-height: 1300px) {
-            /* mitigate issues of intersection observer dimming the wrong sections */
-            :root {
-                font-size: 18px;
-            }
-        }
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .container {
-            display: flex;
-            flex: 1;
-            padding-left: 1rem;
-            padding-right: 1rem;
-            max-width: 65rem;
-            position: relative;
-            overflow-y: visible;
-        }
-
-        .container--alt {
-            max-width: 75rem;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-        }
-
-        #cursor {
-            display: block;
-        }
+    .container--alt {
+      max-width: 75rem;
     }
 
-    .toggled {
-        opacity: 1 !important;
+    #cursor {
+      display: block;
     }
+  }
 
-    svg,
-    path {
-        pointer-events: none;
-    }
+  .toggled {
+    opacity: 1 !important;
+  }
+
+  svg,
+  path {
+    pointer-events: none;
+  }
+
+  /* 
+   * High level, flexible layouts that provide a 
+   * skeleton to support any variant of a component
+   */
+  /* 
+     AUTO GRID
+     Related Every Layout: https://every-layout.dev/layouts/grid/
+     More info on the flexible nature: https://piccalil.li/tutorial/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid/
+     A flexible layout that will create an auto-fill grid with
+     configurable grid item sizes.
+
+     CUSTOM PROPERTIES AND CONFIGURATION
+     --gutter (var(--space-s-m)): This defines the space
+     between each item.
+
+     --grid-min-item-size (14rem): How large each item should be
+     ideally, as a minimum.
+
+     --grid-placement (auto-fill): Set either auto-fit or auto-fill
+     to change how empty grid tracks are handled. 
+   */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(
+      var(--grid-placement, auto-fill),
+      minmax(var(--grid-min-item-size, 16rem), 1fr)
+    );
+    gap: var(--gutter, var(--space-s-l));
+  }
+
+  /* Block */
+  /*
+     Button styles
+
+     Globally style the button element, submit, button and reset input.
+     Include the .button class for styling <a> tags as buttons. 
+   */
+  button,
+  .button,
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"] {
+    background-color: var(--color-brand);
+    color: var(--color-text);
+    border: solid 0.1rem var(--color-text);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    padding: var(--space-3xs) var(--space-2xs);
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  button:hover,
+  button:focus,
+  .button:hover,
+  .button:focus,
+  input[type="submit"]:hover,
+  input[type="submit"]:focus,
+  input[type="reset"]:hover,
+  input[type="reset"]:focus,
+  input[type="button"]:hover input[type="button"]:focus {
+    background-color: var(--color-text);
+    color: var(--color-brand);
+
+  }
+
+  button:disabled,
+  .button[aria-disabled="true"],
+  input[type="submit"]:disabled,
+  input[type="reset"]:disabled,
+  input[type="button"]:disabled {
+    background-color: var(--color-bg-mod-2);
+    border: solid 0.1rem var(--color-bg-mod-2);
+    color: var(--color-text-mod-2);
+    cursor: not-allowed;
+    transform: none;
+    filter: none;
+  }
+
+  /* Utilities */
+  .flow > * + * {
+    margin-top: var(--flow-space, 1em);
+  }
 </style>
 
 <script>
-    /**
-     * Handles focus and unfocus of sections
-     */
-    const sections = document.querySelectorAll("section");
+  /**
+   * Handles focus and unfocus of sections
+   */
+  const sections = document.querySelectorAll("section");
 
-    const options = {
-        rootMargin: "-40% 0px -60% 0px",
-    };
+  const options = {
+    rootMargin: "-40% 0px -60% 0px",
+  };
 
-    const intersectionCallback = (
-        entries: IntersectionObserverEntry[],
-        _observer: IntersectionObserver,
-    ) => {
-        entries.forEach((entry) => {
-            const navTarget = document.getElementById(
-                `${entry.target.getAttribute("id")}Nav`,
-            );
+  const intersectionCallback = (
+    entries: IntersectionObserverEntry[],
+    _observer: IntersectionObserver,
+  ) => {
+    entries.forEach((entry) => {
+      const navTarget = document.getElementById(
+        `${entry.target.getAttribute("id")}Nav`,
+      );
 
-            if (entry.isIntersecting) {
-                entry.target.classList.add("section-focus");
-                // nav target may be excluded from being tracked
-                navTarget?.classList.add("toggled");
-                return;
-            }
-            entry.target.classList.remove("section-focus");
+      if (entry.isIntersecting) {
+        entry.target.classList.add("section-focus");
+        // nav target may be excluded from being tracked
+        navTarget?.classList.add("toggled");
+        return;
+      }
+      entry.target.classList.remove("section-focus");
 
-            navTarget?.classList.remove("toggled");
-        });
-    };
-
-    const navObserver = new IntersectionObserver(intersectionCallback, options);
-    sections.forEach((section) => navObserver.observe(section));
-
-    /**
-     * Handles cursor animations
-     */
-
-    const cursor = document.getElementById("cursor");
-
-    const followCursorHandler = (e: MouseEvent) => {
-        cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    };
-
-    document.body.addEventListener("mousemove", (e) => {
-        followCursorHandler(e);
+      navTarget?.classList.remove("toggled");
     });
+  };
 
-    document.body.addEventListener("mouseover", (e) => {
-        const hasAnchorParent = (e.target as HTMLElement).closest("a");
-        const isAnchor = (e.target as HTMLElement).tagName === "A";
+  const navObserver = new IntersectionObserver(intersectionCallback, options);
+  sections.forEach((section) => navObserver.observe(section));
 
-        hasAnchorParent || isAnchor
-            ? cursor.classList.add("hover-over-a")
-            : cursor.classList.remove("hover-over-a");
+  /**
+   * Handles cursor animations
+   */
 
-        if (isAnchor) return;
+  const cursor = document.getElementById("cursor");
 
-        const textElements = ["H1", "H2", "P", "SPAN"];
-        textElements.indexOf((e.target as HTMLElement).tagName) >= 0
-            ? cursor.classList.add("hover-over-text")
-            : cursor.classList.remove("hover-over-text");
-    });
+  const followCursorHandler = (e: MouseEvent) => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  };
+
+  document.body.addEventListener("mousemove", (e) => {
+    followCursorHandler(e);
+  });
+
+  document.body.addEventListener("mouseover", (e) => {
+    const hasAnchorParent = (e.target as HTMLElement).closest("a");
+    const isAnchor = (e.target as HTMLElement).tagName === "A";
+
+    hasAnchorParent || isAnchor
+      ? cursor.classList.add("hover-over-a")
+      : cursor.classList.remove("hover-over-a");
+
+    if (isAnchor) return;
+
+    const textElements = ["H1", "H2", "P", "SPAN"];
+    textElements.indexOf((e.target as HTMLElement).tagName) >= 0
+      ? cursor.classList.add("hover-over-text")
+      : cursor.classList.remove("hover-over-text");
+  });
 </script>
