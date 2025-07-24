@@ -8,7 +8,7 @@ import { unified } from "unified";
 
 const { content } = Astro.props;
 const mdast = fromMarkdown(content);
-const table = toc(mdast, { tight: true, maxDepth: 3 });
+const table = toc(mdast, { tight: true, maxDepth: 2 });
 let html;
 try {
   const mdTable = toMarkdown(table.map);
@@ -24,6 +24,9 @@ try {
 </div>
 
 <style is:global>
+  .toc {
+    text-align: start;
+  }
   .toc h2 {
     margin-top: 1rem !important;
     margin-bottom: 0.5rem;

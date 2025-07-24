@@ -7,7 +7,7 @@ const { date } = Astro.props;
 ---
 
 <time datetime={date.toISOString()}>
-  <p>
+  <small>
     {
       date.toLocaleDateString("en-us", {
         year: "numeric",
@@ -15,10 +15,10 @@ const { date } = Astro.props;
         day: "numeric",
       })
     }
-  </p>
+  </small>
 </time>
 <style>
-    p {
+    small {
         font-size: var(--step--2);
     }
 </style>
