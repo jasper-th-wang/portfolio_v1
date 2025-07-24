@@ -11,7 +11,7 @@ const { url, name, redirect = false } = Astro.props;
 ---
 
 <a class="project-card__link" href={url}>
-  <span class="project-card__link__words">{name}</span>
+  <small class="project-card__link__words">{name}</small>
   {
     redirect ? (
       <RedirectArrow class="arrow-icon arrow-icon--redirect" />
