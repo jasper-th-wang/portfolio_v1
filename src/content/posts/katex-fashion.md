@@ -20,7 +20,7 @@ So, over the summer of 2020, I self-studied on Udemy, I fully went through 3 tut
 
 So, when I was presented with the opportunity to make a bespoke landing page for an actual company, I took on the challenge of applying what I learned.
 
-## Process:
+## Process
 
 ### Before diving into the IDE:
 

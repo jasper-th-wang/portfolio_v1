@@ -9,15 +9,13 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<div class="posts-list">
+<div class="posts-list flow">
   {
     posts.map((post) => (
       <li>
         <a href={`/posts/${post.slug}`}>
-          <>
-            <span>{post.data.title}</span>
-            <FormattedDate date={post.data.pubDate} />
-          </>
+          <p>{post.data.title}</p>
+          <FormattedDate date={post.data.pubDate} />
         </a>
       </li>
     ))
@@ -25,12 +23,9 @@ const { posts } = Astro.props;
 </div>
 <style>
   li {
+    font-size: var(--step--1);
     list-style-type: none;
     margin-bottom: var(--space-s);
   }
 
-  a {
-    display: flex;
-    justify-content: space-between;
-  }
 </style>
