@@ -249,13 +249,10 @@ const metadata = {
       );
 
       if (entry.isIntersecting) {
-        entry.target.classList.add("section-focus");
         // nav target may be excluded from being tracked
         navTarget?.classList.add("toggled");
         return;
       }
-      entry.target.classList.remove("section-focus");
-
       navTarget?.classList.remove("toggled");
     });
   };
@@ -266,7 +263,6 @@ const metadata = {
   /**
    * Handles cursor animations
    */
-
   const cursor = document.getElementById("cursor");
 
   const followCursorHandler = (e: MouseEvent) => {
