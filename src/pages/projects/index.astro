@@ -9,7 +9,7 @@ const sortedProjects = allProjects.sort(
 ---
 
 <Layout isHome={false} title="Projects">
-  <div class="projects-list grid">
+  <div class="projects-list">
     {
       sortedProjects.map((project) => (
         <ProjectCard
@@ -32,6 +32,15 @@ const sortedProjects = allProjects.sort(
 
 <style>
   @media screen and (min-width: 1024px) {
+    .projects-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      grid-auto-columns: 1fr;
+      column-gap: var(--space-s);
+      row-gap: var(--space-s);
+      padding-bottom: var(--space-3xl);
+    }
     .projects-list__item {
       margin-bottom: 0;
     }
