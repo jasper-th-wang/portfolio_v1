@@ -1,6 +1,6 @@
 ---
-import RedirectArrow from '@/components/svgs/RedirectArrow.astro';
-import LinkArrow from '@/components/svgs/LinkArrow.astro';
+import RedirectArrow from "@/components/svgs/RedirectArrow.astro";
+import LinkArrow from "@/components/svgs/LinkArrow.astro";
 interface Props {
   redirect?: boolean;
   url: string;
@@ -33,7 +33,6 @@ const { url, name, redirect = false } = Astro.props;
   .project-card__link {
     color: rgba(var(--primary-text-value), 1);
     transition-duration: 500ms;
-    display: flex;
   }
 
   .project-card__link__words {

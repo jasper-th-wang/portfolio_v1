@@ -51,7 +51,7 @@ const {
     <div class="project-card__tags">
       {tags && tags.map((tag) => <small class="project-card__tag">{tag}</small>)}
     </div>
-    <div class="project-card__links">
+    <div class="project-card__links cluster">
       {github && <Link url={github} name="Github" redirect={true} />}
       {devpost && <Link url={devpost} name="Devpost" redirect={true} />}
       {liveLink && <Link url={liveLink} name="Live Site" redirect={true} />}
