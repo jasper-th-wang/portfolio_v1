@@ -22,9 +22,8 @@ const myInfo = {
     "I'm passionate about making cool stuff and solving problems, with a background in Psychology from UBC and currently studying Computer Science at BCIT.",
 };
 
-// Excluse Say Hi from navbar
-// const navItems = Object.keys(sectionComponents).slice(0, -1);
-const navItems = Object.keys(sectionComponents);
+// Excluse Posts section from navbar
+const navItems = Object.keys(sectionComponents).slice(0, -1);
 ---
 
 <Layout
@@ -59,7 +58,7 @@ const navItems = Object.keys(sectionComponents);
   @media only screen and (min-width: 1024px) {
     section {
       scroll-margin-top: 5rem;
-      opacity: 0.5;
+      /* opacity: 0.5; */
       transition-duration: 500ms;
     }
 
