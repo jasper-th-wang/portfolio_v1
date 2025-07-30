@@ -1,0 +1,79 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import "keyboard-css/dist/css/main.min.css";
+---
+
+<Layout isHome={false}>
+  <h1>Bob is Melting!</h1>
+  <a href="#instruction"><small>See instruction</small></a>
+  <div id="embed-html"></div>
+  <section class="flow prose" id="instruction">
+    <h2>Instruction</h2>
+    <p>
+      Press <kbd class="kbc-button">←</kbd> and <kbd class="kbc-button">→</kbd>
+       to move left and right
+    </p>
+    <p>Press <kbd class="kbc-button">↑</kbd> to jump</p>
+    <p>
+      Scoop up the snowballs and give them to Bob the Snowman before he melts
+      away!
+    </p>
+    <aside class="callout flow">
+      <h4>⚠️  Note</h4>
+      <ul>
+          <li>If arrow keys don't work, click on the game area to focus it first</li>
+          <li>This game is only compatible on desktop!</li>
+      </ul>
+    </aside>
+  </section>
+</Layout>
+<script
+  type="text/javascript"
+  src="/bob-is-melting-game-assets/html/html.nocache.js"></script>
+
+<style>
+  #embed-html {
+    margin: 1rem 0;
+  }
+  section {
+    margin-top: 0;
+  }
+</style>
+
+<script>
+  function handleMouseDown(evt) {
+    evt.preventDefault();
+    evt.stopPropagation();
+    window.focus();
+  }
+
+  function handleMouseUp(evt) {
+    evt.preventDefault();
+    evt.stopPropagation();
+  }
+
+  function handleKeyDown(evt) {
+    // Prevent default behavior for arrow keys and other game controls
+    if (
+      evt.key === "ArrowUp" ||
+      evt.key === "ArrowDown" ||
+      evt.key === "ArrowLeft" ||
+      evt.key === "ArrowRight" ||
+      evt.key === " "
+    ) {
+      // spacebar if you use it
+      evt.preventDefault();
+      evt.stopPropagation();
+    }
+  }
+
+  document.addEventListener("contextmenu", (event) => event.preventDefault());
+
+  document.addEventListener("keydown", handleKeyDown, false);
+  document
+    .getElementById("embed-html")
+    .addEventListener("mousedown", handleMouseDown, false);
+  document
+    .getElementById("embed-html")
+    .addEventListener("mouseup", handleMouseUp, false);
+</script>

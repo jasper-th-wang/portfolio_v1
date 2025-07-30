@@ -384,6 +384,25 @@ Can be any acceptable flexbox alignment value.
 }
 
 /* Block */
+/* 
+CALLOUT
+*/
+.callout {
+  padding: var(--space-xs-s);
+  border: dotted 2px var(--color-text);
+  max-width: var(--width-longform);
+  border-radius: var(--border-radius); }
+
+.callout > * {
+  line-height: var(--line-height-base); }
+
+.callout[data-variant='brand'] {
+  color: var(--color-brand);
+  border: dotted 2px var(--color-brand); }
+
+.callout[data-variant='brand'] > * {
+  color: var(--color-brand); }
+
 .prose {
   --flow-space: var(--space-s-m);
   line-height: var(--line-height-loose); }
