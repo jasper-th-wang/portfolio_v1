@@ -4,6 +4,7 @@ description: "A text-based adventure game where players embark on a dungeon ques
 cover: "../../assets/images/sud.png"
 coverAlt: "a screenshot of the my Single User Dungeon app on the terminal"
 github: "https://github.com/jasper-th-wang/jasper_single_user_dungeon"
+liveLink: 'https://stackblitz.com/edit/secret-python-kfhzapqu?file=README.md&view=editor'
 tags:
   - Python
   - Terminal
