@@ -1,3 +1,9 @@
+## 0.3.0 (2025-08-01)
+
+### Feat
+
+- add live link for SUD project
+
 ## 0.2.0 (2025-08-01)
 
 ### Feat
