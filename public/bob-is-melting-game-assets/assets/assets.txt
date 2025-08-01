@@ -1,6 +1,5 @@
 d:assets:assets:0:application/unknown:1
 t:Characters.atlas:Characters-3fb96f26b8b303ceb1052e71f05d1391.atlas:310:application/unknown:1
-b:hs_err_pid53810.log:hs_err_pid53810-a2ca29d0321e8c7f0f563163abbc14ad.log:105615:application/unknown:1
 b:custom copy.tsx:custom copy-bf3ddbca0767046ee8bf14c87bab1098.tsx:236:application/unknown:1
 b:customTiles.tsx:customTiles-e90b0423f357ee9d43be3ab225f4081d.tsx:236:application/unknown:1
 i:Characters.png:Characters-292fddb794759927ee8c8b21577f2df2.png:8837:image/png:1

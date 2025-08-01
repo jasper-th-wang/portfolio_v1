@@ -6,7 +6,9 @@ import "keyboard-css/dist/css/main.min.css";
 <Layout isHome={false}>
   <h1>Bob is Melting!</h1>
   <a href="#instruction"><small>See instruction</small></a>
-  <div id="embed-html"></div>
+  <div id="game-container">
+    <div id="embed-html"></div>
+  </div>
   <section class="flow prose" id="instruction">
     <h2>Instruction</h2>
     <p>
@@ -19,10 +21,12 @@ import "keyboard-css/dist/css/main.min.css";
       away!
     </p>
     <aside class="callout flow">
-      <h4>⚠️  Note</h4>
+      <h4>⚠️ Note</h4>
       <ul>
-          <li>If arrow keys don't work, click on the game area to focus it first</li>
-          <li>This game is only compatible on desktop!</li>
+        <li>
+          If arrow keys don't work, click on the game area to focus it first
+        </li>
+        <li>This game is only compatible on desktop!</li>
       </ul>
     </aside>
   </section>
@@ -35,8 +39,13 @@ import "keyboard-css/dist/css/main.min.css";
   #embed-html {
     margin: 1rem 0;
   }
+
   section {
     margin-top: 0;
+  }
+
+  #game-container {
+    margin: 0;
   }
 </style>
 
@@ -76,4 +85,24 @@ import "keyboard-css/dist/css/main.min.css";
   document
     .getElementById("embed-html")
     .addEventListener("mouseup", handleMouseUp, false);
+
+  // Remove table wrapper over the canvas element (that is
+  // injected by LibGDX) so that the game's resizing mechanism works
+  function extractCanvas() {
+    const embedDiv = document.getElementById("embed-html");
+    const canvas = embedDiv.querySelector("canvas");
+
+    if (canvas) {
+      // Clear everything in embed-html and add just the canvas
+      embedDiv.innerHTML = "";
+      embedDiv.appendChild(canvas);
+      console.log("Canvas extracted successfully");
+    } else {
+      // Canvas not ready yet, try again
+      setTimeout(extractCanvas, 100);
+    }
+  }
+
+  // Start checking after LibGDX has time to initialize
+  setTimeout(extractCanvas, 500);
 </script>
