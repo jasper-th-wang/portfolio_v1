@@ -1,3 +1,9 @@
+## 0.2.0 (2025-08-01)
+
+### Feat
+
+- make screen size of bob is melting game resizable
+
 ## 0.1.0 (2025-08-01)
 
 ### Feat
