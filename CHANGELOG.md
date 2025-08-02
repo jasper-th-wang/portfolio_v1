@@ -1,3 +1,13 @@
+## 0.4.0 (2025-08-02)
+
+### Feat
+
+- **projects**: add an improved way to sort and feature projects via projects.ts configuration file (instead of frontmatter)
+
+### Refactor
+
+- remove featured and featuredOrder field
+
 ## 0.3.0 (2025-08-01)
 
 ### Feat
