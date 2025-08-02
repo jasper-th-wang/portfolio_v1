@@ -6,6 +6,4 @@ coverAlt: 'a screenshot of the Borrowhood project'
 github: 'https://github.com/jasper-th-wang/borrowhood/tree/v1.0.0'
 devpost: 'https://devpost.com/software/borrowhood'
 tags: ['Google Vision API', 'React', 'Mantine', 'Zustand', Python, FastAPI]
-featured: true
-featuredOrder: 1
 ---

@@ -11,6 +11,4 @@ tags:
   - JavaScript
   - Tailwind CSS
   - CSS
-featured: true
-featuredOrder: 4
 ---

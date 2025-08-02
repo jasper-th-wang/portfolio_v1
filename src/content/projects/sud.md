@@ -9,6 +9,4 @@ tags:
   - Python
   - Terminal
   - Game
-featured: true
-featuredOrder: 5
 ---

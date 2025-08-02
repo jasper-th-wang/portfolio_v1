@@ -6,6 +6,4 @@ coverAlt: 'a screenshot of the game Bob Is Melting'
 github: 'https://github.com/jasper-th-wang/Bob-Is-Melting'
 liveLink: '/bob-is-melting-game'
 tags: ['Java', 'LibGdx', 'Gradle']
-featured: true
-featuredOrder: 1
 ---
