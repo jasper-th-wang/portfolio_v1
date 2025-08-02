@@ -2,15 +2,14 @@
 import ProjectCard from '@/components/Cards/ProjectCard.astro';
 import Link from '@/components/Link.astro';
 import { getCollection } from 'astro:content';
+import { getFeaturedProjectsInOrder } from '@/configs/projects.ts';
 const allProjects = await getCollection('projects');
-const filteredProjects = allProjects
-  .filter((project) => project.data.featured)
-  .sort((a, b) => a.data.featuredOrder - b.data.featuredOrder);
+const featuredProjects = getFeaturedProjectsInOrder(allProjects);
 ---
 
 <>
   {
-    filteredProjects.map((project) => (
+    featuredProjects.map((project) => (
       <ProjectCard
         class="projects-list__item"
         title={project.data.title}

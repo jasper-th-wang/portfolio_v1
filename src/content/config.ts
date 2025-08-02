@@ -31,8 +31,6 @@ const projectsCollection = defineCollection({
       liveLink: z.string().optional(),
       postLink: z.string().optional(),
       tags: z.array(z.string()),
-      featured: z.boolean().optional(),
-      featuredOrder: z.number().optional(),
     }),
 });
 
