@@ -1,3 +1,9 @@
+## 0.4.3 (2025-08-03)
+
+### Fix
+
+- fix breadcrumb alignment when too long
+
 ## 0.4.2 (2025-08-03)
 
 ### Fix
