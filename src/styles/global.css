@@ -8,15 +8,6 @@
   src: url("/fonts/CommitMono VariableFont.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+ */
 }
 
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Apfel Grotezk";
-  font-weight: 700;
-  font-style: normal;
-  src: url("/fonts/ApfelGrotezk-Fett.woff2") format("woff2");
-  src: url("/fonts/ApfelGrotezk-Fett.woff") format("woff");
-}
-
 /* 
      Utopia fluid space
 
