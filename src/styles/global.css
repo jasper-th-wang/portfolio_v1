@@ -8,6 +8,15 @@
   src: url("/fonts/CommitMono VariableFont.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+ */
 }
 
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Apfel Grotezk";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/ApfelGrotezk-Fett.woff2") format("woff2");
+  src: url("/fonts/ApfelGrotezk-Fett.woff") format("woff");
+}
+
 /* 
      Utopia fluid space
 
@@ -83,16 +92,16 @@
 /* 
      Utopia fluid type
 
- @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,20,1.25,4,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,NaN 
+ @link https://utopia.fyi/type/calculator?c=320,14,1.2,1240,18,1.25,4,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,NaN 
    */
 :root {
-  --step--2: clamp(0.6944rem, 0.6577rem + 0.1836vw, 0.8rem);
-  --step--1: clamp(0.83rem, calc(0.78rem + 0.29vw), 1rem);
-  --step-0: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
-  --step-1: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.56rem);
-  --step-2: clamp(1.44rem, calc(1.26rem + 0.89vw), 1.95rem);
-  --step-3: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.44rem);
-  --step-4: clamp(2.07rem, calc(1.73rem + 1.7vw), 3.05rem);
+  --step--2: clamp(0.6076rem, 0.5686rem + 0.1954vw, 0.72rem);
+  --step--1: clamp(0.7292rem, 0.6697rem + 0.2971vw, 0.9rem);
+  --step-0: clamp(0.875rem, 0.788rem + 0.4348vw, 1.125rem);
+  --step-1: clamp(1.05rem, 0.9261rem + 0.6196vw, 1.4063rem);
+  --step-2: clamp(1.26rem, 1.0868rem + 0.8658vw, 1.7578rem);
+  --step-3: clamp(1.512rem, 1.2736rem + 1.1918vw, 2.1973rem);
+  --step-4: clamp(1.8144rem, 1.4902rem + 1.6212vw, 2.7466rem);
 }
 
 /* 
