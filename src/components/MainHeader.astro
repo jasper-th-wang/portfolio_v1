@@ -23,7 +23,7 @@ const hasHeaderTexts = title || subtitle || details;
     hasHeaderTexts && (
       <div class="header-texts">
         {title && <h1>{title}</h1>}
-        {subtitle && <span>{subtitle}</span>}
+        <p>{subtitle}</p>
       </div>
     )
   }
@@ -46,6 +46,10 @@ const hasHeaderTexts = title || subtitle || details;
 
   header * {
     margin-bottom: 0;
+  }
+
+  .header-texts {
+      line-height: 2;
   }
 
   .header--alt {
