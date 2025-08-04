@@ -188,11 +188,6 @@ body {
   color: var(--primary-text);
 }
 
-::selection {
-  background-color: #13262f;
-  color: #ffffff;
-}
-
 /* 
      Global styles 
 
