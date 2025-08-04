@@ -1,3 +1,9 @@
+## 0.5.0 (2025-08-04)
+
+### Feat
+
+- redesign for accessibility
+
 ## 0.4.3 (2025-08-03)
 
 ### Fix
