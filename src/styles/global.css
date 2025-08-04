@@ -49,9 +49,9 @@
      Global theme tokens
    */
 :root {
-  --primary-text: hsl(0, 0%, 10%);
-  --primary-text-value: 26, 26, 26;
-  --primary-bg: hsl(0, 0%, 97%);
+  --primary-text: rgb(215, 215, 215);
+  --primary-text-value: 215, 215, 215;
+  --primary-bg: rgb(34, 39, 46);
   --code-background: #f6f7f9;
   --code-text: #47546b;
   --code-border: #e2e8f0;
