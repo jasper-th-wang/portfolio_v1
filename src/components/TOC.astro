@@ -19,13 +19,13 @@ try {
 ---
 
 <div class="toc">
-  <h2>Contents</h2>
   {html || <p> No headings here 🫤</p>}
 </div>
 
 <style is:global>
   .toc {
-    text-align: start;
+    text-align: end;
+        line-height: 2;
   }
   .toc h2 {
     margin-top: 1rem !important;
@@ -33,6 +33,7 @@ try {
   }
 
   .toc ul {
+      font-size: var(--step--1);
     padding-left: 1.5rem;
     margin-top: 0;
   }

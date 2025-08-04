@@ -19,15 +19,17 @@ const hasHeaderTexts = title || subtitle || details;
 ---
 
 <header class={isHome ? "header--home" : "header--alt"}>
-  {
-    hasHeaderTexts && (
-      <div class="header-texts">
-        {title && <h1>{title}</h1>}
-        {subtitle && <span>{subtitle}</span>}
-      </div>
-    )
-  }
-  {!isHome && <Breadcrumbs />}
+  <div class="header-top">
+    {
+      hasHeaderTexts && (
+        <div class="header-texts">
+          {title && <h1>{title}</h1>}
+          <p>{subtitle}</p>
+        </div>
+      )
+    }
+    {!isHome && <Breadcrumbs />}
+  </div>
   {isHome && <Navigation navItems={navItems} />}
   {isHome && <Socials />}
   {content && <TOC content={content} />}
@@ -48,6 +50,16 @@ const hasHeaderTexts = title || subtitle || details;
     margin-bottom: 0;
   }
 
+  .header-top {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+  }
+
+  .header-texts {
+    line-height: 2;
+  }
+
   .header--alt {
     gap: var(--space-s);
   }
@@ -63,12 +75,9 @@ const hasHeaderTexts = title || subtitle || details;
       width: 40%;
       padding: var(--space-2xl) var(--space-l);
       max-height: 100vh;
-    }
-    .header--home {
       justify-content: space-between;
     }
     .header--alt {
-      justify-content: flex-start;
       width: 30%;
     }
   }

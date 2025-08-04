@@ -8,15 +8,6 @@
   src: url("/fonts/CommitMono VariableFont.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+ */
 }
 
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Apfel Grotezk";
-  font-weight: 700;
-  font-style: normal;
-  src: url("/fonts/ApfelGrotezk-Fett.woff2") format("woff2");
-  src: url("/fonts/ApfelGrotezk-Fett.woff") format("woff");
-}
-
 /* 
      Utopia fluid space
 
@@ -49,9 +40,9 @@
      Global theme tokens
    */
 :root {
-  --primary-text: rgb(232, 231, 203);
-  --primary-text-value: 232, 231, 203;
-  --primary-bg: rgb(100, 114, 117);
+  --primary-text: rgb(215, 215, 215);
+  --primary-text-value: 215, 215, 215;
+  --primary-bg: rgb(34, 39, 46);
   --code-background: #f6f7f9;
   --code-text: #47546b;
   --code-border: #e2e8f0;
@@ -59,7 +50,7 @@
   /* Typography */
   --font-base: "CommitMono VariableFont", monospace;
   --font-display: var(--font-base);
-  --font-accent: "Apfel Grotezk", serif;
+  --font-accent: "CommitMono VariableFont", monospace;
   --font-weight-regular: 400;
   --font-weight-bold: 700;
   --line-height-compact: 1.2;
@@ -92,16 +83,16 @@
 /* 
      Utopia fluid type
 
- @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,20,1.25,4,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,NaN 
+ @link https://utopia.fyi/type/calculator?c=320,14,1.2,1240,18,1.25,4,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,NaN 
    */
 :root {
-  --step--2: clamp(0.6944rem, 0.6577rem + 0.1836vw, 0.8rem);
-  --step--1: clamp(0.83rem, calc(0.78rem + 0.29vw), 1rem);
-  --step-0: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
-  --step-1: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.56rem);
-  --step-2: clamp(1.44rem, calc(1.26rem + 0.89vw), 1.95rem);
-  --step-3: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.44rem);
-  --step-4: clamp(2.07rem, calc(1.73rem + 1.7vw), 3.05rem);
+  --step--2: clamp(0.6076rem, 0.5686rem + 0.1954vw, 0.72rem);
+  --step--1: clamp(0.7292rem, 0.6697rem + 0.2971vw, 0.9rem);
+  --step-0: clamp(0.875rem, 0.788rem + 0.4348vw, 1.125rem);
+  --step-1: clamp(1.05rem, 0.9261rem + 0.6196vw, 1.4063rem);
+  --step-2: clamp(1.26rem, 1.0868rem + 0.8658vw, 1.7578rem);
+  --step-3: clamp(1.512rem, 1.2736rem + 1.1918vw, 2.1973rem);
+  --step-4: clamp(1.8144rem, 1.4902rem + 1.6212vw, 2.7466rem);
 }
 
 /* 
@@ -197,11 +188,6 @@ body {
   color: var(--primary-text);
 }
 
-::selection {
-  background-color: #13262f;
-  color: #ffffff;
-}
-
 /* 
      Global styles 
 
@@ -220,41 +206,39 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: var(--tracking-s);
 }
 
 h1,
 .h1 {
-  font-family: "Apfel Grotezk", sans-serif;
-  font-size: var(--step-4);
+  font-size: var(--step-2);
 
 }
 
 h2,
 .h2 {
-  font-family: "Apfel Grotezk", sans-serif;
-  font-size: var(--step-3);
+  font-size: var(--step--1);
 }
 
 h3,
 .h3 {
-  font-size: var(--step-2);
+  font-size: var(--step-1);
 }
 
 h4,
 .h4 {
-  font-size: var(--step-1);
+  font-size: var(--step-0);
 }
 
 h5,
 .h5 {
-  font-size: var(--step-0);
+  font-size: var(--step--1);
 }
 
 h6,
 .h6 {
-  font-size: var(--step--1);
+  font-size: var(--step--2);
 }
 
 /* Set line lengths */
