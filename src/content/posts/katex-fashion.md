@@ -22,17 +22,19 @@ So, when I was presented with the opportunity to make a bespoke landing page for
 
 ## Process
 
-### Before diving into the IDE:
+Here is how I approached building this site, step by step.
+
+### Before diving into the IDE
 
 First, I did research on websites like [awwward.com](http://awwward.com/) and [dribbble.com](http://dribbble.com/) to get some design inspiration.
 
 Once I settled on a design language that I liked, I used pencil and paper to graph the layout of the webpage. It’s only after I finish the skeleton of the layout, that I get to code.
 
-### First step: The hyper hypertext markup
+### The hyper hypertext markup
 
 I started with an HTML skeleton of the webpage- I made an HTML mock-up according to my layout sketches, and then I started the styling.
 
-### Second step: the Sassy CSS
+### The Sassy CSS
 
 I picked SCSS to manage my styling. SCSS is a pre-processor scripting language that's a superset of CSS, and I chose it because I can utilize the [BEM methodology](https://getbem.com/) to organize my CSS files.
 
@@ -72,13 +74,13 @@ SCSS allows me to nest CSS selectors, making it easy to read and write complex s
 
 Not just nesting, SCSS enables me to do so much more- from importing many stylesheets into one to *mixins*, and reusable snippets, writing CSS became such a breeze.
 
-### Third Step: The JavaScript ☕️!
+### The JavaScript
 
 To make the project more fun, I opted to not use libraries for scrolling animations. I watched a few [videos by](https://www.youtube.com/watch?v=T8EYosX4NOo) Kevin Powell and learned to implement the fade-in effect of each element as they're scrolled into view, as well as the scroll spy effect on the menu bar.
 
 At the time, my programming skills weren’t as good as now, that’s why for some of the more difficult effects like photo carousel I opted for using a [community npm package](https://github.com/ganlanyuan/tiny-slider).
 
-### Fourth+ Steps: Going back and forth, and repeat
+### Going back and forth, and repeat
 
 Once the prototype is done, I went about _iterating_ the project by going through online resources to see if I am following **best practices**. Two helpful tools were the [Google Lighthouse Score](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring) and [the Front-End Check List](https://frontendchecklist.io). After using these tools, I realized I didn't do anything about SEO, meta tags and accessibility. So I modified my HTML code to make the webpage more accessible, and easier for a crawler to index.
 
@@ -86,7 +88,7 @@ Once the prototype is done, I went about _iterating_ the project by going throug
 
 I went from not having any fully finished and deployed projects to having one, all by myself without following a tutorial!
 
-## What challenges or roadblocks did I face
+## Challenges
 
 Lots.
 

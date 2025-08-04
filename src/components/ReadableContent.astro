@@ -1,108 +1,133 @@
-<div class="flow prose">
+<article class="flow prose">
   <slot />
-</div>
+</article>
 <style is:inline>
-  :is(h1, h2, h3, h4, h5, h6) {
-    scroll-margin-top: 5rem;
-  }
-  blockquote:not(.unset) {
-    font-size: 1.125rem;
-    width: 85%;
-    margin: 0 auto;
-    font-style: italic;
-    color: var(--text);
-    padding: 1.5rem 3rem;
-    line-height: 1.9;
-    position: relative;
-  }
+  article {
+    h1,
+    h2,
+    h3 {
+      max-width: initial;
+    }
 
-  blockquote:not(.unset):before {
-    font-family: Arial;
-    content: "\201c";
-    color: var(--text);
-    font-size: 4rem;
-    position: absolute;
-    left: 10px;
-    top: -10px;
-  }
+    h1,
+    .h1 {
+      font-size: var(--step-3);
+    }
 
-  blockquote:not(.unset):after {
-    content: "";
-  }
+    h2,
+    .h2 {
+      font-size: var(--step-2);
+      font-weight: bold;
+    }
 
-  code,
-  code p,
-  code span {
-    font-family: "JetBrains Mono", monospace;
-  }
+    h3,
+    .h3 {
+      font-size: var(--step-1);
+      font-weight: bold;
+    }
 
-  :not(pre) > code {
-    padding: 2px 5px;
-    color: var(--primary-text);
-    background-color: var(--primary-bg);
-    border: 1px solid var(--primary-text);
-    border-radius: 4px;
-  }
+    a {
+      text-decoration: underline;
+    }
 
-  pre[class*="astro-code"] {
-    font-family: "JetBrains Mono", monospace;
-    padding: 1rem;
-    margin: 0.5rem 0;
-    overflow: auto;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  }
+    :is(h1, h2, h3, h4, h5, h6) {
+      scroll-margin-top: 5rem;
+    }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    border-radius: 0.5rem;
-  }
+    blockquote:not(.unset) {
+      font-size: 1.125rem;
+      width: 85%;
+      margin: 0 auto;
+      font-style: italic;
+      color: var(--text);
+      padding: 1.5rem 3rem;
+      line-height: 1.9;
+      position: relative;
+    }
 
-  table thead tr {
-    background-color: var(--primary-text);
-    color: var(--primary-bg);
-    text-align: left;
-  }
+    blockquote:not(.unset):before {
+      font-family: Arial;
+      content: "\201c";
+      color: var(--text);
+      font-size: 4rem;
+      position: absolute;
+      left: 10px;
+      top: -10px;
+    }
 
-  table th,
-  table td {
-    padding: 12px 15px;
-  }
+    blockquote:not(.unset):after {
+      content: "";
+    }
 
-  table tbody tr {
-    border-bottom: 1px solid var(--primary-text);
-  }
+    code,
+    code p,
+    code span {
+      font-family: "JetBrains Mono", monospace;
+    }
 
-  table tbody tr:nth-of-type(even) {
-    background-color: var(--primary-text);
-    color: var(--primary-bg);
-  }
+    :not(pre) > code {
+      padding: 2px 5px;
+      color: var(--primary-text);
+      background-color: var(--primary-bg);
+      border: 1px solid var(--primary-text);
+      border-radius: 4px;
+    }
 
-  table tbody tr:last-of-type {
-    border-bottom: 2px solid var(--primary-text);
-  }
+    pre[class*="astro-code"] {
+      font-family: "JetBrains Mono", monospace;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      overflow: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
 
-  table tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
-  }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9em;
+      font-family: sans-serif;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      border-radius: 0.5rem;
+    }
 
-  .post-info__header {
-    margin-bottom: 1.4rem;
-  }
+    table thead tr {
+      background-color: var(--primary-text);
+      color: var(--primary-bg);
+      text-align: left;
+    }
 
-  img {
-    max-width: 350px;
-    height: auto;
-    -ms-interpolation-mode: bicubic;
-    display: inline-block;
-    vertical-align: middle;
-  }
+    table th,
+    table td {
+      padding: 12px 15px;
+    }
 
+    table tbody tr {
+      border-bottom: 1px solid var(--primary-text);
+    }
+
+    table tbody tr:nth-of-type(even) {
+      background-color: var(--primary-text);
+      color: var(--primary-bg);
+    }
+
+    table tbody tr:last-of-type {
+      border-bottom: 2px solid var(--primary-text);
+    }
+
+    table tbody tr.active-row {
+      font-weight: bold;
+      color: #009879;
+    }
+
+    img {
+      max-width: 350px;
+      height: auto;
+      -ms-interpolation-mode: bicubic;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
 </style>
