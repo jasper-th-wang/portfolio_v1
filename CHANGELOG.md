@@ -1,3 +1,9 @@
+## 0.7.0 (2025-08-06)
+
+### Feat
+
+- increase section distance
+
 ## 0.6.0 (2025-08-04)
 
 ### Feat
