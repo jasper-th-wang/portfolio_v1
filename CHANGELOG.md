@@ -1,3 +1,9 @@
+## 0.7.1 (2025-08-07)
+
+### Fix
+
+- margin should be smaller on mobile
+
 ## 0.7.0 (2025-08-06)
 
 ### Feat
