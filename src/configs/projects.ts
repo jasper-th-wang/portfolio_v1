@@ -3,6 +3,7 @@
 
 // All projects in the order to appear
 export const projectOrder = [
+  "contextify",
   "bob-is-melting",
   "sud",
   "portfolio",
@@ -19,9 +20,9 @@ export const projectOrder = [
 
 // Featured projects in the order they should appear (based on your current featuredOrder)
 export const featuredProjects = [
+  "contextify",
   "bob-is-melting",
   "sud",
-  "portfolio",
   "borrowhood",
   "minutemon",
   "katex",
