@@ -3,6 +3,7 @@
 
 // All projects in the order to appear
 export const projectOrder = [
+  "reframekit",
   "contextify",
   "bob-is-melting",
   "sud",
@@ -20,13 +21,11 @@ export const projectOrder = [
 
 // Featured projects in the order they should appear (based on your current featuredOrder)
 export const featuredProjects = [
+  "reframekit",
   "contextify",
   "bob-is-melting",
-  "sud",
   "borrowhood",
   "minutemon",
-  "katex",
-  "dirkinteractive",
   "rainmate",
 ];
 
