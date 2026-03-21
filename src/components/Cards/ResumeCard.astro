@@ -25,6 +25,7 @@ const { timespan, title, organization, description } = Astro.props;
   /* Ensure consistent heading size regardless of heading level */
   .resume-card :is(h2, h3, h4) {
     font-size: var(--step-1);
+    max-width: initial;
   }
 
   /* Ensure consistent text size for all non-heading elements */
