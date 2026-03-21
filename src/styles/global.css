@@ -8,10 +8,10 @@
   src: url("/fonts/CommitMono VariableFont.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+ */
 }
 
-/* 
+/*
      Utopia fluid space
 
- @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 
+ @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
    */
 :root {
   --space-3xs: clamp(0.25rem, calc(0.23rem + 0.11vw), 0.31rem);
@@ -36,7 +36,7 @@
   --space-s-l: clamp(1rem, calc(0.48rem + 2.61vw), 2.5rem);
 }
 
-/* 
+/*
      Global theme tokens
    */
 :root {
@@ -60,8 +60,8 @@
   --width-longform: 65ch;
   --tracking: -0.05ch;
   --tracking-s: -0.05ch;
-  /* 
-  Colors created with Utopia Kickstarter project 
+  /*
+  Colors created with Utopia Kickstarter project
   @link https://www.figma.com/community/file/1122903924123950023
   */
   --color-text: var(--primary-text);
@@ -80,29 +80,29 @@
   --border-radius: 8px;
   --shadow: 0px 3px 7px rgba(0, 0, 0, 0.08), 0px 0px 1px rgba(0, 0, 0, 0.025);
 }
-/* 
+/*
      Utopia fluid type
 
- @link https://utopia.fyi/type/calculator?c=320,14,1.2,1240,18,1.25,4,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,NaN 
+    @link https://utopia.fyi/type/calculator?c=320,12,1.2,1240,16,1.25,4,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,NaN
    */
 :root {
-  --step--2: clamp(0.6076rem, 0.5686rem + 0.1954vw, 0.72rem);
-  --step--1: clamp(0.7292rem, 0.6697rem + 0.2971vw, 0.9rem);
-  --step-0: clamp(0.875rem, 0.788rem + 0.4348vw, 1.125rem);
-  --step-1: clamp(1.05rem, 0.9261rem + 0.6196vw, 1.4063rem);
-  --step-2: clamp(1.26rem, 1.0868rem + 0.8658vw, 1.7578rem);
-  --step-3: clamp(1.512rem, 1.2736rem + 1.1918vw, 2.1973rem);
-  --step-4: clamp(1.8144rem, 1.4902rem + 1.6212vw, 2.7466rem);
+  --step--2: clamp(0.5208rem, 0.4794rem + 0.2072vw, 0.64rem);
+  --step--1: clamp(0.625rem, 0.5641rem + 0.3043vw, 0.8rem);
+  --step-0: clamp(0.75rem, 0.663rem + 0.4348vw, 1rem);
+  --step-1: clamp(0.9rem, 0.7783rem + 0.6087vw, 1.25rem);
+  --step-2: clamp(1.08rem, 0.9122rem + 0.8391vw, 1.5625rem);
+  --step-3: clamp(1.296rem, 1.0674rem + 1.1428vw, 1.9531rem);
+  --step-4: clamp(1.5552rem, 1.247rem + 1.5412vw, 2.4414rem);
 }
 
-/* 
-   * Embrace the cascade and inheritance to 
-   * style as much as possible at a global level 
+/*
+   * Embrace the cascade and inheritance to
+   * style as much as possible at a global level
    */
-/* 
+/*
      A modern reset
 
- @link: https://piccalil.li/blog/a-modern-css-reset/ 
+ @link: https://piccalil.li/blog/a-modern-css-reset/
    */
 /* Box sizing rules */
 *,
@@ -188,8 +188,8 @@ body {
   color: var(--primary-text);
 }
 
-/* 
-     Global styles 
+/*
+     Global styles
 
      Low-specificity, global styles that apply to the whole project: https://cube.fyi/css.html
    */
@@ -337,11 +337,11 @@ Can be any acceptable flexbox alignment value.
   align-items: var(--cluster-vertical-alignment, center);
 }
 
-/* 
-   * High level, flexible layouts that provide a 
+/*
+   * High level, flexible layouts that provide a
    * skeleton to support any variant of a component
    */
-/* 
+/*
      AUTO GRID
      Related Every Layout: https://every-layout.dev/layouts/grid/
      More info on the flexible nature: https://piccalil.li/tutorial/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid/
@@ -356,7 +356,7 @@ Can be any acceptable flexbox alignment value.
      ideally, as a minimum.
 
      --grid-placement (auto-fill): Set either auto-fit or auto-fill
-     to change how empty grid tracks are handled. 
+     to change how empty grid tracks are handled.
    */
 .grid {
   display: grid;
@@ -368,7 +368,7 @@ Can be any acceptable flexbox alignment value.
 }
 
 /* Block */
-/* 
+/*
 CALLOUT
 */
 .callout {
@@ -403,7 +403,7 @@ CALLOUT
      Button styles
 
      Globally style the button element, submit, button and reset input.
-     Include the .button class for styling <a> tags as buttons. 
+     Include the .button class for styling <a> tags as buttons.
    */
 button,
 .button,
