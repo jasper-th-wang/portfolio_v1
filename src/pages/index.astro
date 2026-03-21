@@ -27,7 +27,7 @@ const navItems = Object.keys(sectionComponents).slice(0, -1);
 ---
 
 <Layout
-  isHome={true}
+  isHome={false}
   title={myInfo.name}
   subtitle={myInfo.title}
   details={myInfo.description}
@@ -56,9 +56,9 @@ const navItems = Object.keys(sectionComponents).slice(0, -1);
   }
 
   @media only screen and (min-width: 1024px) {
-    h2 {
-        display: none;
-    }
+    /* h2 { */
+    /*     display: none; */
+    /* } */
     .section-focus {
       opacity: 1 !important;
     }
