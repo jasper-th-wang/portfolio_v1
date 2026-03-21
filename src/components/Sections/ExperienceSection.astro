@@ -1,5 +1,6 @@
 ---
 import ResumeCard from "@/components/Cards/ResumeCard.astro";
+import Link from "@/components/Link.astro";
 import { getCollection } from "astro:content";
 const aboutSnippets = await getCollection("aboutSnippets");
 const experiences = aboutSnippets
@@ -7,14 +8,19 @@ const experiences = aboutSnippets
   .sort((a, b) => a.data.order - b.data.order);
 ---
 
-{
-  experiences.map((job) => {
-    return (
-      <ResumeCard
-        timespan={job.data.timeline}
-        title={job.data.title}
-        organization={job.data.organization}
-      />
-    );
-  })
-}
+<>
+  {
+    experiences.map((job) => {
+      return (
+        <ResumeCard
+          timespan={job.data.timeline}
+          title={job.data.title}
+          organization={job.data.organization}
+        />
+      );
+    })
+  }
+  <p>
+    <Link url="/experience" name="View more experience" />
+  </p>
+</>
