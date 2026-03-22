@@ -1,0 +1,50 @@
+---
+import ProjectCard from "@/components/Cards/ProjectCard.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  projects: CollectionEntry<"projects">[];
+}
+
+const { projects } = Astro.props;
+---
+
+<div class="projects-list">
+  {
+    projects.map((project) => (
+      <ProjectCard
+        class="projects-list__item"
+        title={project.data.title}
+        description={project.data.description}
+        imagesrc={project.data.cover as ImageMetadata}
+        imageAlt={project.data.coverAlt}
+        github={project.data.github}
+        devpost={project.data.devpost}
+        liveLink={project.data.liveLink}
+        postLink={project.data.postLink}
+        tags={project.data.tags}
+      />
+    ))
+  }
+</div>
+
+<style>
+  @media screen and (min-width: 1024px) {
+    .projects-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      grid-auto-columns: 1fr;
+      column-gap: var(--space-s);
+      row-gap: var(--space-s);
+      padding-bottom: var(--space-3xl);
+    }
+    .projects-list__item {
+      margin-bottom: 0;
+    }
+    .projects-list__item:nth-child(2n) {
+      margin-top: 25%;
+      margin-bottom: -25%;
+    }
+  }
+</style>
