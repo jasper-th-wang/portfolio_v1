@@ -11,30 +11,20 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/react": "^4.3.0",
-    "@formspree/react": "^2.5.1",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
     "astro": "^5.12.0",
-    "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "keyboard-css": "^1.2.4",
-    "lodash.debounce": "^4.0.8",
     "mdast-util-from-markdown": "^2.0.0",
     "mdast-util-to-markdown": "^2.1.0",
     "mdast-util-toc": "^7.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "reading-time": "^1.5.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0",
     "slugify": "^1.6.6",
-    "typescript": "^5.2.2",
-    "vaul": "^0.8.7"
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "@types/lodash.debounce": "^4.0.9",
     "prettier-plugin-astro": "^0.12.1"
   }
 }
