@@ -1,4 +1,5 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import slugify from "slugify";
 import Layout from "@/layouts/Layout.astro";
 import AboutSection from "@/components/Sections/AboutSection.astro";
@@ -6,6 +7,9 @@ import ExperienceSection from "@/components/Sections/ExperienceSection.astro";
 import EducationSection from "@/components/Sections/EducationSection.astro";
 import ProjectsSection from "@/components/Sections/ProjectsSection.astro";
 import PostsSection from "@/components/Sections/PostsSection.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const sectionComponents = {
   about: AboutSection,
@@ -17,13 +21,17 @@ const sectionComponents = {
 
 const myInfo = {
   name: "Jasper Wang",
-  title: "Software Developer",
+  title: t('header.title'),
   description:
     "I'm passionate about making cool stuff and solving problems, with a background in Psychology from UBC and currently studying Computer Science at BCIT.",
 };
 
-// Excluse Posts section from navbar
-const navItems = Object.keys(sectionComponents).slice(0, -1);
+// Exclude Posts section from navbar
+const navItems = Object.keys(sectionComponents)
+  .slice(0, -1)
+  .map((item) => {
+    return t(`nav.${item}`);
+  });
 ---
 
 <Layout
@@ -36,9 +44,10 @@ const navItems = Object.keys(sectionComponents).slice(0, -1);
   {
     Object.keys(sectionComponents).map((section) => {
       const SpecificSectionComponent = sectionComponents[section];
+      const sectionName = t(`nav.${section}`);
       return (
-        <section id={slugify(section)}>
-          <h2>{section.slice(0)}</h2>
+        <section id={sectionName}>
+          <h2>{sectionName.slice(0)}</h2>
           {SpecificSectionComponent && <SpecificSectionComponent />}
         </section>
       );
