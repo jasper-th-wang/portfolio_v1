@@ -1,5 +1,6 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { getCollection } from "astro:content";
 import Link from "@/components/Link.astro";
 import PostsList from "@/components/PostsList.astro";
@@ -10,11 +11,16 @@ const sortedPosts = allPosts
       new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
   )
   .slice(0, 3);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <>
   <PostsList posts={sortedPosts} />
   <p>
-      <Link url={getRelativeLocaleUrl(Astro.currentLocale ?? "en", "posts")} name="View more posts" />
+    <Link
+      url={getRelativeLocaleUrl(Astro.currentLocale ?? "en", "posts")}
+      name={t("btn.viewPosts")}
+    />
   </p>
 </>
