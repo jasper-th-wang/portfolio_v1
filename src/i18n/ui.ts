@@ -7,6 +7,7 @@ export const defaultLang = 'en';
 
 export const ui = {
   en: {
+    'header.name': 'Jasper Wang',
     'header.jobTitle': 'Software Developer',
     'nav.about': 'about',
     'nav.education': 'education',
@@ -18,6 +19,7 @@ export const ui = {
     'btn.viewPosts': 'View more posts'
   },
   zh: {
+    'header.name': 'Jasper Wang <pre style="font-size: 80%">王子豪</pre>',
     'header.jobTitle': '軟體工程師',
     'nav.about': '關於我',
     'nav.education': '學歷',

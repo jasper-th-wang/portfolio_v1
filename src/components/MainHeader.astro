@@ -19,7 +19,7 @@ const { isHome, title, subtitle, details, navItems, content } = Astro.props;
 
 <header class="header--alt">
   <div class="header-top">
-    {title && <h1>{title}</h1>}
+    {title && <h1 set:html={title}></h1>}
     {subtitle && <p>{subtitle}</p>}
     {!isHome && <Breadcrumbs />}
   </div>
