@@ -1,14 +1,21 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import Layout from "@/layouts/Layout.astro";
 import ResumeCard from "@/components/Cards/ResumeCard.astro";
 import getCollectionWithLocale from "@/utils/getCollectionWithLocale";
-const aboutSnippets = await getCollectionWithLocale("aboutSnippets", Astro.currentLocale ?? "en");
+const aboutSnippets = await getCollectionWithLocale(
+  "aboutSnippets",
+  Astro.currentLocale ?? "en",
+);
 const experiences = aboutSnippets
   .filter((entry) => entry.id.includes("experience"))
   .sort((a, b) => a.data.order - b.data.order);
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Layout isHome={false} title="Experiences">
+<Layout isHome={false} title={t('nav.experience')}>
   <section>
     {
       experiences.map((job) => {

@@ -1,4 +1,5 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { getCollection } from "astro:content";
 import PostsList from "@/components/PostsList.astro";
 // import FormattedDate from "@/components/FormattedDate.astro";
@@ -8,8 +9,11 @@ const sortedPosts = allPosts.sort(
   (a, b) =>
     new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
 );
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Layout isHome={false} title="All Posts">
+<Layout isHome={false} title={t('nav.posts')}>
   <PostsList posts={sortedPosts} />
 </Layout>

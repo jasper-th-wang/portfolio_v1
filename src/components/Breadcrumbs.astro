@@ -13,7 +13,7 @@ let tmpLink = "";
 crumbs.forEach((crumb, index) => {
   tmpLink = tmpLink.concat(index > 1 ? "/" : "", crumb);
   const linkName =
-    crumb === "/" ? "Home" : crumb[0].toUpperCase() + crumb.slice(1);
+    crumb === "/" ? "home" : crumb;
   links[linkName] = getRelativeLocaleUrl(locale, tmpLink);
 });
 ---

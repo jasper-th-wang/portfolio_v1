@@ -1,12 +1,16 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import ProjectCardsList from '@/components/CardsLists/ProjectCardsList.astro';
 import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { getOrderedProjects } from '@/configs/projects.ts';
 const allProjects = await getCollection('projects');
 const orderedProjects = getOrderedProjects(allProjects);
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Layout isHome={false} title="Projects">
+<Layout isHome={false} title={t('nav.projects')}>
     <ProjectCardsList projects={orderedProjects}/>
 </Layout>

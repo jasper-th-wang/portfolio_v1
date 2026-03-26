@@ -7,7 +7,7 @@ export const defaultLang = 'en';
 
 export const ui = {
   en: {
-    'header.title': 'Software Developer',
+    'header.jobTitle': 'Software Developer',
     'nav.about': 'about',
     'nav.education': 'education',
     'nav.experience': 'experience',
@@ -15,10 +15,10 @@ export const ui = {
     'nav.posts': 'posts',
     'btn.viewExperience': 'View more experience',
     'btn.viewProjects': 'View more projects',
-    'btn.viewPosts': 'View more posts:'
+    'btn.viewPosts': 'View more posts'
   },
   zh: {
-    'header.title': '軟體工程師',
+    'header.jobTitle': '軟體工程師',
     'nav.about': '關於我',
     'nav.education': '學歷',
     'nav.experience': '經歷',
