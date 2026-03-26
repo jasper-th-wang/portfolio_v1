@@ -1,3 +1,18 @@
+## 0.9.0 (2026-03-26)
+
+### Feat
+
+- add i18n to all ui elements, revert i18ning 404 (see https://github.com/withastro/astro/issues/12175)
+- add language switcher
+- add localization for home page
+- add zh locale for some content (about and experience)
+
+### Fix
+
+- scrollspy issue
+- breadcrumbs
+- link issues
+
 ## 0.8.1 (2026-03-22)
 
 ### Fix
