@@ -32,7 +32,7 @@ export const featuredProjects = [
 // Helper function to get ordered projects
 export function getOrderedProjects(projects, orderArray = projectOrder) {
   return orderArray
-    .map((slug) => projects.find((project) => project.slug === slug))
+    .map((slug) => projects.find((project) => project.id === slug))
     .filter(Boolean); // Remove any undefined entries
 }
 

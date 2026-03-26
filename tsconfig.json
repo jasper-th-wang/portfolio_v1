@@ -5,8 +5,12 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
   },
-  "include": ["src/**/*", ".astro/types.d.ts"]
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }

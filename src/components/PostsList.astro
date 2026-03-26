@@ -14,7 +14,7 @@ const { posts } = Astro.props;
   {
     posts.map((post) => (
       <li>
-          <a href={getRelativeLocaleUrl(Astro.currentLocale ?? "en", `posts/${post.slug}`)}>
+          <a href={getRelativeLocaleUrl(Astro.currentLocale ?? "en", `posts/${post.id}`)}>
           <p>{post.data.title}</p>
           <FormattedDate date={post.data.pubDate} />
         </a>

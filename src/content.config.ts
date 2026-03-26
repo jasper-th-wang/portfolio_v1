@@ -1,9 +1,10 @@
 // Import utilities from `astro:content`
-import { z } from 'astro/zod';
+import { z } from "astro/zod";
 import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
 // Define a `type` and `schema` for each collection
 const postsCollection = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/data/posts" }),
   schema: z.object({
     title: z.string(),
     pubDate: z.date(),
@@ -20,7 +21,7 @@ const postsCollection = defineCollection({
 });
 
 const projectsCollection = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/data/projects" }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -36,12 +37,12 @@ const projectsCollection = defineCollection({
 });
 
 const aboutSnippetsCollection = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/data/aboutSnippets" }),
   schema: z.object({
     title: z.string().optional(),
     organization: z.string().optional(),
     timeline: z.string().optional(),
-    order: z.number().optional()
+    order: z.number().optional(),
   }),
 });
 //

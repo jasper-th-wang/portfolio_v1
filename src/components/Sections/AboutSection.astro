@@ -1,8 +1,8 @@
 ---
-// import { getEntry } from "astro:content";
+import { render } from "astro:content";
 import getEntryWithLocale from "@/utils/getEntryWithLocale";
 const entry = await getEntryWithLocale("aboutSnippets", "about", Astro.currentLocale ?? "en");
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <Fragment>
