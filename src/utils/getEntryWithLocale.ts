@@ -1,7 +1,7 @@
-import { getEntry } from "astro:content";
+import { getEntry, type DataEntryMap } from "astro:content";
 
 export default async function getEntryWithLocale(
-  dir: string,
+  dir: keyof DataEntryMap,
   file: string,
   locale: string,
 ) {

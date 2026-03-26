@@ -12,5 +12,5 @@
     ]
   },
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "exclude": ["dist", "public/bob-is-melting-game-assets"]
 }

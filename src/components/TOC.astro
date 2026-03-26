@@ -9,18 +9,17 @@ import { unified } from "unified";
 const { content } = Astro.props;
 const mdast = fromMarkdown(content);
 const table = toc(mdast, { tight: true, maxDepth: 2 });
-let html;
+let html: string;
 try {
   const mdTable = toMarkdown(table.map);
-  html = await unified().use(remarkParse).use(remarkHtml).process(mdTable);
+  const result = await unified().use(remarkParse).use(remarkHtml).process(mdTable);
+  html = String(result);
 } catch (e) {
   console.error("No heading found");
 }
 ---
 
-<div class="toc">
-  {html || <p> No headings here 🫤</p>}
-</div>
+<div class="toc" set:html={html || "<p>No headings here 🫤</p>"}/>
 
 <style is:global>
   .toc {

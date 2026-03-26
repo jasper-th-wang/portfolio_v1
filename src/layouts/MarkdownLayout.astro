@@ -1,10 +1,8 @@
 ---
-import MarkdownContentContainer from "@/components/MarkdownContentContainer.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 import Tags from "@/components/Tags.astro";
 import readingTime from "reading-time";
 import Layout from "@/layouts/Layout.astro";
-import { imageConfig } from "astro:assets";
 import ReadableContent from "../components/ReadableContent.astro";
 const { frontmatter, content } = Astro.props;
 const stats = readingTime(content);
@@ -23,15 +21,14 @@ const stats = readingTime(content);
     <Tags tags={frontmatter.tags} />
   </div>
   <ReadableContent>
-      <slot/>
+    <slot />
   </ReadableContent>
 </Layout>
 <style>
-    .post-info h1 {
-        margin-bottom: 0.2em;
-    }
-    .post-info__header {
-      margin-bottom: 1.4em;
-    }
-
+  .post-info h1 {
+    margin-bottom: 0.2em;
+  }
+  .post-info__header {
+    margin-bottom: 1.4em;
+  }
 </style>

@@ -1,7 +1,7 @@
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionKey } from "astro:content";
 
-export default async function getCollectionWithLocale(
-  collection: string,
+export default async function getCollectionWithLocale<T extends CollectionKey>(
+  collection: T,
   locale: string,
 ) {
   if (locale === "en") {

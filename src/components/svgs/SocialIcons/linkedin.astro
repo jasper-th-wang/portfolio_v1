@@ -1,16 +1,14 @@
 ---
 interface Props {
   width: string;
-  height: string;
 }
 
-const { width, height } = Astro.props;
+const { width } = Astro.props;
 ---
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width={width}
-  height={height}
   viewBox="0 0 24 24"
 >
   <path

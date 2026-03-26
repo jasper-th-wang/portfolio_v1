@@ -1,6 +1,8 @@
 // Central configuration for project ordering
 // This replaces the need for featuredOrder in individual markdown files
 
+import type { CollectionEntry } from "astro:content";
+
 // All projects in the order to appear
 export const projectOrder = [
   "reframekit",
@@ -30,13 +32,22 @@ export const featuredProjects = [
 ];
 
 // Helper function to get ordered projects
-export function getOrderedProjects(projects, orderArray = projectOrder) {
+export function getOrderedProjects(
+  projects: CollectionEntry<"projects">[],
+  orderArray = projectOrder,
+) {
   return orderArray
-    .map((slug) => projects.find((project) => project.id === slug))
+    .map((slug) =>
+      projects.find(
+        (project: CollectionEntry<"projects">) => project.id === slug,
+      ),
+    )
     .filter(Boolean); // Remove any undefined entries
 }
 
 // Helper function to get featured projects in order
-export function getFeaturedProjectsInOrder(projects) {
+export function getFeaturedProjectsInOrder(
+  projects: CollectionEntry<"projects">[],
+) {
   return getOrderedProjects(projects, featuredProjects);
 }

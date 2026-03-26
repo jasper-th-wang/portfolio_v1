@@ -1,5 +1,8 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import type { ui, defaultLang } from "@/i18n/ui";
+
+type TranslationKey = keyof (typeof ui)[typeof defaultLang];
 import Layout from "@/layouts/Layout.astro";
 import AboutSection from "@/components/Sections/AboutSection.astro";
 import ExperienceSection from "@/components/Sections/ExperienceSection.astro";
@@ -29,7 +32,7 @@ const myInfo = {
 const navItems = Object.keys(sectionComponents)
   .slice(0, -1)
   .map((item) => {
-    return t(`nav.${item}`);
+    return t(`nav.${item}` as TranslationKey);
   });
 ---
 
@@ -43,7 +46,7 @@ const navItems = Object.keys(sectionComponents)
   {
     Object.keys(sectionComponents).map((section) => {
       const SpecificSectionComponent = sectionComponents[section];
-      const sectionName = t(`nav.${section}`);
+      const sectionName = t(`nav.${section}` as TranslationKey);
       return (
         <section id={sectionName}>
           <h2>{sectionName.slice(0)}</h2>

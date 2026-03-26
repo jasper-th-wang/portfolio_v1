@@ -32,6 +32,7 @@ import "keyboard-css/dist/css/main.min.css";
   </section>
 </Layout>
 <script
+  is:inline
   type="text/javascript"
   src="/bob-is-melting-game-assets/html/html.nocache.js"></script>
 
@@ -50,18 +51,18 @@ import "keyboard-css/dist/css/main.min.css";
 </style>
 
 <script>
-  function handleMouseDown(evt) {
+  function handleMouseDown(evt: MouseEvent) {
     evt.preventDefault();
     evt.stopPropagation();
     window.focus();
   }
 
-  function handleMouseUp(evt) {
+  function handleMouseUp(evt: MouseEvent) {
     evt.preventDefault();
     evt.stopPropagation();
   }
 
-  function handleKeyDown(evt) {
+  function handleKeyDown(evt: KeyboardEvent) {
     // Prevent default behavior for arrow keys and other game controls
     if (
       evt.key === "ArrowUp" ||
