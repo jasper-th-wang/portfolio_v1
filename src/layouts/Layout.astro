@@ -167,18 +167,17 @@ const metadata = {
 
   /* Cap the width on tablet size */
   .container {
-      max-width: 40rem;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      padding-left: var(--space-s);
-      padding-right: var(--space-s);
-      position: relative;
-      overflow-y: visible;
-      justify-content: space-evenly;
+    max-width: 40rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: var(--space-s);
+    padding-right: var(--space-s);
+    position: relative;
+    overflow-y: visible;
+    justify-content: space-evenly;
   }
-
 
   @media only screen and (min-width: 1024px) {
     body {
@@ -188,8 +187,8 @@ const metadata = {
     }
 
     .container {
-        flex-direction: row;
-        max-width: initial;
+      flex-direction: row;
+      max-width: initial;
     }
 
     section {
@@ -217,9 +216,19 @@ const metadata = {
    * Handles focus and unfocus of sections
    */
   const sections = document.querySelectorAll("section");
+  const otherNavTargets = [...sections].map((section) => {
+    return document.getElementById(`${section.getAttribute("id")}Nav`);
+  });
+
+  const removeAllToggled = () => {
+    otherNavTargets.forEach((target) => {
+      target?.classList.remove("toggled");
+    });
+  };
 
   const options = {
-    rootMargin: "-40% 0px -60% 0px",
+    rootMargin: "0% 0px -80% 0px",
+    threshold: 0,
   };
 
   const intersectionCallback = (
@@ -232,11 +241,9 @@ const metadata = {
       );
 
       if (entry.isIntersecting) {
-        // nav target may be excluded from being tracked
+        removeAllToggled();
         navTarget?.classList.add("toggled");
-        return;
       }
-      navTarget?.classList.remove("toggled");
     });
   };
 
