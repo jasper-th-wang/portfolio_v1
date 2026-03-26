@@ -2,6 +2,10 @@
 import GithubIcon from '@/components/svgs/SocialIcons/github.astro';
 import LinkedinIcon from '@/components/svgs/SocialIcons/linkedin.astro';
 import EmailIcon from '@/components/svgs/SocialIcons/email.astro';
+import EnIcon from '@/components/svgs/En.astro';
+import ZhIcon from '@/components/svgs/Zh.astro';
+import {getRelativeLocaleUrl} from 'astro:i18n';
+const locale = Astro.currentLocale ?? "en";
 ---
 
 <div class="social-icons">
@@ -29,6 +33,23 @@ import EmailIcon from '@/components/svgs/SocialIcons/email.astro';
   >
     <EmailIcon width="30" />
   </a>
+      {
+        locale == "en" ? (
+        <a
+            href={getRelativeLocaleUrl("zh", "/")}
+            class="social-icons__icon zh"
+            >
+            <ZhIcon width="30"/>
+        </a>
+        ) : (
+        <a
+            href={getRelativeLocaleUrl("en", "/")}
+            class="social-icons__icon en"
+            >
+            <EnIcon width="30"/>
+        </a>
+        )
+      }
 </div>
 
 <style>

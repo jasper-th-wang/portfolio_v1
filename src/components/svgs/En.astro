@@ -1,0 +1,25 @@
+---
+interface Props {
+  width: string;
+  height: string;
+}
+
+const { width, height } = Astro.props;
+---
+
+<!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><!doctype html>
+<svg
+  width={width}
+  height={height}
+  viewBox="0 0 100 100"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xml:space="preserve"
+  xmlns:serif="http://www.serif.com/"
+  style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+>
+  <path
+    d="M100,14.037L100,85.963C100,93.71 93.71,100 85.963,100L14.037,100C6.29,100 0,93.71 0,85.963L0,14.037C0,6.29 6.29,0 14.037,0L85.963,0C93.71,0 100,6.29 100,14.037ZM57.848,75.2L66.488,75.2L66.488,52.52C66.488,46.832 69.584,42.8 73.904,42.8C77.36,42.8 79.448,45.392 79.448,49.64L79.448,75.2L88.088,75.2L88.088,48.92C88.088,40.856 83.48,35.6 76.352,35.6C71.888,35.6 68.432,37.688 66.416,41.432L66.128,41.432L66.128,36.32L57.848,36.32L57.848,75.2ZM11.912,75.2L42.296,75.2L42.296,67.28L20.912,67.28L20.912,53.024L39.632,53.024L39.632,45.104L20.912,45.104L20.912,32.72L42.296,32.72L42.296,24.8L11.912,24.8L11.912,75.2Z"
+    fill="#e8e7cb"></path>
+</svg>
