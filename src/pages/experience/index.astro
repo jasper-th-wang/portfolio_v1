@@ -1,8 +1,8 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import ResumeCard from "@/components/Cards/ResumeCard.astro";
-import { getCollection } from "astro:content";
-const aboutSnippets = await getCollection("aboutSnippets");
+import getCollectionWithLocale from "@/utils/getCollectionWithLocale";
+const aboutSnippets = await getCollectionWithLocale("aboutSnippets", Astro.currentLocale ?? "en");
 const experiences = aboutSnippets
   .filter((entry) => entry.id.includes("experience"))
   .sort((a, b) => a.data.order - b.data.order);

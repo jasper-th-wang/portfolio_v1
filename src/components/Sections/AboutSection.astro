@@ -1,7 +1,7 @@
 ---
-import { getEntryBySlug } from "astro:content";
-import { Button } from "@/components/ui/button";
-const entry = await getEntryBySlug("aboutSnippets", "about");
+// import { getEntry } from "astro:content";
+import getEntryWithLocale from "@/utils/getEntryWithLocale";
+const entry = await getEntryWithLocale("aboutSnippets", "about", Astro.currentLocale ?? "en");
 const { Content } = await entry.render();
 ---
 

@@ -15,4 +15,15 @@ export default defineConfig({
       wrap: true,
     },
   },
+  i18n: {
+    locales: ["en", "zh"],
+    defaultLocale: "en",
+    fallback: {
+      zh: "en",
+    },
+    routing: {
+      prefixDefaultLocale: false,
+      fallbackType: "rewrite",
+    },
+  },
 });

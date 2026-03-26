@@ -1,8 +1,9 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import ResumeCard from "@/components/Cards/ResumeCard.astro";
 import Link from "@/components/Link.astro";
-import { getCollection } from "astro:content";
-const aboutSnippets = await getCollection("aboutSnippets");
+import getCollectionWithLocale from "@/utils/getCollectionWithLocale";
+const aboutSnippets = await getCollectionWithLocale("aboutSnippets", Astro.currentLocale ?? "en");
 const experiences = aboutSnippets
   .filter((entry) => entry.id.includes("experience"))
   .sort((a, b) => a.data.order - b.data.order);
@@ -21,6 +22,6 @@ const experiences = aboutSnippets
     })
   }
   <p>
-    <Link url="/experience" name="View more experience" />
+    <Link url={getRelativeLocaleUrl(Astro.currentLocale ?? "en", "experience")} name="View more experience" />
   </p>
 </>

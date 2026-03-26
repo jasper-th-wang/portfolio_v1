@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { getCollection } from "astro:content";
 import Link from "@/components/Link.astro";
 import PostsList from "@/components/PostsList.astro";
@@ -14,6 +15,6 @@ const sortedPosts = allPosts
 <>
   <PostsList posts={sortedPosts} />
   <p>
-    <Link url="/posts" name="View more posts" />
+      <Link url={getRelativeLocaleUrl(Astro.currentLocale ?? "en", "posts")} name="View more posts" />
   </p>
 </>

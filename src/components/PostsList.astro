@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import FormattedDate from "@/components/FormattedDate.astro";
 
 interface Props {
@@ -13,7 +14,7 @@ const { posts } = Astro.props;
   {
     posts.map((post) => (
       <li>
-        <a href={`/posts/${post.slug}`}>
+          <a href={getRelativeLocaleUrl(Astro.currentLocale ?? "en", `posts/${post.slug}`)}>
           <p>{post.data.title}</p>
           <FormattedDate date={post.data.pubDate} />
         </a>
