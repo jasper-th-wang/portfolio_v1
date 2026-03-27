@@ -1,6 +1,9 @@
 ---
 import ProjectCard from "@/components/Cards/ProjectCard.astro";
 import type { CollectionEntry } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const locale = Astro.currentLocale ?? "en";
 
 interface Props {
   projects: CollectionEntry<"projects">[];
@@ -14,6 +17,7 @@ const { projects } = Astro.props;
     projects.map((project) => (
       <ProjectCard
         class="projects-list__item"
+        href={getRelativeLocaleUrl(locale, `projects/${project.id}`)}
         title={project.data.title}
         description={project.data.description}
         imagesrc={project.data.cover as ImageMetadata}
