@@ -1,3 +1,10 @@
+## 0.9.3 (2026-03-27)
+
+### Fix
+
+- issue with generating project pages
+- issue with posts in zh locale
+
 ## 0.9.2 (2026-03-26)
 
 ### Fix
