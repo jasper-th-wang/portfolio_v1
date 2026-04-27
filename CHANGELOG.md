@@ -1,3 +1,9 @@
+## 0.9.4 (2026-04-27)
+
+### Fix
+
+- Update liveLink URL to reframekit.app
+
 ## 0.9.3 (2026-03-27)
 
 ### Fix
