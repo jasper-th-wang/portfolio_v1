@@ -1,3 +1,11 @@
+## 0.10.0 (2026-11-18)
+
+### Feat
+
+- update description
+- move experience up
+- update resume
+
 ## 0.9.4 (2026-04-27)
 
 ### Fix
