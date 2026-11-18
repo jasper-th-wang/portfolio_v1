@@ -5,4 +5,4 @@ organization: Electronic Arts
 order: 1
 ---
 
-On the EADP Stats Service team.
+On the EA Digital Platform (EADP) - Gameplay Services team.

@@ -5,4 +5,4 @@ organization: 美商藝電 (Electronic Arts)
 order: 1
 ---
 
-任職於 EADP Stats Service 團隊。
+任職於 EA Digital Platform (EADP) - Gameplay Services 團隊。
